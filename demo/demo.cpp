@@ -41,7 +41,6 @@ int main( void )
 		renderer.renderSprite(kingkong, 900, 400, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(rgba, renderer.width()/2, renderer.height()/2, 3.0f, 3.0f, rot_z);
 		rot_z += 0.3f * deltaTime;// * deltaTime to have the same rotationspeed no matter what fps you have
-		// the default rotation speed of the rgba image = 0.03f
 
 		// Swap buffers
 		glfwSwapBuffers(renderer.window());
