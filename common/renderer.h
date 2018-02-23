@@ -1,3 +1,9 @@
+/**
+* @file renderer.h
+*
+* @brief The Renderer header file.
+*/
+
 #ifndef RENDERER_H
 #define RENDERER_H
 
