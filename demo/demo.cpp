@@ -22,8 +22,8 @@ int main( void )
 	Sprite* kingkong = new Sprite("assets/kingkong.tga");
 	Sprite* rgba = new Sprite("assets/rgba.tga");
 	// entity test object
-	Entity* test;
-	
+	//Entity* testEntity;
+
 	float rot_z = 0.0f;
 
 	do {
@@ -59,11 +59,10 @@ int main( void )
 	} // Check if the ESC key was pressed or the window was closed
 	while( glfwGetKey(renderer.window(), GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
 		   glfwWindowShouldClose(renderer.window()) == 0 );
-
+	// Clean up
 	delete pencils;
 	delete kingkong;
 	delete rgba;
-
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();
 

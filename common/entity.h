@@ -25,6 +25,7 @@ public:
 	Entity();///< @brief Constructor of an Entity
 	virtual ~Entity();///< @brief Destructor of an Entity
 
+	// children
 	/// @brief update this Entity. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
