@@ -31,12 +31,12 @@ int main( void )
 
 		// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
 		computeMatricesFromInputs(renderer.window());
-
+		
 		// print position of where the mouse
 		//glm::vec3 cursor = getCursor(); // from Camera
 		//printf("(%f,%f)\n",cursor.x, cursor.y);
-
 		// Render all Sprites (Sprite*, xpos, ypos, xscale, yscale, rotation)
+		renderer.renderSprite(pencils, 400, 300, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(pencils, 400, 300, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(kingkong, 900, 400, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(rgba, renderer.width()/2, renderer.height()/2, 3.0f, 3.0f, rot_z);
