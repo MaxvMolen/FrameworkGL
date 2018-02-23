@@ -1,3 +1,9 @@
+/**
+* @file demo.cpp
+*
+* @brief This is where functions of the framework are tested
+*/
+
 // Include GLEW
 #include <GL/glew.h>
 

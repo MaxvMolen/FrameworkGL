@@ -1,3 +1,9 @@
+/**
+* @file sprite.cpp
+*
+* @brief The Sprite cpp file.
+*/
+
 #include <iostream>
 #include <cstdio>
 

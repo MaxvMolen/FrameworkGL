@@ -1,3 +1,8 @@
+/**
+* @file sprite.cpp
+*
+* @brief The Sprite header file.
+*/
 #ifndef SPRITE_H
 #define SPRITE_H
 

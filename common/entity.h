@@ -1,3 +1,9 @@
+/**
+* @file entity.h
+*
+* @brief The Entity header file.
+*/
+
 #ifndef ENTITY_H
 #define ENTITY_H
 
