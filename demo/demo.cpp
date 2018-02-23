@@ -13,15 +13,17 @@
 #include <common/renderer.h>
 #include <common/camera.h>
 #include <common/sprite.h>
+#include <common/entity.h>
 
 int main( void )
 {
 	Renderer renderer(1280, 720);
-
 	Sprite* pencils = new Sprite("assets/pencils.tga");
 	Sprite* kingkong = new Sprite("assets/kingkong.tga");
 	Sprite* rgba = new Sprite("assets/rgba.tga");
-
+	// entity test object
+	Entity* test;
+	
 	float rot_z = 0.0f;
 
 	do {

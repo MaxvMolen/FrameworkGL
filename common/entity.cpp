@@ -15,3 +15,8 @@ Entity::~Entity()
 {
 	
 }
+
+void Entity::update(float deltaTime) {
+
+}
+
