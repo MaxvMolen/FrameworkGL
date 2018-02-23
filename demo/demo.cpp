@@ -45,7 +45,6 @@ int main( void )
 		//printf("(%f,%f)\n",cursor.x, cursor.y);
 		// Render all Sprites (Sprite*, xpos, ypos, xscale, yscale, rotation)
 		renderer.renderSprite(pencils, 400, 300, 1.0f, 1.0f, 0.0f);
-		renderer.renderSprite(pencils, 400, 300, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(kingkong, 900, 400, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(rgba, renderer.width()/2, renderer.height()/2, 3.0f, 3.0f, rot_z);
 		rot_z += 0.3f * deltaTime;// * deltaTime to have the same rotationspeed no matter what fps you have
