@@ -32,7 +32,7 @@ int main( void )
 		// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
 		computeMatricesFromInputs(renderer.window());
 
-		// print position of the mouse on screen
+		// print position of where the mouse
 		//glm::vec3 cursor = getCursor(); // from Camera
 		//printf("(%f,%f)\n",cursor.x, cursor.y);
 
