@@ -31,7 +31,7 @@ endif(UNIX)
 
 if(WIN32)
 	# Create a group for Visual Studio
-	SOURCE_GROUP(common REGULAR_EXPRESSION ".*/common/.*" )
+	SOURCE_GROUP(FrameworkMvdM REGULAR_EXPRESSION ".*/FrameworkMvdM/.*" )
 	# suppress pedantic warnings
 	add_definitions( "/W1 /D_CRT_SECURE_NO_WARNINGS /wd4514 /nologo" )
 endif(WIN32)
@@ -58,15 +58,15 @@ add_definitions(
 )
 
 # Common (libcommon.a)
-add_library(common
-	common/camera.h
-	common/camera.cpp
-	common/renderer.h
-	common/renderer.cpp
-	common/sprite.h
-	common/sprite.cpp
-	common/entity.h
-	common/entity.cpp
+add_library(FrameworkMvdM
+	FrameworkMvdM/camera.h
+	FrameworkMvdM/camera.cpp
+	FrameworkMvdM/renderer.h
+	FrameworkMvdM/renderer.cpp
+	FrameworkMvdM/sprite.h
+	FrameworkMvdM/sprite.cpp
+	FrameworkMvdM/entity.h
+	FrameworkMvdM/entity.cpp
 )
 
 # Demo
@@ -74,7 +74,7 @@ add_executable(demo
 	demo/demo.cpp
 )
 target_link_libraries(demo
-	common
+	FrameworkMvdM
 	${ALL_GRAPHICS_LIBS}
 )
 # Copy assets and shaders to the build directory
@@ -84,6 +84,6 @@ file(
 	DESTINATION ${CMAKE_BINARY_DIR}
 )
 file(
-	COPY common/shaders
+	COPY FrameworkMvdM/shaders
 	DESTINATION ${CMAKE_BINARY_DIR}
 )

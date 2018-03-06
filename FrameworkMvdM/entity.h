@@ -17,7 +17,7 @@
 //#include <glm/gtc/matrix_transform.hpp>
 //#include <glm/gtx/euler_angles.hpp>
 
-#include <common/sprite.h>
+#include <FrameworkMvdM/sprite.h>
 /// @brief The Entity class is the Base class for the elements in your Scene.
 class Entity
 {

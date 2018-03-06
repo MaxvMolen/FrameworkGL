@@ -4,7 +4,7 @@
 * @brief The Camera cpp file.
 */
 
-#include <common/camera.h>
+#include <FrameworkMvdM/camera.h>
 
 glm::mat4 _viewMatrix;
 

@@ -10,8 +10,8 @@
 #include <vector>
 #include <fstream>
 
-#include <common/camera.h>
-#include <common/renderer.h>
+#include <FrameworkMvdM/camera.h>
+#include <FrameworkMvdM/renderer.h>
 
 Renderer::Renderer(unsigned int w, unsigned int h)
 {

@@ -11,7 +11,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/euler_angles.hpp>
 
-#include <common/sprite.h>
+#include <FrameworkMvdM/sprite.h>
 
 
 Sprite::Sprite(std::string image_path)
