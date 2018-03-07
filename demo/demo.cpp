@@ -10,10 +10,10 @@
 // Include GLFW
 #include <glfw3.h>
 
-#include <common/renderer.h>
-#include <common/camera.h>
-#include <common/sprite.h>
-#include <common/entity.h>
+#include <FrameworkMvdM/renderer.h>
+#include <FrameworkMvdM/camera.h>
+#include <FrameworkMvdM/sprite.h>
+#include <FrameworkMvdM/entity.h>
 
 int main( void )
 {
