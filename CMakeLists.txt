@@ -57,7 +57,7 @@ add_definitions(
 	-D_CRT_SECURE_NO_WARNINGS
 )
 
-# Common (libcommon.a)
+# common (libcommon.a)
 add_library(FrameworkMvdM
 	FrameworkMvdM/camera.h
 	FrameworkMvdM/camera.cpp

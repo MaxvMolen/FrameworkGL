@@ -21,8 +21,6 @@ int main( void )
 	Sprite* pencils = new Sprite("assets/pencils.tga");
 	Sprite* kingkong = new Sprite("assets/kingkong.tga");
 	Sprite* rgba = new Sprite("assets/rgba.tga");
-	// entity test object
-	//Entity* testEntity;
 
 	float rot_z = 0.0f;
 
