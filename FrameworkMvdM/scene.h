@@ -29,9 +29,6 @@ public:
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
 	virtual void update(float deltaTime) = 0;
-	/// @brief add an child to this Entity
-	/// @param child The Entity you want to add as a child to this Entity
-	/// @return void
 
 private:
 
