@@ -13,7 +13,7 @@ Entity::Entity()
 
 Entity::~Entity()
 {
-	// delete objects
+	deleteSprite();
 }
 //
 void Entity::update(float deltaTime) {
@@ -28,12 +28,18 @@ void Entity::removeChild(Entity* child) {
 
 }
 //
-void Entity::addSprite(Sprite* sprite) {
-
+Entity* Entity::getChild(unsigned int i) {
+	return NULL;
 }
 //
-void Entity::removeSprite(Sprite* sprite) {
+void Entity::addSprite(const std ::string& filename) {
+	//this->addSprite(filename, 0.5f, 0.5f);
+}
 
+void Entity::addSprite(const std::string& filename, float pivotx, float pivoty) {
+	//deleteSprite();
+	//_sprite = new Sprite();
+	//_sprite->setupSprite(filename, 0.5f, 0.5f);
 }
 
 

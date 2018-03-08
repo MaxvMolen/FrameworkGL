@@ -54,14 +54,19 @@ public:
 	const std::vector<Entity*>& children() { return _children; };
 
 	// sprites
+	/// @brief get the wprite of this Entity
+	/// @return Sprite* _sprite
+	Sprite* sprite() { return _sprite; };
 	/// @brief add an sprite to this Entity
-	/// @param child The sprite you want to add as a child to this Entity
+	/// @param filename the filename of the image that you want to add
 	/// @return void
-	void addSprite(Sprite* sprite);
-	/// @brief remove an sprite from this Entity
-	/// @param child The child you want to remove from this Entity
+	void addSprite(const std::string& filename);
+	/// @brief add an sprite to this Entity
+	/// @param filename the filename of the image that you want to add
+	/// @param pivotx the x component of the pivotpoint
+	/// @param pivoty the y component of the pivotpoint
 	/// @return void
-	void removeSprite(Sprite* sprite);
+	void addSprite(const std::string& filename, float pivotx, float pivoty);
 
 	/// @brief get the parent of this Entity
 	/// @return entity* _parent

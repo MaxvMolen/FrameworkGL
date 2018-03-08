@@ -22,10 +22,11 @@ int main( void )
 	Sprite* kingkong = new Sprite("assets/kingkong.tga");
 	Sprite* rgba = new Sprite("assets/rgba.tga");
 
+	// Entity test code
 	Entity* testEntity;
 	Entity* testChild;
-	//testChild->addSprite(rgba);
-	testEntity->addChild(testChild);
+	//testChild->addSprite("assets/rgba.tga", 1.0f, 1.0f);
+	//testEntity->addChild(testChild);
 
 	float rot_z = 0.0f;
 
