@@ -39,6 +39,8 @@ public:
 	/// @return void
 	void removeChild(Entity* child);
 
+	// sprites
+
 private:
 
 };

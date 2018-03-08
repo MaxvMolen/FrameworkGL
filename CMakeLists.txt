@@ -67,6 +67,8 @@ add_library(FrameworkMvdM
 	FrameworkMvdM/sprite.cpp
 	FrameworkMvdM/entity.h
 	FrameworkMvdM/entity.cpp
+	FrameworkMvdM/scene.h
+	FrameworkMvdM/scene.cpp
 )
 
 # Demo
