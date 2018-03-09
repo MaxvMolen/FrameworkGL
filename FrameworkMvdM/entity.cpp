@@ -3,8 +3,6 @@
 *
 * @brief The Entity cpp file.
 */
-//#include <iostream>
-
 #include <FrameworkMvdM/entity.h>
 
 int Entity::_nextGuid = 0;
@@ -77,6 +75,3 @@ void Entity::addSprite(const std::string& filename, float pivotx, float pivoty, 
 	//_sprite = new Sprite();
 	//_sprite->setupSprite(filename, pivotx, pivoty , 1.0f, 1.0f, filter, wrap);
 }
-
-
-
