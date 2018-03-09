@@ -3,6 +3,7 @@
 *
 * @brief The Entity cpp file.
 */
+#include <iostream>
 #include <FrameworkMvdM/entity.h>
 
 int Entity::_nextGuid = 0;

@@ -71,6 +71,8 @@ add_library(FrameworkMvdM
 	FrameworkMvdM/scene.cpp
 	FrameworkMvdM/input.h
 	FrameworkMvdM/input.cpp
+	FrameworkMvdM/line.h
+	FrameworkMvdM/line.cpp
 )
 
 # Demo
