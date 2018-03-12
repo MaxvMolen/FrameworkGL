@@ -32,10 +32,10 @@ public:
 	virtual void update(float deltaTime) = 0;
 
 	//transform
+	glm::vec3 position;
+	glm::vec3 rotation;
+	glm::vec3 scale;
 	
-	
-
-
 	// children
 	/// @brief add an child to this Entity
 	/// @param child The Entity you want to add as a child to this Entity
@@ -88,6 +88,13 @@ public:
 	Entity* parent() { return _parent; };
 
 	friend class Renderer;
+
+protected:
+
+	// world position,rotation and scale of this Entity
+	glm::vec3 _worldposition;
+	glm::vec3 _worldrotation;
+	glm::vec3 _worldscale;
 
 private:
 	
