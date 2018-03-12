@@ -33,7 +33,7 @@ public:
 	/// @return void
 	virtual void update(float deltaTime) = 0;
 
-	//transform
+	//transform // the position,rotation and scale of this Entity
 	glm::vec3 position;
 	glm::vec3 rotation;
 	glm::vec3 scale;

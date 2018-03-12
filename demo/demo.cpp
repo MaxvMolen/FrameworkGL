@@ -23,8 +23,8 @@ int main( void )
 	Sprite* rgba = new Sprite("assets/rgba.tga");
 
 	// Entity test code
-	Entity* testEntity;
-	Entity* testChild;
+	//Entity* testEntity;
+	//Entity* testChild;
 	//testChild->addSprite("assets/rgba.tga", 1.0f, 1.0f);
 	//testEntity->addChild(testChild);
 
