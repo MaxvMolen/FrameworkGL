@@ -18,6 +18,8 @@
 #include <glm/gtx/matrix_decompose.hpp>
 
 #include <FrameworkMvdM/sprite.h>
+#include <FrameworkMvdM/line.h>
+#include <FrameworkMvdM/input.h>
 
 /// @brief The Entity class is the Base class for the elements in your Scene.
 class Entity
@@ -26,7 +28,7 @@ public:
 	Entity();///< @brief Constructor of an Entity
 	virtual ~Entity();///< @brief Destructor of an Entity
 
-	/// @brief update this Scene. This function is Pure virtual. User MUST implement this in subclass. 
+	/// @brief update this Entity. This function is Pure virtual. User MUST implement this in subclass. 
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
 	virtual void update(float deltaTime) = 0;
@@ -80,6 +82,19 @@ public:
 	/// @return void
 	void addSprite(const std::string& filename, float pivotx, float pivoty, int filter, int wrap);
 
+	// line
+
+	// world position,rotation and scale
+	/// @brief get the worldposition of this Entity
+	/// @return glm::vec3 _worldposition
+	glm::vec3 worldposition() { return _worldposition; };
+	/// @brief get the worldrotation of this Entity
+	/// @return glm::vec3 _worldrotation
+	glm::vec3 worldrotation() { return _worldrotation; };
+	/// @brief get the worldscale of this Entity
+	/// @return glm::vec3 _worldscale
+	glm::vec3 worldscale() { return _worldscale; };
+
 	/// @brief get the guid of this Entity
 	/// @return int _guid
 	int guid() { return _guid; };
@@ -108,6 +123,9 @@ private:
 	// sprite
 	Sprite* _sprite; ///< @brief The _sprite of this entity
 
+	// line
+	//Line* _line; ///< @brief The _line of this entity
+
 	/// @brief delete the sprite of this Entity
 	/// @return void
 	void deleteSprite() {
@@ -116,6 +134,15 @@ private:
 			_sprite = NULL;
 		}
 	}
+
+	/// @brief delete the line of this Entity
+	/// @return void
+	/*void deleteLine() {
+		if (_line != NULL) {
+			delete _line;
+			_line = NULL;
+		}
+	}*/
 };
 
 
