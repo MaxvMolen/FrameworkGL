@@ -83,6 +83,19 @@ public:
 	void addSprite(const std::string& filename, float pivotx, float pivoty, int filter, int wrap);
 
 	// line
+	/// @brief get the Line from this Entity.
+	/// @return Line* _line
+	Line* line() {
+		if (_line != NULL) {
+			return _line;
+		}
+		else {
+			if (_linebatch.size() > 0) {
+				return &_linebatch[0];
+			}
+		}
+		return NULL;
+	}
 	/// @brief add a Line to this Entity by Line*.
 	/// @param line A pointer to a Line.
 	/// @return void
@@ -91,6 +104,14 @@ public:
 	/// @param filename The filename of the line you want to add.
 	/// @return void
 	void addLine(const std::string& filename);
+
+	// spritebatch, grid
+	/// @brief get the spritebatch of this Entity.
+	/// @return std::vector<Sprite*>& _spritebatch
+	std::vector<Sprite*>& spritebatch() { return _spritebatch; };
+	/// @brief get the linebatch of this Entity.
+	/// @return std::vector<Line>& _linebatch
+	std::vector<Line>& linebatch() { return _linebatch; };
 
 	// world position,rotation and scale
 	/// @brief get the worldposition of this Entity
@@ -123,6 +144,9 @@ protected:
 	glm::vec3 _worldposition;
 	glm::vec3 _worldrotation;
 	glm::vec3 _worldscale;
+
+	std::vector<Sprite*> _spritebatch; ///< @brief The _spritebatch of this Entity
+	std::vector<Line> _linebatch; ///< @brief The _linebatch of this Entity
 
 private:
 	// identity
@@ -158,6 +182,22 @@ private:
 			delete _line;
 			_line = NULL;
 		}
+	}
+
+	/// @brief delete the Linebatch of this Entity.
+	/// @return void
+	void deleteLinebatch() {
+		_linebatch.clear();
+	}
+
+	/// @brief delete the Spritebatch of this Entity.
+	/// @return void
+	void deleteSpritebatch() {
+		int s = _spritebatch.size();
+		for (int i = 0; i < s; i++) {
+			delete _spritebatch[i];
+		}
+		_spritebatch.clear();
 	}
 };
 

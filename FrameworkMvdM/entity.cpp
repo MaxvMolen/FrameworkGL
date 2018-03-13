@@ -13,6 +13,8 @@ Entity::Entity()
 	_guid = _nextGuid;
 	_nextGuid++;
 
+	_parent = NULL;
+
 	// position of entity
 	position = glm::vec3(0.0f, 0.0f, 0.0f);
 	rotation = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -23,14 +25,16 @@ Entity::Entity()
 	_worldrotation = glm::vec3(0.0f, 0.0f, 0.0f);
 	_worldscale = glm::vec3(1.0f, 1.0f, 1.0f);
 
-	_parent = NULL;
-
 	_sprite = NULL;
+	_line = NULL;
 }
 
 Entity::~Entity()
 {
 	deleteSprite();
+	deleteLine();
+	deleteSpritebatch();
+	deleteLinebatch();
 }
 //
 void Entity::update(float deltaTime) {
@@ -85,4 +89,13 @@ void Entity::addSprite(const std::string& filename, float pivotx, float pivoty, 
 	deleteSprite();
 	//_sprite = new Sprite();
 	//_sprite->setupSprite(filename, pivotx, pivoty , 1.0f, 1.0f, filter, wrap);
+}
+//
+void Entity::addLine(Line* line) {
+
+}
+//
+void Entity::addLine(const std::string& filename) {
+	//Line* line = new Line(filename);
+	//_linebatch.push_back(*line);
 }
