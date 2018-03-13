@@ -26,15 +26,15 @@ Entity::Entity()
 	_worldscale = glm::vec3(1.0f, 1.0f, 1.0f);
 
 	_sprite = NULL;
-	_line = NULL;
+	//_line = NULL;
 }
 
 Entity::~Entity()
 {
 	deleteSprite();
-	deleteLine();
+	//deleteLine();
 	deleteSpritebatch();
-	deleteLinebatch();
+	//deleteLinebatch();
 }
 //
 void Entity::update(float deltaTime) {
@@ -90,12 +90,12 @@ void Entity::addSprite(const std::string& filename, float pivotx, float pivoty, 
 	//_sprite = new Sprite();
 	//_sprite->setupSprite(filename, pivotx, pivoty , 1.0f, 1.0f, filter, wrap);
 }
-//
+/*
 void Entity::addLine(Line* line) {
 
 }
-//
+
 void Entity::addLine(const std::string& filename) {
 	//Line* line = new Line(filename);
 	//_linebatch.push_back(*line);
-}
+}*/
