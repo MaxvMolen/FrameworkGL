@@ -83,6 +83,14 @@ public:
 	void addSprite(const std::string& filename, float pivotx, float pivoty, int filter, int wrap);
 
 	// line
+	/// @brief add a Line to this Entity by Line*.
+	/// @param line A pointer to a Line.
+	/// @return void
+	void addLine(Line* line);
+	/// @brief add a Line to this Entity.
+	/// @param filename The filename of the line you want to add.
+	/// @return void
+	void addLine(const std::string& filename);
 
 	// world position,rotation and scale
 	/// @brief get the worldposition of this Entity
@@ -98,9 +106,14 @@ public:
 	/// @brief get the guid of this Entity
 	/// @return int _guid
 	int guid() { return _guid; };
+
 	/// @brief get the parent of this Entity
 	/// @return entity* _parent
 	Entity* parent() { return _parent; };
+
+	/// @brief get a pointer to the Input
+	/// @return Input* a pointer to the Input
+	Input* input() { return _input; };
 
 	friend class Renderer;
 
@@ -112,7 +125,7 @@ protected:
 	glm::vec3 _worldscale;
 
 private:
-	
+	// identity
 	int _guid; ///< @brief The _guid of this entity
 	static int _nextGuid; ///< @brief The _nextGuid of this entity
 	
@@ -124,7 +137,10 @@ private:
 	Sprite* _sprite; ///< @brief The _sprite of this entity
 
 	// line
-	//Line* _line; ///< @brief The _line of this entity
+	Line* _line; ///< @brief The _line of this entity
+
+	// input
+	Input* _input; ///< @brief The Input
 
 	/// @brief delete the sprite of this Entity
 	/// @return void
@@ -137,12 +153,12 @@ private:
 
 	/// @brief delete the line of this Entity
 	/// @return void
-	/*void deleteLine() {
+	void deleteLine() {
 		if (_line != NULL) {
 			delete _line;
 			_line = NULL;
 		}
-	}*/
+	}
 };
 
 
