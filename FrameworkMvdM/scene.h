@@ -7,31 +7,34 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include <iostream>
-#include <cstdio>
-#include <GL/glew.h>
-#include <string>
-#include <vector>
+#include <FrameworkMvdM/entity.h>
+#include <FrameworkMvdM/camera.h>
 
-#include <glm/glm.hpp>
-//#include <glm/gtc/matrix_transform.hpp>
-//#include <glm/gtx/euler_angles.hpp>
-
-#include <FrameworkMvdM/sprite.h>
 /// @brief The Scene class
-class Scene
+class Scene : public Entity
 {
 public:
-	Scene();///< @brief Constructor of an Scene
-	virtual ~Scene();///< @brief Destructor of an Scene
+	Scene(); ///< @brief Constructor of an Scene
+	virtual ~Scene(); ///< @brief Destructor of an Scene
+
+	/// @brief if this scene is running or not
+	/// @return bool _isRunning
+	//bool isRunning() { return _isRunning; };
+
+	/// @brief get a pointer to the Camera
+	/// @return Camera* a pointer to the Camera
+	//Camera* camera() { return _camera; };
 
 	/// @brief update this Scene. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
-	virtual void update(float deltaTime) = 0;
+	virtual void update(float deltaTime);
 
 private:
+	// need to make camera class
+	//Camera* _camera; ///< @brief the Camera instance
 
+	bool _isRunning; ///< @brief if the scene is running or not
 };
 
 
