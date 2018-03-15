@@ -19,7 +19,15 @@ public:
 
 	/// @brief if this scene is running or not
 	/// @return bool _isRunning
-	//bool isRunning() { return _isRunning; };
+	bool isRunning() { return _isRunning; };
+	/// @brief start running the scene
+	/// @return void
+
+	void start() { _isRunning = true; };
+	/// @brief stop running the scene
+	/// @return void
+
+	void stop() { _isRunning = true; };
 
 	/// @brief get a pointer to the Camera
 	/// @return Camera* a pointer to the Camera
@@ -31,6 +39,12 @@ public:
 	virtual void update(float deltaTime);
 
 private:
+	/// @brief update the Entity
+	/// @param entity the Entity you want to update
+	/// @param deltaTime The time that's passed since the last update.
+	/// @return void
+	void _updateEntity(Entity* entity, float deltaTime);
+
 	// need to make camera class
 	//Camera* _camera; ///< @brief the Camera instance
 

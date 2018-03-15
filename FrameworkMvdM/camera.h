@@ -11,15 +11,17 @@
 #include <glfw3.h>
 
 #include <glm/glm.hpp>
+#include <glm/ext.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtx/euler_angles.hpp>
-
-/*class Camera {
+/*
+class Camera {
 public:	
 	Camera();///< @brief Constructor of an Entity
 	virtual ~Camera();///< @brief Destructor of an Entity
 	*/
-	glm::mat4 getViewMatrix();
+	/// @brief get the viewMatrix of the Camera.
+	/// @return glm::mat4 _getViewMatrix
+	glm::mat4 getViewMatrix();// { return _getViewMatrix; };
 	glm::vec3 getCursor();
 
 	void computeMatricesFromInputs(GLFWwindow* window);
@@ -29,10 +31,8 @@ public:
 	/// @return void
 	virtual void update(float deltaTime) = 0;
 	
-
-	
-
 private:
-
+	glm::mat4 _getViewMatrix(); ///< @brief The viewMatrix of the Camera
+	//glm::vec3 _getCursor(); ///< @brief The cursor of the Camera
 };*/
 #endif
