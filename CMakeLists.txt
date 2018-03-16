@@ -73,11 +73,15 @@ add_library(FrameworkMvdM
 	FrameworkMvdM/input.cpp
 	FrameworkMvdM/line.h
 	FrameworkMvdM/line.cpp
+	FrameworkMvdM/core.h
+	FrameworkMvdM/core.cpp
 )
 
 # Demo
 add_executable(demo
 	demo/demo.cpp
+	demo/demo.h
+	demo/main.cpp
 )
 target_link_libraries(demo
 	FrameworkMvdM
