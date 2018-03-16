@@ -18,6 +18,8 @@ Renderer::Renderer(unsigned int w, unsigned int h)
 	_window_width = w;
 	_window_height = h;
 
+	_camera = new Camera();
+
 	this->init();
 }
 
@@ -25,6 +27,8 @@ Renderer::~Renderer()
 {
 	// Cleanup VBO and shader
 	glDeleteProgram(_programID);
+
+	delete _camera;
 }
 
 int Renderer::init()
@@ -82,9 +86,10 @@ int Renderer::init()
 
 void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)
 {
-	glm::mat4 viewMatrix  = getViewMatrix(); // get from Camera (Camera position and direction)
+	_viewMatrix = Camera().viewMatrix();
+	//glm::mat4 viewMatrix  = getViewMatrix(); // get from Camera (Camera position and direction)
 	glm::mat4 modelMatrix = glm::mat4(1.0f);
-
+	//_camera.
 	// Build the Model matrix
 	glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(px, py, 0.0f));
 	glm::mat4 rotationMatrix	= glm::eulerAngleYXZ(0.0f, 0.0f, rot);
@@ -92,7 +97,7 @@ void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float 
 
 	modelMatrix = translationMatrix * rotationMatrix * scalingMatrix;
 
-	glm::mat4 MVP = _projectionMatrix * viewMatrix * modelMatrix;
+	glm::mat4 MVP = _projectionMatrix * _viewMatrix * modelMatrix;
 
 	// Send our transformation to the currently bound shader,
 	// in the "MVP" uniform

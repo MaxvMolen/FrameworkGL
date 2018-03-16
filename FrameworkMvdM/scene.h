@@ -31,7 +31,7 @@ public:
 
 	/// @brief get a pointer to the Camera
 	/// @return Camera* a pointer to the Camera
-	//Camera* camera() { return _camera; };
+	Camera* camera() { return _camera; };
 
 	/// @brief update this Scene. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
@@ -45,8 +45,7 @@ private:
 	/// @return void
 	void _updateEntity(Entity* entity, float deltaTime);
 
-	// need to make camera class
-	//Camera* _camera; ///< @brief the Camera instance
+	Camera* _camera; ///< @brief the Camera instance
 
 	bool _isRunning; ///< @brief if the scene is running or not
 };

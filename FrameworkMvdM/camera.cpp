@@ -5,25 +5,36 @@
 */
 
 #include <FrameworkMvdM/camera.h>
-
 glm::mat4 _viewMatrix;
 
 // Initial position : on +Z
-glm::vec3 position = glm::vec3( 0, 0, 5 );
-glm::vec3 cursor = glm::vec3( 0, 0, 0 );
+glm::vec3 position = glm::vec3(0, 0, 5);
+glm::vec3 cursor = glm::vec3(0, 0, 0);
 
-glm::mat4 getViewMatrix(){
+glm::mat4 getViewMatrix() {
 	return _viewMatrix;
 }
 
-glm::vec3 getCursor(){
+glm::vec3 getCursor() {
 	return cursor;
 }
 
 float speed = 300.0f; // 300 units / second
 
+Camera::Camera() {
 
-void computeMatricesFromInputs(GLFWwindow* window)
+
+}
+
+Camera::~Camera() {
+
+}
+
+void Camera::update(float deltaTime) {
+
+}
+
+void Camera::computeMatricesFromInputs(GLFWwindow* window)
 {
 	// glfwGetTime is called only once, the first time this function is called
 	static double lastTime = glfwGetTime();

@@ -9,14 +9,14 @@
 Scene::Scene() : Entity()
 {
 	std::cout << "new scene" << std::endl;
-	//_camera = new Camera();
+	_camera = new Camera();
 	
 	_isRunning = true;
 }
 
 Scene::~Scene()
 {
-	//delete _camera;
+	delete _camera;
 }
 
 void Scene::update(float deltaTime) {

@@ -14,6 +14,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/euler_angles.hpp>
 
+#include <FrameworkMvdM/entity.h>
+#include <FrameworkMvdM/scene.h>
 #include <FrameworkMvdM/sprite.h>
 
 class Renderer
@@ -24,6 +26,10 @@ class Renderer
 
 		void renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot);
 		GLFWwindow* window() { return _window; };
+
+		/// @brief get a pointer to the Camera
+		/// @return Camera* a pointer to the Camera
+		Camera* camera() { return _camera; };
 
 		unsigned int width() { return _window_width; };
 		unsigned int height() { return _window_height; };
@@ -42,7 +48,10 @@ class Renderer
 
 		GLuint _programID;
 
+		Camera* _camera; ///< @brief the Camera instance
+
 		glm::mat4 _projectionMatrix;
+		glm::mat4 _viewMatrix;
 };
 
 #endif /* RENDERER_H */

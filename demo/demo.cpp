@@ -11,9 +11,11 @@
 #include <glfw3.h>
 
 #include <FrameworkMvdM/renderer.h>
+#include <FrameworkMvdM/scene.h>
 #include <FrameworkMvdM/camera.h>
 #include <FrameworkMvdM/sprite.h>
 #include <FrameworkMvdM/entity.h>
+
 
 int main( void )
 {
@@ -22,11 +24,8 @@ int main( void )
 	Sprite* kingkong = new Sprite("assets/kingkong.tga");
 	Sprite* rgba = new Sprite("assets/rgba.tga");
 
-	// Entity test code
-	//Entity* testEntity;
-	//Entity* testChild;
-	//testChild->addSprite("assets/rgba.tga", 1.0f, 1.0f);
-	//testEntity->addChild(testChild);
+	// create new camera
+	Camera* camera = new Camera();
 
 	float rot_z = 0.0f;
 
@@ -42,7 +41,8 @@ int main( void )
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
-		computeMatricesFromInputs(renderer.window());
+		camera->computeMatricesFromInputs(renderer.window());
+		//computeMatricesFromInputs(renderer.window());
 		
 		// print position of where the mouse is on screen
 		//glm::vec3 cursor = getCursor(); // from Camera
@@ -66,6 +66,8 @@ int main( void )
 	delete pencils;
 	delete kingkong;
 	delete rgba;
+
+	delete camera;
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();
 
