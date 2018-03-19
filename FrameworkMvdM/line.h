@@ -35,4 +35,4 @@ private:
 };
 
 
-#endif /* LINE_H */
+#endif LINE_H

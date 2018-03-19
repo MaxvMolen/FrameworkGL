@@ -26,10 +26,10 @@
 #include <FrameworkMvdM/renderer.h>
 #include <FrameworkMvdM/sprite.h>
 #include <FrameworkMvdM/entity.h>
-#include <FrameworkMvdM/scene.h>
+#include <Demo/corescene.h>
 
 /// @brief The Demo class
-class Demo : public Scene
+class Demo : public CoreScene
 {
 public:
 	Demo();///< @brief Constructor of Demo
@@ -50,4 +50,4 @@ private:
 };
 
 
-#endif /* DEMO_H */
+#endif DEMO_H 

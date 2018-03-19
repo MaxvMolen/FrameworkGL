@@ -42,4 +42,4 @@ private:
 	glm::mat4 _viewMatrix; ///< @brief The viewMatrix of the Camera
 	glm::vec3 _getCursor(); ///< @brief The cursor of the Camera
 };
-#endif
+#endif CAMERA_H

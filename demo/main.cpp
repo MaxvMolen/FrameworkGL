@@ -4,7 +4,6 @@
 * @brief The Main header file.
 */
 
-/*
 #include <FrameworkMvdM/core.h>
 
 #include <Demo/demo.h>
@@ -16,10 +15,7 @@ int main( void )
 	Core core;
 	//list of scenes
 	std::vector<CoreScene*> myscenes;
-	myscenes.push_back(new MyScene00());
-	myscenes.push_back(new MyScene01());
-	myscenes.push_back(new MyScene02());
-	myscenes.push_back(new MyScene03());
+	myscenes.push_back(new Demo());
 	int s = myscenes.size();
 
 	CoreScene* scene = myscenes[0];
@@ -46,10 +42,10 @@ int main( void )
 	/*
 	//core.cleanup(); // cleanup ResourceManager (Textures + Meshes, but not Shaders)
 	delete myscene; // delete Scene and everything in it from the heap to make space for next Scene
-	*/
+	
 	// No need to explicitly clean up the core.
 	// As a local var, core will go out of scope and destroy Renderer->ResourceManager.
 	// ResourceManager destructor also deletes Shaders.
-
-//	return 0;
-//}
+	*/
+	return 0;
+}

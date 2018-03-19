@@ -4,8 +4,8 @@
 * @brief The Core header file.
 */
 
-#ifndef Core_H
-#define LINE_H
+#ifndef CORE_H
+#define CORE_H
 
 // Include GLEW
 #include <GL/glew.h>
@@ -33,11 +33,28 @@ public:
 	/// @brief update this Core. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
-	virtual void update(float deltaTime) = 0;
+	void run(Scene* scene);
+
+	/// @brief update this Core. This function is Pure virtual. User MUST implement this in subclass.
+	/// @param deltaTime The time that's passed since the last update.
+	/// @return void
+	void cleanup();
+
+	/// @brief update this Core. This function is Pure virtual. User MUST implement this in subclass.
+	/// @param deltaTime The time that's passed since the last update.
+	/// @return void
+	float deltaTime() { return (float)_deltaTime; };
+	/// @brief update this Core. This function is Pure virtual. User MUST implement this in subclass.
+	/// @param deltaTime The time that's passed since the last update.
+	/// @return void
+	void showFrameRate(float numesecs);
 
 private:
+	//Renderer _renderer; ///< @brief The Renderer
 
+	double _calculateDeltaTime(); ///< @brief updates deltaTime internally
+	double _deltaTime; ///< @brief deltaTime
 };
 
 
-#endif /* CORE_H */
+#endif CORE_H 

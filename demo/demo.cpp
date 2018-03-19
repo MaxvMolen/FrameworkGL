@@ -14,7 +14,7 @@ Renderer renderer(1280, 720);
 //rotation speed of rgba
 float rot_z = 0.0f;
 
-Demo::Demo() : Scene()
+Demo::Demo() : CoreScene()
 {
 	// set textures 
 	pencils = new Sprite("assets/pencils.tga");

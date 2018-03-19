@@ -54,4 +54,4 @@ class Renderer
 		glm::mat4 _viewMatrix;
 };
 
-#endif /* RENDERER_H */
+#endif RENDERER_H

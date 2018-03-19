@@ -35,4 +35,4 @@ class Sprite
 		unsigned int _height;
 };
 
-#endif /* SPRITE_H */
+#endif SPRITE_H

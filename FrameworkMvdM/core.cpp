@@ -16,7 +16,21 @@ Core::~Core()
 	
 }
 
-void Core::update(float deltaTime) {
+void Core::run(Scene* scene)
+{
 
 }
+
+void Core::cleanup()
+{
+
+}
+
+
+void Core::showFrameRate(float numesecs)
+{
+
+}
+
+
 

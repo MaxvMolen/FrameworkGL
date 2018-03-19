@@ -139,7 +139,7 @@ public:
 	/// @return Input* a pointer to the Input
 	Input* input() { return _input; };
 
-	friend class Renderer;
+	//friend class Renderer;
 
 protected:
 
@@ -205,4 +205,4 @@ private:
 };
 
 
-#endif /* ENTITY_H */
+#endif ENTITY_H
