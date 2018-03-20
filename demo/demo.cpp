@@ -9,8 +9,6 @@
 
 #include <Demo/demo.h>
 
-Renderer renderer();
-
 //rotation speed of rgba
 float rot_z = 0.0f;
 

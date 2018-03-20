@@ -23,7 +23,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/euler_angles.hpp>
 
-#include <FrameworkMvdM/renderer.h>
 #include <FrameworkMvdM/sprite.h>
 #include <FrameworkMvdM/entity.h>
 #include <Demo/corescene.h>

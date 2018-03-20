@@ -14,12 +14,17 @@
 class Sprite
 {
 	public:
-		Sprite(std::string image_path);
+		Sprite(/*std::string image_path*/);
 		virtual ~Sprite();
+
+		glm::vec2 pivot;
+		glm::vec2 uvdim;
 
 		GLuint texture() { return _texture; };
 		GLuint vertexbuffer() { return _vertexbuffer; };
 		GLuint uvbuffer() { return _uvbuffer; };
+
+		void setupSprite(const std::string& filename, float pivotx, float pivoty, float uvwidth, float uvheight);
 
 		unsigned int width() { return _width; };
 		unsigned int height() { return _height; };
@@ -30,6 +35,8 @@ class Sprite
 		GLuint _texture;
 		GLuint _vertexbuffer;
 		GLuint _uvbuffer;
+
+		std::string _texturename; ///< @brief texturename (path to the file)
 
 		unsigned int _width;
 		unsigned int _height;

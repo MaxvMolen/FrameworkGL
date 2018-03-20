@@ -14,14 +14,17 @@
 #include <FrameworkMvdM/sprite.h>
 
 
-Sprite::Sprite(std::string image_path)
+Sprite::Sprite(/*std::string image_path*/)
 {
+	_texturename = "texture-name";
 	// these will be set correctly in loadTGA()
 	_width = 0;
 	_height = 0;
 
+	pivot = glm::vec2(0.5f, 0.5f);
+	uvdim = glm::vec2(1.0f, 1.0f);
 	// Load image as texture
-	_texture = loadTGA(image_path.c_str());
+	_texture = loadTGA(_texturename.c_str());
 
 	// Our vertices. Tree consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
 	// A sprite has 1 face (quad) with 2 triangles each, so this makes 1*2=2 triangles, and 2*3 vertices
@@ -192,4 +195,13 @@ GLuint Sprite::loadTGA(const std::string& imagepath)
 
 	// Return the ID of the texture we just created
 	return textureID;
+}
+
+void Sprite::setupSprite(const std::string& filename, float pivotx, float pivoty, float uvwidth, float uvheight) {
+	_texturename = filename;
+	pivot.x = pivotx;
+	pivot.y = pivoty;
+
+	uvdim.x = uvwidth;
+	uvdim.y = uvheight;
 }
