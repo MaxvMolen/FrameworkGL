@@ -21,10 +21,16 @@
 class Renderer
 {
 	public:
-		Renderer(unsigned int w, unsigned int h);
+		Renderer();
 		virtual ~Renderer();
 
-		void renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot);
+		int init();
+
+		/// @brief Renders a Scene with all its children.
+		/// @param scene The Scene that needs to be rendered
+		/// @return void
+		void renderScene(Scene* scene);
+
 		GLFWwindow* window() { return _window; };
 
 		/// @brief get a pointer to the Camera
@@ -35,11 +41,13 @@ class Renderer
 		unsigned int height() { return _window_height; };
 
 	private:
-		int init();
-
 		GLFWwindow* _window;
 		unsigned int _window_width;
 		unsigned int _window_height;
+
+		void _renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot);
+
+		void _renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camera);
 
 		GLuint loadShaders(
 			const char* vertex_file_path,

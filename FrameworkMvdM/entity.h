@@ -116,6 +116,14 @@ public:
 	std::vector<Line>& linebatch() { return _linebatch; };
 	*/
 
+	/// @brief get the guid of this Entity
+	/// @return int _guid
+	int guid() { return _guid; };
+
+	/// @brief get the parent of this Entity
+	/// @return entity* _parent
+	Entity* parent() { return _parent; };
+
 	// world position,rotation and scale
 	/// @brief get the worldposition of this Entity
 	/// @return glm::vec3 _worldposition
@@ -127,19 +135,11 @@ public:
 	/// @return glm::vec3 _worldscale
 	glm::vec3 worldscale() { return _worldscale; };
 
-	/// @brief get the guid of this Entity
-	/// @return int _guid
-	int guid() { return _guid; };
-
-	/// @brief get the parent of this Entity
-	/// @return entity* _parent
-	Entity* parent() { return _parent; };
-
 	/// @brief get a pointer to the Input
 	/// @return Input* a pointer to the Input
 	Input* input() { return _input; };
 
-	//friend class Renderer;
+	friend class Renderer;
 
 protected:
 

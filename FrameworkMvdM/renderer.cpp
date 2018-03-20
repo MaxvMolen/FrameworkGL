@@ -13,10 +13,11 @@
 #include <FrameworkMvdM/camera.h>
 #include <FrameworkMvdM/renderer.h>
 
-Renderer::Renderer(unsigned int w, unsigned int h)
+Renderer::Renderer()
 {
-	_window_width = w;
-	_window_height = h;
+	_window = NULL;
+	_window_width = 800;
+	_window_height = 800;
 
 	_camera = new Camera();
 
@@ -27,8 +28,9 @@ Renderer::~Renderer()
 {
 	// Cleanup VBO and shader
 	glDeleteProgram(_programID);
-
 	delete _camera;
+	// Close OpenGL window and terminate GLFW
+	glfwTerminate();
 }
 
 int Renderer::init()
@@ -84,7 +86,76 @@ int Renderer::init()
 	return 0;
 }
 
-void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)
+void Renderer::renderScene(Scene* scene) {
+	// Clear the screen
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
+	//renderer.camera()->computeMatricesFromInputs(renderer.window());
+	//camera()->computeMatricesFromInputs(renderer.window());
+	//computeMatricesFromInputs(renderer.window());
+	// Render all Sprites (Sprite*, xpos, ypos, xscale, yscale, rotation)
+	//renderer.renderSprite(pencils, 400, 300, 1.0f, 1.0f, 0.0f);
+	//renderer.renderSprite(kingkong, 900, 400, 1.0f, 1.0f, 0.0f);
+	//renderer.renderSprite(rgba, renderer.width() / 2, renderer.height() / 2, 3.0f, 3.0f, rot_z);
+	//rot_z += 0.3f * deltaTime;// * deltaTime to have the same rotationspeed at any fps
+
+	// get viewMatrix from Camera
+	_viewMatrix = scene->camera()->viewMatrix();
+
+	glm::mat4 modelMatrix = glm::mat4(1.0f);
+
+
+	this->_renderEntity(modelMatrix, scene, scene->camera());
+
+    // Swap buffers
+	glfwSwapBuffers(_window);
+	glfwPollEvents();
+}
+
+void Renderer::_renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camera) {
+	// OpenGL doesn't understand our Point3. Make it glm::vec3 compatible.
+	glm::vec3 position = glm::vec3(entity->position.x, entity->position.y, entity->position.z);
+	glm::vec3 rotation = glm::vec3(entity->rotation.x, entity->rotation.y, entity->rotation.z);
+	glm::vec3 scale = glm::vec3(entity->scale.x, entity->scale.y, entity->scale.z);
+
+	// Build the Model matrix
+	glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), position);
+	glm::mat4 rotationMatrix = glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
+	glm::mat4 scalingMatrix = glm::scale(glm::mat4(1.0f), scale);
+
+	glm::mat4 mm = translationMatrix * rotationMatrix * scalingMatrix;
+
+	modelMatrix *= mm;
+
+	// send the real world transforms back to Entity (glm::decompose is experimental)
+	glm::vec3 realscale;
+	glm::quat realrot;
+	glm::vec3 realpos;
+	glm::vec3 skew;
+	glm::vec4 perspective;
+	glm::decompose(modelMatrix, realscale, realrot, realpos, skew, perspective);
+
+	entity->_worldposition = glm::vec3(realpos.x, realpos.y, realpos.z);
+	entity->_worldrotation = glm::vec3(realrot.x, realrot.y, realrot.z);
+	entity->_worldscale = glm::vec3(realscale.x, realscale.y, realscale.z);
+	// #######################################################
+
+	// Check for Sprites to see if we need to render anything
+	Sprite* sprite = entity->sprite();
+	if (sprite != NULL) {
+		// render the Sprite. Just use the model matrix for the entity since this is a single sprite.
+		//this->renderSprite(modelMatrix, sprite, false); // static Sprite from ResourceManager
+	}
+
+	// Render all Children (recursively)
+	std::vector<Entity*> children = entity->children();
+	std::vector<Entity*>::iterator child;
+	for (child = children.begin(); child != children.end(); child++) {
+		this->_renderEntity(modelMatrix, *child, camera);
+	}
+}
+
+void Renderer::_renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)
 {
 	_viewMatrix = Camera().viewMatrix();
 	//glm::mat4 viewMatrix  = getViewMatrix(); // get from Camera (Camera position and direction)
