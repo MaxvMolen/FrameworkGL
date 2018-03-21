@@ -14,7 +14,7 @@
 class Sprite
 {
 	public:
-		Sprite(/*std::string image_path*/);
+		Sprite(std::string image_path);
 		virtual ~Sprite();
 
 		glm::vec2 pivot;

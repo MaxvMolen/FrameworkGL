@@ -19,8 +19,6 @@ Renderer::Renderer()
 	_window_width = 800;
 	_window_height = 800;
 
-	_camera = new Camera();
-
 	this->init();
 }
 
@@ -28,7 +26,6 @@ Renderer::~Renderer()
 {
 	// Cleanup VBO and shader
 	glDeleteProgram(_programID);
-	delete _camera;
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();
 }
@@ -109,7 +106,7 @@ void Renderer::renderScene(Scene* scene) {
 
     // Swap buffers
 	glfwSwapBuffers(_window);
-	glfwPollEvents();
+	//glfwPollEvents();
 }
 
 void Renderer::_renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camera) {
@@ -144,7 +141,8 @@ void Renderer::_renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* came
 	Sprite* sprite = entity->sprite();
 	if (sprite != NULL) {
 		// render the Sprite. Just use the model matrix for the entity since this is a single sprite.
-		//this->renderSprite(modelMatrix, sprite, false); // static Sprite from ResourceManager
+		//this->_renderSprite(modelMatrix, sprite, false); // static Sprite from ResourceManager
+		this->_renderSprite(sprite, 1.0f ,1.0f, 1.0f, 1.0f , 1.0f);
 	}
 
 	// Render all Children (recursively)

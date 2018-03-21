@@ -23,8 +23,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/euler_angles.hpp>
 
-#include <FrameworkMvdM/sprite.h>
-#include <FrameworkMvdM/entity.h>
 #include <Demo/corescene.h>
 
 /// @brief The Demo class
@@ -41,6 +39,7 @@ public:
 
 private:
 	/// @brief the pencils sprite in the scene
+	BasicEntity* pencilss;
 	Sprite* pencils;
 	/// @brief the kingkong sprite in the scene
 	Sprite* kingkong;

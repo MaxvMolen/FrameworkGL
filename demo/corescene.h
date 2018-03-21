@@ -18,6 +18,9 @@
 //#include <glm/gtx/euler_angles.hpp>
 
 #include <FrameworkMvdM/scene.h>
+#include <FrameworkMvdM/sprite.h>
+#include <FrameworkMvdM/entity.h>
+#include <Demo/basicentity.h>
 
 /// @brief The Corescene class
 class CoreScene : public Scene

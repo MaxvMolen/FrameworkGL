@@ -33,10 +33,6 @@ class Renderer
 
 		GLFWwindow* window() { return _window; };
 
-		/// @brief get a pointer to the Camera
-		/// @return Camera* a pointer to the Camera
-		Camera* camera() { return _camera; };
-
 		unsigned int width() { return _window_width; };
 		unsigned int height() { return _window_height; };
 
@@ -47,6 +43,11 @@ class Renderer
 
 		void _renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot);
 
+		/// @brief Recursive function that renders an Entity which is a child of the Scene or parent Entity.
+		/// @param modelMatrix The modelMatrix of the parent
+		/// @param entity The Entity that needs rendering
+		/// @param camera The camera in case we need to cull Sprites
+		/// @return void
 		void _renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camera);
 
 		GLuint loadShaders(
@@ -55,8 +56,6 @@ class Renderer
 		);
 
 		GLuint _programID;
-
-		Camera* _camera; ///< @brief the Camera instance
 
 		glm::mat4 _projectionMatrix;
 		glm::mat4 _viewMatrix;

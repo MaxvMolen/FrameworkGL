@@ -14,9 +14,9 @@
 #include <FrameworkMvdM/sprite.h>
 
 
-Sprite::Sprite(/*std::string image_path*/)
+Sprite::Sprite(std::string image_path)
 {
-	_texturename = "texture-name";
+	_texturename = image_path;
 	// these will be set correctly in loadTGA()
 	_width = 0;
 	_height = 0;

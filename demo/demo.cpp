@@ -18,6 +18,10 @@ Demo::Demo() : CoreScene()
 	//pencils = new Sprite("assets/pencils.tga");
 	//kingkong = new Sprite("assets/kingkong.tga");
 	//rgba = new Sprite("assets/rgba.tga");
+	pencilss = new BasicEntity();
+	pencilss->addSprite("assets/pencils.tga");
+	pencilss->position = glm::vec3(100.0f, 100.0f, 1.0f);
+	this->addChild(pencilss);
 }
 
 Demo::~Demo()
@@ -26,13 +30,14 @@ Demo::~Demo()
 	delete pencils;
 	delete kingkong;
 	delete rgba;
+
+	delete pencilss;
 	//glfwTerminate();
 }
 
 void Demo::update(float deltaTime) {
 
 	/*do {
-		this->addSprite(pencils)
 		// Clear the screen
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
