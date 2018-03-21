@@ -106,7 +106,7 @@ void Renderer::renderScene(Scene* scene) {
 
     // Swap buffers
 	glfwSwapBuffers(_window);
-	//glfwPollEvents();
+	glfwPollEvents();
 }
 
 void Renderer::_renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camera) {
@@ -142,7 +142,7 @@ void Renderer::_renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* came
 	if (sprite != NULL) {
 		// render the Sprite. Just use the model matrix for the entity since this is a single sprite.
 		//this->_renderSprite(modelMatrix, sprite, false); // static Sprite from ResourceManager
-		this->_renderSprite(sprite, 1.0f ,1.0f, 1.0f, 1.0f , 1.0f);
+		this->_renderSprite(sprite, 400.0f ,400.0f, 1.0f, 1.0f , 1.0f);
 	}
 
 	// Render all Children (recursively)
