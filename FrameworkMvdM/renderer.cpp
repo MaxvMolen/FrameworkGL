@@ -13,11 +13,10 @@
 #include <FrameworkMvdM/camera.h>
 #include <FrameworkMvdM/renderer.h>
 
-Renderer::Renderer()
+Renderer::Renderer(unsigned int w, unsigned int h)
 {
-	_window = NULL;
-	_window_width = 800;
-	_window_height = 800;
+	_window_width = w;
+	_window_height = h;
 
 	this->init();
 }
@@ -26,16 +25,14 @@ Renderer::~Renderer()
 {
 	// Cleanup VBO and shader
 	glDeleteProgram(_programID);
-	// Close OpenGL window and terminate GLFW
-	glfwTerminate();
 }
 
 int Renderer::init()
 {
 	// Initialise GLFW
-	if( !glfwInit() )
+	if (!glfwInit())
 	{
-		fprintf( stderr, "Failed to initialize GLFW\n" );
+		fprintf(stderr, "Failed to initialize GLFW\n");
 		return -1;
 	}
 
@@ -44,9 +41,9 @@ int Renderer::init()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 
 	// Open a window and create its OpenGL context
-	_window = glfwCreateWindow( _window_width, _window_height, "Demo", NULL, NULL);
-	if( _window == NULL ){
-		fprintf( stderr, "Failed to open GLFW window.\n" );
+	_window = glfwCreateWindow(_window_width, _window_height, "Demo", NULL, NULL);
+	if (_window == NULL) {
+		fprintf(stderr, "Failed to open GLFW window.\n");
 		glfwTerminate();
 		return -1;
 	}
@@ -83,90 +80,19 @@ int Renderer::init()
 	return 0;
 }
 
-void Renderer::renderScene(Scene* scene) {
-	// Clear the screen
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
-	//renderer.camera()->computeMatricesFromInputs(renderer.window());
-	//camera()->computeMatricesFromInputs(renderer.window());
-	//computeMatricesFromInputs(renderer.window());
-	// Render all Sprites (Sprite*, xpos, ypos, xscale, yscale, rotation)
-	//renderer.renderSprite(pencils, 400, 300, 1.0f, 1.0f, 0.0f);
-	//renderer.renderSprite(kingkong, 900, 400, 1.0f, 1.0f, 0.0f);
-	//renderer.renderSprite(rgba, renderer.width() / 2, renderer.height() / 2, 3.0f, 3.0f, rot_z);
-	//rot_z += 0.3f * deltaTime;// * deltaTime to have the same rotationspeed at any fps
-
-	// get viewMatrix from Camera
-	_viewMatrix = scene->camera()->viewMatrix();
-
-	glm::mat4 modelMatrix = glm::mat4(1.0f);
-
-
-	this->_renderEntity(modelMatrix, scene, scene->camera());
-
-    // Swap buffers
-	glfwSwapBuffers(_window);
-	glfwPollEvents();
-}
-
-void Renderer::_renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camera) {
-	// OpenGL doesn't understand our Point3. Make it glm::vec3 compatible.
-	glm::vec3 position = glm::vec3(entity->position.x, entity->position.y, entity->position.z);
-	glm::vec3 rotation = glm::vec3(entity->rotation.x, entity->rotation.y, entity->rotation.z);
-	glm::vec3 scale = glm::vec3(entity->scale.x, entity->scale.y, entity->scale.z);
-
-	// Build the Model matrix
-	glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), position);
-	glm::mat4 rotationMatrix = glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
-	glm::mat4 scalingMatrix = glm::scale(glm::mat4(1.0f), scale);
-
-	glm::mat4 mm = translationMatrix * rotationMatrix * scalingMatrix;
-
-	modelMatrix *= mm;
-
-	// send the real world transforms back to Entity (glm::decompose is experimental)
-	glm::vec3 realscale;
-	glm::quat realrot;
-	glm::vec3 realpos;
-	glm::vec3 skew;
-	glm::vec4 perspective;
-	glm::decompose(modelMatrix, realscale, realrot, realpos, skew, perspective);
-
-	entity->_worldposition = glm::vec3(realpos.x, realpos.y, realpos.z);
-	entity->_worldrotation = glm::vec3(realrot.x, realrot.y, realrot.z);
-	entity->_worldscale = glm::vec3(realscale.x, realscale.y, realscale.z);
-	// #######################################################
-
-	// Check for Sprites to see if we need to render anything
-	Sprite* sprite = entity->sprite();
-	if (sprite != NULL) {
-		// render the Sprite. Just use the model matrix for the entity since this is a single sprite.
-		//this->_renderSprite(modelMatrix, sprite, false); // static Sprite from ResourceManager
-		this->_renderSprite(sprite, 400.0f ,400.0f, 1.0f, 1.0f , 1.0f);
-	}
-
-	// Render all Children (recursively)
-	std::vector<Entity*> children = entity->children();
-	std::vector<Entity*>::iterator child;
-	for (child = children.begin(); child != children.end(); child++) {
-		this->_renderEntity(modelMatrix, *child, camera);
-	}
-}
-
-void Renderer::_renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)
+void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)
 {
-	_viewMatrix = Camera().viewMatrix();
-	//glm::mat4 viewMatrix  = getViewMatrix(); // get from Camera (Camera position and direction)
+	glm::mat4 viewMatrix = getViewMatrix(); // get from Camera (Camera position and direction)
 	glm::mat4 modelMatrix = glm::mat4(1.0f);
-	//_camera.
+
 	// Build the Model matrix
 	glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(px, py, 0.0f));
-	glm::mat4 rotationMatrix	= glm::eulerAngleYXZ(0.0f, 0.0f, rot);
-	glm::mat4 scalingMatrix	 = glm::scale(glm::mat4(1.0f), glm::vec3(sx, sy, 1.0f));
+	glm::mat4 rotationMatrix = glm::eulerAngleYXZ(0.0f, 0.0f, rot);
+	glm::mat4 scalingMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(sx, sy, 1.0f));
 
 	modelMatrix = translationMatrix * rotationMatrix * scalingMatrix;
 
-	glm::mat4 MVP = _projectionMatrix * _viewMatrix * modelMatrix;
+	glm::mat4 MVP = _projectionMatrix * viewMatrix * modelMatrix;
 
 	// Send our transformation to the currently bound shader,
 	// in the "MVP" uniform
@@ -177,7 +103,7 @@ void Renderer::_renderSprite(Sprite* sprite, float px, float py, float sx, float
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, sprite->texture());
 	// Set our "myTextureSampler" sampler to user Texture Unit 0
-	GLuint textureID  = glGetUniformLocation(_programID, "myTextureSampler");
+	GLuint textureID = glGetUniformLocation(_programID, "myTextureSampler");
 	glUniform1i(textureID, 0);
 
 	// 1st attribute buffer : vertices
@@ -207,7 +133,7 @@ void Renderer::_renderSprite(Sprite* sprite, float px, float py, float sx, float
 	);
 
 	// Draw the triangles !
-	glDrawArrays(GL_TRIANGLES, 0, 2*3); // 2*3 indices starting at 0 -> 2 triangles
+	glDrawArrays(GL_TRIANGLES, 0, 2 * 3); // 2*3 indices starting at 0 -> 2 triangles
 
 	glDisableVertexAttribArray(vertexPosition_modelspaceID);
 	glDisableVertexAttribArray(vertexUVID);
@@ -222,13 +148,14 @@ GLuint Renderer::loadShaders(const char* vertex_file_path, const char* fragment_
 	// Read the Vertex Shader code from the file
 	std::string vertexShaderCode;
 	std::ifstream vertexShaderStream(vertex_file_path, std::ios::in);
-	if (vertexShaderStream.is_open()){
+	if (vertexShaderStream.is_open()) {
 		std::string line = "";
 		while (getline(vertexShaderStream, line)) {
 			vertexShaderCode += "\n" + line;
 		}
 		vertexShaderStream.close();
-	} else {
+	}
+	else {
 		printf("Can't to open %s.\n", vertex_file_path);
 		getchar();
 		return 0;
@@ -237,7 +164,7 @@ GLuint Renderer::loadShaders(const char* vertex_file_path, const char* fragment_
 	// Read the Fragment Shader code from the file
 	std::string fragmentShaderCode;
 	std::ifstream fragmentShaderStream(fragment_file_path, std::ios::in);
-	if (fragmentShaderStream.is_open()){
+	if (fragmentShaderStream.is_open()) {
 		std::string line = "";
 		while (getline(fragmentShaderStream, line)) {
 			fragmentShaderCode += "\n" + line;
@@ -251,14 +178,14 @@ GLuint Renderer::loadShaders(const char* vertex_file_path, const char* fragment_
 	// Compile Vertex Shader
 	printf("Compiling shader : %s\n", vertex_file_path);
 	char const * vertexSourcePointer = vertexShaderCode.c_str();
-	glShaderSource(vertexShaderID, 1, &vertexSourcePointer , NULL);
+	glShaderSource(vertexShaderID, 1, &vertexSourcePointer, NULL);
 	glCompileShader(vertexShaderID);
 
 	// Check Vertex Shader
 	glGetShaderiv(vertexShaderID, GL_COMPILE_STATUS, &result);
 	glGetShaderiv(vertexShaderID, GL_INFO_LOG_LENGTH, &infoLogLength);
-	if ( infoLogLength > 0 ){
-		std::vector<char> vertexShaderErrorMessage(infoLogLength+1);
+	if (infoLogLength > 0) {
+		std::vector<char> vertexShaderErrorMessage(infoLogLength + 1);
 		glGetShaderInfoLog(vertexShaderID, infoLogLength, NULL, &vertexShaderErrorMessage[0]);
 		printf("%s\n", &vertexShaderErrorMessage[0]);
 	}
@@ -266,14 +193,14 @@ GLuint Renderer::loadShaders(const char* vertex_file_path, const char* fragment_
 	// Compile Fragment Shader
 	printf("Compiling shader : %s\n", fragment_file_path);
 	char const * fragmentSourcePointer = fragmentShaderCode.c_str();
-	glShaderSource(fragmentShaderID, 1, &fragmentSourcePointer , NULL);
+	glShaderSource(fragmentShaderID, 1, &fragmentSourcePointer, NULL);
 	glCompileShader(fragmentShaderID);
 
 	// Check Fragment Shader
 	glGetShaderiv(fragmentShaderID, GL_COMPILE_STATUS, &result);
 	glGetShaderiv(fragmentShaderID, GL_INFO_LOG_LENGTH, &infoLogLength);
-	if ( infoLogLength > 0 ){
-		std::vector<char> fragmentShaderErrorMessage(infoLogLength+1);
+	if (infoLogLength > 0) {
+		std::vector<char> fragmentShaderErrorMessage(infoLogLength + 1);
 		glGetShaderInfoLog(fragmentShaderID, infoLogLength, NULL, &fragmentShaderErrorMessage[0]);
 		printf("%s\n", &fragmentShaderErrorMessage[0]);
 	}
@@ -288,8 +215,8 @@ GLuint Renderer::loadShaders(const char* vertex_file_path, const char* fragment_
 	// Check the program
 	glGetProgramiv(programID, GL_LINK_STATUS, &result);
 	glGetProgramiv(programID, GL_INFO_LOG_LENGTH, &infoLogLength);
-	if ( infoLogLength > 0 ){
-		std::vector<char> programErrorMessage(infoLogLength+1);
+	if (infoLogLength > 0) {
+		std::vector<char> programErrorMessage(infoLogLength + 1);
 		glGetProgramInfoLog(programID, infoLogLength, NULL, &programErrorMessage[0]);
 		printf("%s\n", &programErrorMessage[0]);
 	}

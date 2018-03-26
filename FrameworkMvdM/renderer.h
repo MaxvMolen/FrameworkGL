@@ -14,51 +14,43 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/euler_angles.hpp>
 
-#include <FrameworkMvdM/entity.h>
-#include <FrameworkMvdM/scene.h>
 #include <FrameworkMvdM/sprite.h>
+//#include <FrameworkMvdM/camera.h>
+#include <FrameworkMvdM/scene.h>
 
 class Renderer
 {
-	public:
-		Renderer();
-		virtual ~Renderer();
+public:
+	Renderer(unsigned int w, unsigned int h);
+	virtual ~Renderer();
 
-		int init();
+	void renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot);
+	GLFWwindow* window() { return _window; };
 
-		/// @brief Renders a Scene with all its children.
-		/// @param scene The Scene that needs to be rendered
-		/// @return void
-		void renderScene(Scene* scene);
+	unsigned int width() { return _window_width; };
+	unsigned int height() { return _window_height; };
 
-		GLFWwindow* window() { return _window; };
+	/// @brief get a pointer to the Camera
+	/// @return Camera* a pointer to the Camera
+	//Camera* camera() { return _camera; };
 
-		unsigned int width() { return _window_width; };
-		unsigned int height() { return _window_height; };
+private:
+	int init();
 
-	private:
-		GLFWwindow* _window;
-		unsigned int _window_width;
-		unsigned int _window_height;
+	GLFWwindow* _window;
+	unsigned int _window_width;
+	unsigned int _window_height;
 
-		void _renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot);
+	GLuint loadShaders(
+		const char* vertex_file_path,
+		const char* fragment_file_path
+	);
 
-		/// @brief Recursive function that renders an Entity which is a child of the Scene or parent Entity.
-		/// @param modelMatrix The modelMatrix of the parent
-		/// @param entity The Entity that needs rendering
-		/// @param camera The camera in case we need to cull Sprites
-		/// @return void
-		void _renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camera);
+	//Camera* _camera; ///< @brief the Camera instance
 
-		GLuint loadShaders(
-			const char* vertex_file_path,
-			const char* fragment_file_path
-		);
+	GLuint _programID;
 
-		GLuint _programID;
-
-		glm::mat4 _projectionMatrix;
-		glm::mat4 _viewMatrix;
+	glm::mat4 _projectionMatrix;
 };
 
-#endif RENDERER_H
+#endif /* RENDERER_H */

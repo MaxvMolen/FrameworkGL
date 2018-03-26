@@ -1,39 +1,22 @@
-/**
-* @file camera.cpp
-*
-* @brief The Camera cpp file.
-*/
-
 #include <FrameworkMvdM/camera.h>
+
 glm::mat4 _viewMatrix;
 
-// Initial position : on +Z
+glm::vec3 position = glm::vec3(0, 0, 5);
+glm::vec3 cursor = glm::vec3(0, 0, 0);
 
-/*
 glm::mat4 getViewMatrix() {
 	return _viewMatrix;
 }
 
 glm::vec3 getCursor() {
 	return cursor;
-}*/
+}
 
 float speed = 300.0f; // 300 units / second
 
-Camera::Camera() {
-	glm::vec3 position = glm::vec3(0, 0, 5);
-	glm::vec3 cursor = glm::vec3(0, 0, 0);
-}
 
-Camera::~Camera() {
-
-}
-
-void Camera::update(float deltaTime) {
-
-}
-
-void Camera::computeMatricesFromInputs(GLFWwindow* window)
+void computeMatricesFromInputs(GLFWwindow* window)
 {
 	// glfwGetTime is called only once, the first time this function is called
 	static double lastTime = glfwGetTime();
@@ -45,35 +28,35 @@ void Camera::computeMatricesFromInputs(GLFWwindow* window)
 	// Get mouse position
 	double xpos, ypos;
 	glfwGetCursorPos(window, &xpos, &ypos);
-	cursor = glm::vec3( xpos, ypos, 0 );
+	cursor = glm::vec3(xpos, ypos, 0);
 
 	// Right and Down vector
 	glm::vec3 right = glm::vec3(1, 0, 0);
 	glm::vec3 up = glm::vec3(0, -1, 0);
 
 	// Move up
-	if (glfwGetKey( window, GLFW_KEY_UP ) == GLFW_PRESS){
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
 		position += up * deltaTime * speed;
 	}
 	// Move down
-	if (glfwGetKey( window, GLFW_KEY_DOWN ) == GLFW_PRESS){
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
 		position -= up * deltaTime * speed;
 	}
 	// Strafe right
-	if (glfwGetKey( window, GLFW_KEY_RIGHT ) == GLFW_PRESS){
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
 		position += right * deltaTime * speed;
 	}
 	// Strafe left
-	if (glfwGetKey( window, GLFW_KEY_LEFT ) == GLFW_PRESS){
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
 		position -= right * deltaTime * speed;
 	}
 
 	// View matrix
 	_viewMatrix = glm::lookAt(
-			position, // Camera is at (xpos,ypos,5), in World Space
-			position + glm::vec3(0, 0, -5), // and looks towards Z
-			glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
-			);
+		position, // Camera is at (xpos,ypos,5), in World Space
+		position + glm::vec3(0, 0, -5), // and looks towards Z
+		glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
+	);
 
 	// For the next frame, the "last time" will be "now"
 	lastTime = currentTime;

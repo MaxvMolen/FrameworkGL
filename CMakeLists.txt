@@ -1,4 +1,4 @@
-# CMake entry point
+## CMake entry point
 cmake_minimum_required (VERSION 2.6)
 project (MyFramework)
 
@@ -65,23 +65,23 @@ add_library(FrameworkMvdM
 	FrameworkMvdM/renderer.cpp
 	FrameworkMvdM/sprite.h
 	FrameworkMvdM/sprite.cpp
-	FrameworkMvdM/entity.h
-	FrameworkMvdM/entity.cpp
-	FrameworkMvdM/scene.h
-	FrameworkMvdM/scene.cpp
 	FrameworkMvdM/input.h
 	FrameworkMvdM/input.cpp
 	FrameworkMvdM/line.h
 	FrameworkMvdM/line.cpp
-	FrameworkMvdM/core.h
-	FrameworkMvdM/core.cpp
+	FrameworkMvdM/entity.h
+	FrameworkMvdM/entity.cpp
+	FrameworkMvdM/scene.h
+	FrameworkMvdM/scene.cpp
 )
 
 # Demo
 add_executable(demo
 	demo/demo.cpp
-	demo/demo.h
-	demo/main.cpp
+	demo/basicentity.cpp
+	demo/basicentity.h
+	demo/corescene.cpp
+	demo/corescene.h
 )
 target_link_libraries(demo
 	FrameworkMvdM

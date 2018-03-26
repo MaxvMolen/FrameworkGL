@@ -3,7 +3,7 @@
 *
 * @brief The Core cpp file.
 */
-
+/*
 #include <FrameworkMvdM/core.h>
 
 Core::Core()
@@ -54,6 +54,6 @@ void Core::showFrameRate(float numesecs)
 {
 
 }
-
+*/
 
 

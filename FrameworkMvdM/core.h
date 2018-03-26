@@ -3,7 +3,7 @@
 *
 * @brief The Core header file.
 */
-
+/*
 #ifndef CORE_H
 #define CORE_H
 
@@ -57,3 +57,4 @@ private:
 
 
 #endif CORE_H 
+*/
