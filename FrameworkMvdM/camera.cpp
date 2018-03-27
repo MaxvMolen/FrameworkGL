@@ -19,8 +19,11 @@ glm::vec3 getCursor() {
 }
 
 float speed = 300.0f; // 300 units / second
+/*
+void getViewMatrix() {
 
-
+}
+*/
 void computeMatricesFromInputs(GLFWwindow* window)
 {
 	// glfwGetTime is called only once, the first time this function is called

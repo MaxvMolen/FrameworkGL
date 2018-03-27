@@ -20,7 +20,6 @@
 #include <FrameworkMvdM/sprite.h>
 #include <FrameworkMvdM/camera.h>
 
-
 int main(void)
 {
 	Renderer renderer(1280, 720);
@@ -30,6 +29,7 @@ int main(void)
 	Sprite* rgba = new Sprite("assets/rgba.tga");
 	Sprite* rgba2 = new Sprite("assets/rgba.tga");
 
+	Entity* entity = new Entity();
 	//BasicEntity* entity = new BasicEntity();
 	//entity->addSprite("assets/rgba.tga");
 
@@ -73,10 +73,14 @@ int main(void)
 	while (glfwGetKey(renderer.window(), GLFW_KEY_ESCAPE) != GLFW_PRESS &&
 		glfwWindowShouldClose(renderer.window()) == 0);
 
+	// sprites
 	delete pencils;
 	delete kingkong;
 	delete rgba;
 	delete rgba2;
+
+	// entity
+	delete entity;
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();
 }

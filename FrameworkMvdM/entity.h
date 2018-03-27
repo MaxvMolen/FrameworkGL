@@ -28,11 +28,6 @@ public:
 	Entity();///< @brief Constructor of an Entity
 	virtual ~Entity();///< @brief Destructor of an Entity
 
-	/// @brief update this Entity. This function is Pure virtual. User MUST implement this in subclass. 
-	/// @param deltaTime The time that's passed since the last update.
-	/// @return void
-	virtual void update(float deltaTime) = 0;
-
 	//transform // the position,rotation and scale of this Entity
 	glm::vec3 position;
 	glm::vec3 rotation;

@@ -30,11 +30,7 @@ Entity::~Entity()
 	//deleteLine();
 	//deleteLinebatch();
 }
-//
-void Entity::update(float deltaTime) {
 
-}
-//
 void Entity::addChild(Entity* child) {
 	if (child->_parent != NULL) {
 		child->_parent->removeChild(child);
@@ -42,7 +38,7 @@ void Entity::addChild(Entity* child) {
 	child->_parent = this;
 	this->_children.push_back(child);
 }
-//
+
 void Entity::removeChild(Entity* child) {
 	std::vector<Entity*>::iterator it = _children.begin();
 	while (it != _children.end()) {
@@ -55,14 +51,13 @@ void Entity::removeChild(Entity* child) {
 		}
 	}
 }
-//
+
 Entity* Entity::getChild(unsigned int i) {
 	if (i < _children.size()) {
 		return _children[i];
 	}
 	return NULL;
 }
-//
 /*
 void Entity::addSprite(Sprite* spr) {
 	deleteSprite();
@@ -70,11 +65,10 @@ void Entity::addSprite(Sprite* spr) {
 	*_sprite = *spr;
 }
 */
-//
 void Entity::addSprite(const std ::string& filename) {
 	this->addSprite(filename, 0.5f, 0.5f);
 }
-//
+
 void Entity::addSprite(const std::string& filename, float pivotx, float pivoty) {
 	deleteSprite();
 	_sprite = new Sprite(filename);
