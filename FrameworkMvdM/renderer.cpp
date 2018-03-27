@@ -80,6 +80,14 @@ int Renderer::init()
 	return 0;
 }
 
+void Renderer::renderScene(Scene* scene) {
+
+}
+
+void Renderer::renderEntity(Entity* entity) {
+
+}
+
 void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)
 {
 	glm::mat4 viewMatrix = getViewMatrix(); // get from Camera (Camera position and direction)
@@ -137,10 +145,6 @@ void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float 
 
 	glDisableVertexAttribArray(vertexPosition_modelspaceID);
 	glDisableVertexAttribArray(vertexUVID);
-}
-
-void Renderer::renderEntity(Entity* entity) {
-
 }
 
 GLuint Renderer::loadShaders(const char* vertex_file_path, const char* fragment_file_path)

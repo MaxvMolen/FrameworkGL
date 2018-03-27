@@ -25,8 +25,10 @@ public:
 	Renderer(unsigned int w, unsigned int h);
 	virtual ~Renderer();
 
-	void renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot);
+	void renderScene(Scene* scene);
 	void renderEntity(Entity* entity);
+	void renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot);
+
 	GLFWwindow* window() { return _window; };
 
 	unsigned int width() { return _window_width; };
