@@ -15,6 +15,7 @@
 
 //#include <FrameworkMvdM/camera.h> // not the solution
 #include <FrameworkMvdM/renderer.h>
+#include <FrameworkMvdM/entity.h>
 #include <FrameworkMvdM/sprite.h>
 #include <FrameworkMvdM/camera.h>
 
@@ -26,7 +27,7 @@ int main(void)
 	Sprite* pencils = new Sprite("assets/pencils.tga");
 	Sprite* kingkong = new Sprite("assets/kingkong.tga");
 	Sprite* rgba = new Sprite("assets/rgba.tga");
-
+	Entity* entity = new Entity();
 	//Camera* camera = new Camera();
 
 	float rot_z = 0.0f;
@@ -54,7 +55,7 @@ int main(void)
 		renderer.renderSprite(pencils, 400, 300, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(kingkong, 900, 400, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(rgba, renderer.width() / 2, renderer.height() / 2, 3.0f, 3.0f, rot_z);
-		rot_z += 0.03f * deltaTime;
+		rot_z += 0.13f * deltaTime;
 
 		// Swap buffers
 		glfwSwapBuffers(renderer.window());

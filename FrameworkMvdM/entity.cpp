@@ -6,13 +6,8 @@
 #include <iostream>
 #include <FrameworkMvdM/entity.h>
 
-int Entity::_nextGuid = 0;
-
 Entity::Entity()
 {
-	_guid = _nextGuid;
-	_nextGuid++;
-
 	_parent = NULL;
 
 	// position of entity
@@ -33,7 +28,6 @@ Entity::~Entity()
 {
 	deleteSprite();
 	//deleteLine();
-	deleteSpritebatch();
 	//deleteLinebatch();
 }
 //
@@ -52,7 +46,7 @@ void Entity::addChild(Entity* child) {
 void Entity::removeChild(Entity* child) {
 	std::vector<Entity*>::iterator it = _children.begin();
 	while (it != _children.end()) {
-		if ((*it)->_guid == child->_guid) {
+		if ((*it) == child) {
 			child->_parent = NULL;
 			it = _children.erase(it);
 		}

@@ -73,14 +73,6 @@ public:
 	/// @param pivoty the y component of the pivotpoint
 	/// @return void
 	void addSprite(const std::string& filename, float pivotx, float pivoty);
-	/// @brief add an Sprite to this Entity
-	/// @param filename the filename of the image that you want to add
-	/// @param pivotx the x component of the pivotpoint
-	/// @param pivoty the y component of the pivotpoint
-	/// @param filter The filter
-	/// @param wrap The Wrapping
-	/// @return void
-	void addSprite(const std::string& filename, float pivotx, float pivoty, int filter, int wrap);
 
 	/*
 	// line
@@ -106,19 +98,11 @@ public:
 	/// @return void
 	void addLine(const std::string& filename);
 	*/
-	// spritebatch, grid
-	/// @brief get the spritebatch of this Entity.
-	/// @return std::vector<Sprite*>& _spritebatch
-	std::vector<Sprite*>& spritebatch() { return _spritebatch; };
 	/*
 	/// @brief get the linebatch of this Entity.
 	/// @return std::vector<Line>& _linebatch
 	std::vector<Line>& linebatch() { return _linebatch; };
 	*/
-
-	/// @brief get the guid of this Entity
-	/// @return int _guid
-	int guid() { return _guid; };
 
 	/// @brief get the parent of this Entity
 	/// @return entity* _parent
@@ -148,14 +132,10 @@ protected:
 	glm::vec3 _worldrotation;
 	glm::vec3 _worldscale;
 
-	std::vector<Sprite*> _spritebatch; ///< @brief The _spritebatch of this Entity
 	//std::vector<Line> _linebatch; ///< @brief The _linebatch of this Entity
 
 private:
-	// identity
-	int _guid; ///< @brief The _guid of this entity
-	static int _nextGuid; ///< @brief The _nextGuid of this entity
-	
+
 	// parent
 	Entity* _parent; ///< @brief The _parent of this entity
 	std::vector<Entity*> _children; ///< @brief The _children of this entity
@@ -193,15 +173,6 @@ private:
 		_linebatch.clear();
 	}
 	*/
-	/// @brief delete the Spritebatch of this Entity.
-	/// @return void
-	void deleteSpritebatch() {
-		int s = _spritebatch.size();
-		for (int i = 0; i < s; i++) {
-			delete _spritebatch[i];
-		}
-		_spritebatch.clear();
-	}
 };
 
 
