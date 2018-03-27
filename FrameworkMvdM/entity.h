@@ -176,4 +176,4 @@ private:
 };
 
 
-#endif ENTITY_H
+#endif /* ENTITY_H */

@@ -79,5 +79,4 @@ int main(void)
 	delete rgba2;
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();
-
 }
