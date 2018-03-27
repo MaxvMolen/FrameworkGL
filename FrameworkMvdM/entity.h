@@ -33,6 +33,11 @@ public:
 	glm::vec3 rotation;
 	glm::vec3 scale;
 	
+	/// @brief update this Entity. This function is Pure virtual. User MUST implement this in subclass.
+	/// @param deltaTime The time that's passed since the last update.
+	/// @return void
+	//virtual void update(float deltaTime) = 0;
+
 	// children
 	/// @brief add an child to this Entity
 	/// @param child The Entity you want to add as a child to this Entity

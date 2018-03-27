@@ -33,7 +33,5 @@ void Scene::_updateEntity(Entity* entity, float deltaTime) {
 	for (child = children.begin(); child != children.end(); child++) {
 		this->_updateEntity(*child, deltaTime);
 	}
-
-
 }
 
