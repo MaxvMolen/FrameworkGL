@@ -14,6 +14,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/euler_angles.hpp>
 
+#include <FrameworkMvdM/entity.h>
 #include <FrameworkMvdM/sprite.h>
 //#include <FrameworkMvdM/camera.h>
 #include <FrameworkMvdM/scene.h>
@@ -25,6 +26,7 @@ public:
 	virtual ~Renderer();
 
 	void renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot);
+	void renderEntity(Entity* entity);
 	GLFWwindow* window() { return _window; };
 
 	unsigned int width() { return _window_width; };

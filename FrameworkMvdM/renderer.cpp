@@ -139,6 +139,10 @@ void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float 
 	glDisableVertexAttribArray(vertexUVID);
 }
 
+void Renderer::renderEntity(Entity* entity) {
+
+}
+
 GLuint Renderer::loadShaders(const char* vertex_file_path, const char* fragment_file_path)
 {
 	// Create the shaders

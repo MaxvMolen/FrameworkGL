@@ -111,13 +111,13 @@ public:
 	// world position,rotation and scale
 	/// @brief get the worldposition of this Entity
 	/// @return glm::vec3 _worldposition
-	glm::vec3 worldposition() { return _worldposition; };
+	//glm::vec3 worldposition() { return _worldposition; };
 	/// @brief get the worldrotation of this Entity
 	/// @return glm::vec3 _worldrotation
-	glm::vec3 worldrotation() { return _worldrotation; };
+	//glm::vec3 worldrotation() { return _worldrotation; };
 	/// @brief get the worldscale of this Entity
 	/// @return glm::vec3 _worldscale
-	glm::vec3 worldscale() { return _worldscale; };
+	//glm::vec3 worldscale() { return _worldscale; };
 
 	/// @brief get a pointer to the Input
 	/// @return Input* a pointer to the Input
@@ -128,9 +128,9 @@ public:
 protected:
 
 	// world position,rotation and scale of this Entity
-	glm::vec3 _worldposition;
-	glm::vec3 _worldrotation;
-	glm::vec3 _worldscale;
+	//glm::vec3 _worldposition;
+	//glm::vec3 _worldrotation;
+	//glm::vec3 _worldscale;
 
 	//std::vector<Line> _linebatch; ///< @brief The _linebatch of this Entity
 

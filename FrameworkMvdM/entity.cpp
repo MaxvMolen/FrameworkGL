@@ -16,9 +16,9 @@ Entity::Entity()
 	scale = glm::vec3(1.0f, 1.0f, 1.0f);
 
 	// position of entity in the world
-	_worldposition = glm::vec3(0.0f, 0.0f, 0.0f);
-	_worldrotation = glm::vec3(0.0f, 0.0f, 0.0f);
-	_worldscale = glm::vec3(1.0f, 1.0f, 1.0f);
+	//_worldposition = glm::vec3(0.0f, 0.0f, 0.0f);
+	//_worldrotation = glm::vec3(0.0f, 0.0f, 0.0f);
+	//_worldscale = glm::vec3(1.0f, 1.0f, 1.0f);
 
 	_sprite = NULL;
 	//_line = NULL;
