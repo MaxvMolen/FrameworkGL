@@ -62,7 +62,7 @@ public:
 	/// @brief add an Sprite to this Entity by Sprite*
 	/// @param spr A pointer to a sprite
 	/// @return void
-	void addSprite(Sprite* spr);
+	//void addSprite(Sprite* spr);
 	/// @brief add an Sprite to this Entity
 	/// @param filename the filename of the image that you want to add
 	/// @return void

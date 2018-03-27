@@ -16,6 +16,7 @@
 //#include <FrameworkMvdM/camera.h> // not the solution
 #include <FrameworkMvdM/renderer.h>
 #include <FrameworkMvdM/entity.h>
+#include <demo/basicentity.h>
 #include <FrameworkMvdM/sprite.h>
 #include <FrameworkMvdM/camera.h>
 
@@ -27,7 +28,11 @@ int main(void)
 	Sprite* pencils = new Sprite("assets/pencils.tga");
 	Sprite* kingkong = new Sprite("assets/kingkong.tga");
 	Sprite* rgba = new Sprite("assets/rgba.tga");
-	Entity* entity = new Entity();
+	Sprite* rgba2 = new Sprite("assets/rgba.tga");
+
+	//BasicEntity* entity = new BasicEntity();
+	//entity->addSprite("assets/rgba.tga");
+
 	//Camera* camera = new Camera();
 
 	float rot_z = 0.0f;
@@ -54,6 +59,7 @@ int main(void)
 		// Render all Sprites (Sprite*, xpos, ypos, xscale, yscale, rotation)
 		renderer.renderSprite(pencils, 400, 300, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(kingkong, 900, 400, 1.0f, 1.0f, 0.0f);
+		renderer.renderSprite(rgba2, 100, 200, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(rgba, renderer.width() / 2, renderer.height() / 2, 3.0f, 3.0f, rot_z);
 		rot_z += 0.13f * deltaTime;
 
@@ -70,6 +76,7 @@ int main(void)
 	delete pencils;
 	delete kingkong;
 	delete rgba;
+	delete rgba2;
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();
 

@@ -81,12 +81,6 @@ void Entity::addSprite(const std::string& filename, float pivotx, float pivoty) 
 	_sprite->setupSprite(filename, pivotx, pivoty , 1.0f, 1.0f);
 }
 /*
-void Entity::addSprite(const std::string& filename, float pivotx, float pivoty, int filter, int wrap) {
-	deleteSprite();
-	_sprite = new Sprite();
-	_sprite->setupSprite(filename, pivotx, pivoty , 1.0f, 1.0f);
-}*/
-/*
 void Entity::addLine(Line* line) {
 
 }
