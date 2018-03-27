@@ -81,7 +81,21 @@ int Renderer::init()
 }
 
 void Renderer::renderScene(Scene* scene) {
+	// Clear the screen
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	// get viewMatrix from Camera (Camera position and direction)
+	//_viewMatrix = scene->camera()->viewMatrix();
+
+	// 'root' scene node has identity Matrix
+	//glm::mat4 modelMatrix = glm::mat4(1.0f);
+
+	// start rendering everything, starting from the scene 'rootnode'
+	//this->_renderEntity(modelMatrix, scene, scene->camera());
+
+	// Swap buffers
+	//glfwSwapBuffers(_window);
+	//glfwPollEvents();
 }
 
 void Renderer::renderEntity(Entity* entity) {

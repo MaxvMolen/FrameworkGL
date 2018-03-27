@@ -54,6 +54,7 @@ private:
 
 	GLuint _programID;
 
+	glm::mat4 _viewMatrix;
 	glm::mat4 _projectionMatrix;
 };
 
