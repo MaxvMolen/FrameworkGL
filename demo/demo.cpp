@@ -20,11 +20,15 @@
 #include <FrameworkMvdM/camera.h>
 #include <demo/basicentity.h>
 
+#include <FrameworkMvdM/core.h>
 #include <demo/scene01.h>
 
 int main(void)
 {
 	Renderer renderer(1280, 720);
+
+	// Core instance
+	Core core;
 
 	Sprite* pencils = new Sprite("assets/pencils.tga");
 	Sprite* kingkong = new Sprite("assets/kingkong.tga");
