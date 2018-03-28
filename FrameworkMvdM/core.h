@@ -3,7 +3,7 @@
 *
 * @brief The Core header file.
 */
-/*
+
 #ifndef CORE_H
 #define CORE_H
 
@@ -49,12 +49,11 @@ public:
 	void showFrameRate(float numesecs);
 
 private:
-	Renderer _renderer; ///< @brief The Renderer
+	//Renderer _renderer; ///< @brief The Renderer
 
 	double _calculateDeltaTime(); ///< @brief updates deltaTime internally
 	double _deltaTime; ///< @brief deltaTime
 };
 
 
-#endif CORE_H 
-*/
+#endif CORE_H

@@ -3,7 +3,7 @@
 *
 * @brief The Core cpp file.
 */
-/*
+
 #include <FrameworkMvdM/core.h>
 
 Core::Core()
@@ -22,16 +22,16 @@ void Core::run(Scene* scene)
 	_calculateDeltaTime();
 
 	// Update camera instance in Scene
-	scene->camera()->update((float)_deltaTime);
+	//scene->camera()->update((float)_deltaTime);
 
 	// Update Scene (and recursively all children)
 	scene->update((float)_deltaTime);
 
 	// Render Scene
-	_renderer.renderScene(scene);
+	//_renderer.renderScene(scene);
 
 	// user clicked the 'close' button in the window
-	if (glfwWindowShouldClose(_renderer.window()) == 1) { scene->stop(); }
+	//if (glfwWindowShouldClose(_renderer.window()) == 1) { scene->stop(); }
 }
 
 double Core::_calculateDeltaTime()
@@ -54,6 +54,3 @@ void Core::showFrameRate(float numesecs)
 {
 
 }
-*/
-
-

@@ -73,6 +73,8 @@ add_library(FrameworkMvdM
 	FrameworkMvdM/entity.cpp
 	FrameworkMvdM/scene.h
 	FrameworkMvdM/scene.cpp
+	FrameworkMvdM/core.h
+	FrameworkMvdM/core.cpp
 )
 
 # Demo

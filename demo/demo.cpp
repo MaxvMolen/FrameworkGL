@@ -16,9 +16,11 @@
 //#include <FrameworkMvdM/camera.h> // not the solution
 #include <FrameworkMvdM/renderer.h>
 #include <FrameworkMvdM/entity.h>
-#include <demo/basicentity.h>
 #include <FrameworkMvdM/sprite.h>
 #include <FrameworkMvdM/camera.h>
+#include <demo/basicentity.h>
+
+#include <demo/scene01.h>
 
 int main(void)
 {
