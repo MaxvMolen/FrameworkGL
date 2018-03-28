@@ -82,7 +82,7 @@ int Renderer::init()
 
 void Renderer::renderScene(Scene* scene) {
 	// Clear the screen
-	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	// get viewMatrix from Camera (Camera position and direction)
 	//_viewMatrix = scene->camera()->viewMatrix();
@@ -94,12 +94,13 @@ void Renderer::renderScene(Scene* scene) {
 	//this->_renderEntity(modelMatrix, scene, scene->camera());
 
 	// Swap buffers
-	//glfwSwapBuffers(_window);
-	//glfwPollEvents();
+	glfwSwapBuffers(_window);
+	glfwPollEvents();
 }
 
 void Renderer::renderEntity(Entity* entity) {
 
+	//this->_renderSprite(modelMatrix, sprite);
 }
 
 void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)

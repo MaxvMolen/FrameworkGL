@@ -49,4 +49,4 @@ private:
 };
 
 
-#endif CORESCENE_H
+#endif /* CORESCENE_H */

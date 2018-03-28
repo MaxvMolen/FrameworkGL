@@ -48,9 +48,6 @@ int main(void)
 		// Clear the screen
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
-		//computeMatricesFromInputs(renderer.window());
-
-		// causes the crash on startup of program
 		computeMatricesFromInputs(renderer.window());
 		//camera->computeMatricesFromInputs(renderer.window());
 
@@ -73,6 +70,8 @@ int main(void)
 	while (glfwGetKey(renderer.window(), GLFW_KEY_ESCAPE) != GLFW_PRESS &&
 		glfwWindowShouldClose(renderer.window()) == 0);
 
+	// cleanup
+
 	// sprites
 	delete pencils;
 	delete kingkong;
@@ -81,6 +80,7 @@ int main(void)
 
 	// entity
 	delete entity;
+
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();
 }

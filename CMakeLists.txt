@@ -82,6 +82,8 @@ add_executable(demo
 	demo/basicentity.h
 	demo/corescene.cpp
 	demo/corescene.h
+	demo/scene01.cpp
+	demo/scene01.h
 )
 target_link_libraries(demo
 	FrameworkMvdM
