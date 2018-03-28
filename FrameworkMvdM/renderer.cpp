@@ -91,16 +91,16 @@ void Renderer::renderScene(Scene* scene) {
 	//glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 	// start rendering everything, starting from the scene 'rootnode'
-	//this->_renderEntity(modelMatrix, scene, scene->camera());
+	//this->renderEntity(modelMatrix, scene, scene->camera());
 
 	// Swap buffers
 	glfwSwapBuffers(_window);
 	glfwPollEvents();
 }
 
-void Renderer::renderEntity(Entity* entity) {
+void Renderer::renderEntity(glm::mat4 modelMatrix, Entity* entity/*, Camera* camera*/) {
 
-	//this->_renderSprite(modelMatrix, sprite);
+	//this->renderSprite(modelMatrix, sprite);
 }
 
 void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)

@@ -26,7 +26,7 @@ public:
 	virtual ~Renderer();
 
 	void renderScene(Scene* scene);
-	void renderEntity(Entity* entity);
+	void renderEntity(glm::mat4 modelMatrix, Entity* entity/*, Camera* camera*/);
 	void renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot);
 
 	GLFWwindow* window() { return _window; };

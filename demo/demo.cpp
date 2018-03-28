@@ -13,7 +13,6 @@
 #include <fstream>
 #include <sstream>
 
-//#include <FrameworkMvdM/camera.h> // not the solution
 #include <FrameworkMvdM/renderer.h>
 #include <FrameworkMvdM/entity.h>
 #include <FrameworkMvdM/sprite.h>
