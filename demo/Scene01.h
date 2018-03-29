@@ -17,6 +17,7 @@
 //#include <glm/gtc/matrix_transform.hpp>
 //#include <glm/gtx/euler_angles.hpp>
 
+#include <FrameworkMvdM/scene.h>
 #include <Demo/corescene.h>
 
 /// @brief The Corescene class
@@ -29,12 +30,12 @@ public:
 	/// @brief update this Corescene. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
-	//virtual void update(float deltaTime) = 0;
+	virtual void update(float deltaTime);
 
 protected:
 
 private:
-
+	BasicEntity* entity;
 };
 
 
