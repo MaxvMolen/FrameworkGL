@@ -56,4 +56,4 @@ private:
 };
 
 
-#endif CORE_H
+#endif /* CORE_H */
