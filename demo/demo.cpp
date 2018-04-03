@@ -56,12 +56,6 @@ int main(void)
 	Sprite* rgba = new Sprite("assets/rgba.tga");
 	//entity
 	Entity* entity = new Entity();
-	Entity* childEntity = new Entity();
-	Entity* childEntity2 = new Entity();
-
-	// add children
-	entity->addChild(childEntity);
-	entity->addChild(childEntity2);
 
 	// add sprite to entity and change its position
 	entity->addSprite("assets/pencils.tga");
