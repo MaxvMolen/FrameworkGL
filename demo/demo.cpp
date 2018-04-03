@@ -54,7 +54,6 @@ int main(void)
 	Sprite* pencils = new Sprite("assets/pencils.tga");
 	Sprite* kingkong = new Sprite("assets/kingkong.tga");
 	Sprite* rgba = new Sprite("assets/rgba.tga");
-	Sprite* rgba2 = new Sprite("assets/rgba.tga");
 	//entity
 	Entity* entity = new Entity();
 	Entity* childEntity = new Entity();
@@ -63,6 +62,11 @@ int main(void)
 	// add children
 	entity->addChild(childEntity);
 	entity->addChild(childEntity2);
+
+	// add sprite to entity and change its position
+	entity->addSprite("assets/pencils.tga");
+	entity->position.x = 500;
+	entity->position.y = 75;
 
 	float rot_z = 0.0f;
 
@@ -85,7 +89,6 @@ int main(void)
 		// Render all Sprites (Sprite*, xpos, ypos, xscale, yscale, rotation)
 		renderer.renderSprite(pencils, 400, 300, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(kingkong, 900, 400, 1.0f, 1.0f, 0.0f);
-		renderer.renderSprite(rgba2, 100, 200, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(rgba, renderer.width() / 2, renderer.height() / 2, 3.0f, 3.0f, rot_z);
 		rot_z += 0.13f * deltaTime; // rotatate sprite rgba
 
@@ -108,7 +111,6 @@ int main(void)
 	delete pencils;
 	delete kingkong;
 	delete rgba;
-	delete rgba2;
 
 	// entity
 	delete entity;
