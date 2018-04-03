@@ -101,6 +101,10 @@ void Renderer::renderScene(Scene* scene) {
 void Renderer::renderEntity(/*glm::mat4 modelMatrix,*/ Entity* entity/*, Camera* camera*/) {
 
 	//std::cout << "Rendering entity" << std::endl;
+	//std::cout << entity->position.x << std::endl; //position x off entity
+	//std::cout << entity->position.y << std::endl; //position y off entity
+
+
 	glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 	glm::vec3 position = glm::vec3(entity->position.x, entity->position.y, entity->position.z);
@@ -129,9 +133,9 @@ void Renderer::renderEntity(/*glm::mat4 modelMatrix,*/ Entity* entity/*, Camera*
 	std::vector<Entity*>::iterator child;
 	for (child = children.begin(); child != children.end(); child++) {
 		this->renderEntity(/*modelMatrix,*/ *child/*, camera*/);
+		//print the number of children it has if it has any
+		//std::cout << children.size() << std::endl;
 	}
-	//std::cout << entity->position.x << std::endl; position x off entity
-	//std::cout << entity->position.y << std::endl; position y off entity
 }
 
 void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)

@@ -57,6 +57,12 @@ int main(void)
 	Sprite* rgba2 = new Sprite("assets/rgba.tga");
 	//entity
 	Entity* entity = new Entity();
+	Entity* childEntity = new Entity();
+	Entity* childEntity2 = new Entity();
+
+	// add children
+	entity->addChild(childEntity);
+	entity->addChild(childEntity2);
 
 	float rot_z = 0.0f;
 
