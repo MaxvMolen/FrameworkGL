@@ -59,10 +59,6 @@ public:
 	/// @brief get the Sprite of this Entity
 	/// @return Sprite* _sprite
 	Sprite* sprite() { return _sprite; };
-	/// @brief add an Sprite to this Entity by Sprite*
-	/// @param spr A pointer to a sprite
-	/// @return void
-	//void addSprite(Sprite* spr);
 	/// @brief add an Sprite to this Entity
 	/// @param filename the filename of the image that you want to add
 	/// @return void
@@ -73,36 +69,6 @@ public:
 	/// @param pivoty the y component of the pivotpoint
 	/// @return void
 	void addSprite(const std::string& filename, float pivotx, float pivoty);
-
-	/*
-	// line
-	/// @brief get the Line from this Entity.
-	/// @return Line* _line
-	Line* line() {
-		if (_line != NULL) {
-			return _line;
-		}
-		else {
-			if (_linebatch.size() > 0) {
-				return &_linebatch[0];
-			}
-		}
-		return NULL;
-	}
-	/// @brief add a Line to this Entity by Line*.
-	/// @param line A pointer to a Line.
-	/// @return void
-	void addLine(Line* line);
-	/// @brief add a Line to this Entity.
-	/// @param filename The filename of the line you want to add.
-	/// @return void
-	void addLine(const std::string& filename);
-	*/
-	/*
-	/// @brief get the linebatch of this Entity.
-	/// @return std::vector<Line>& _linebatch
-	std::vector<Line>& linebatch() { return _linebatch; };
-	*/
 
 	/// @brief get the parent of this Entity
 	/// @return entity* _parent
@@ -127,13 +93,6 @@ public:
 
 protected:
 
-	// world position,rotation and scale of this Entity
-	//glm::vec3 _worldposition;
-	//glm::vec3 _worldrotation;
-	//glm::vec3 _worldscale;
-
-	//std::vector<Line> _linebatch; ///< @brief The _linebatch of this Entity
-
 private:
 
 	// parent
@@ -142,9 +101,6 @@ private:
 
 	// sprite
 	Sprite* _sprite; ///< @brief The _sprite of this entity
-
-	// line
-	//Line* _line; ///< @brief The _line of this entity
 
 	// input
 	Input* _input; ///< @brief The Input
@@ -157,22 +113,6 @@ private:
 			_sprite = NULL;
 		}
 	}
-
-	/// @brief delete the line of this Entity
-	/// @return void
-	/*void deleteLine() {
-		if (_line != NULL) {
-			delete _line;
-			_line = NULL;
-		}
-	}
-
-	/// @brief delete the Linebatch of this Entity.
-	/// @return void
-	void deleteLinebatch() {
-		_linebatch.clear();
-	}
-	*/
 };
 
 
