@@ -58,9 +58,6 @@ int main(void)
 	//entity
 	Entity* entity = new Entity();
 	//BasicEntity* entity = new BasicEntity();
-	//entity->addSprite("assets/rgba.tga");
-
-	//Camera* camera = new Camera();
 
 	float rot_z = 0.0f;
 

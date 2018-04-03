@@ -100,7 +100,34 @@ void Renderer::renderScene(Scene* scene) {
 
 void Renderer::renderEntity(glm::mat4 modelMatrix, Entity* entity/*, Camera* camera*/) {
 
-	//this->renderSprite(modelMatrix, sprite);
+	glm::vec3 position = glm::vec3(entity->position.x, entity->position.y, entity->position.z);
+	glm::vec3 rotation = glm::vec3(entity->rotation.x, entity->rotation.y, entity->rotation.z);
+	glm::vec3 scale = glm::vec3(entity->scale.x, entity->scale.y, entity->scale.z);
+	
+	// Build the Model matrix
+	glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), position);
+	glm::mat4 rotationMatrix = glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
+	glm::mat4 scalingMatrix = glm::scale(glm::mat4(1.0f), scale);
+	
+	glm::mat4 mm = translationMatrix * rotationMatrix * scalingMatrix;
+
+	// multiply ModelMatrix for this entity with the ModelMatrix of its parent (the caller of this method)
+	// the first time we do this (for the root-parent), modelMatrix is identity.
+	modelMatrix *= mm;
+
+	// Check for Sprites to see if we need to render anything
+	Sprite* sprite = entity->sprite();
+	if (sprite != NULL) {
+		//this->renderSprite(modelMatrix, sprite);
+	}
+
+	// Render all Children (recursively)
+	std::vector<Entity*> children = entity->children();
+	std::vector<Entity*>::iterator child;
+	for (child = children.begin(); child != children.end(); child++) {
+		//this->renderEntity(modelMatrix, *child, camera);
+	}
+
 }
 
 void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)
