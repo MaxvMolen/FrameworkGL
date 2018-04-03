@@ -32,7 +32,7 @@ public:
 	/// @brief update this Corescene. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
-	virtual void update(float deltaTime) = 0;
+	virtual void update(float deltaTime);
 	/// @brief quit will close the program
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
