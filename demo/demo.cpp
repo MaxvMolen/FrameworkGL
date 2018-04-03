@@ -57,7 +57,6 @@ int main(void)
 	Sprite* rgba2 = new Sprite("assets/rgba.tga");
 	//entity
 	Entity* entity = new Entity();
-	//BasicEntity* entity = new BasicEntity();
 
 	float rot_z = 0.0f;
 
@@ -82,7 +81,10 @@ int main(void)
 		renderer.renderSprite(kingkong, 900, 400, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(rgba2, 100, 200, 1.0f, 1.0f, 0.0f);
 		renderer.renderSprite(rgba, renderer.width() / 2, renderer.height() / 2, 3.0f, 3.0f, rot_z);
-		rot_z += 0.13f * deltaTime;
+		rot_z += 0.13f * deltaTime; // rotatate sprite rgba
+
+		// render entity
+		renderer.renderEntity(entity);
 
 		// Swap buffers
 		glfwSwapBuffers(renderer.window());
