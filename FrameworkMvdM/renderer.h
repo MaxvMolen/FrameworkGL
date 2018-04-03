@@ -16,7 +16,6 @@
 
 #include <FrameworkMvdM/entity.h>
 #include <FrameworkMvdM/sprite.h>
-//#include <FrameworkMvdM/camera.h>
 #include <FrameworkMvdM/scene.h>
 
 class Renderer
@@ -34,10 +33,6 @@ public:
 	unsigned int width() { return _window_width; };
 	unsigned int height() { return _window_height; };
 
-	/// @brief get a pointer to the Camera
-	/// @return Camera* a pointer to the Camera
-	//Camera* camera() { return _camera; };
-
 private:
 	int init();
 
@@ -49,8 +44,6 @@ private:
 		const char* vertex_file_path,
 		const char* fragment_file_path
 	);
-
-	//Camera* _camera; ///< @brief the Camera instance
 
 	GLuint _programID;
 

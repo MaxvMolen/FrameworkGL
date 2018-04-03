@@ -54,13 +54,14 @@ int main(void)
 	Sprite* pencils = new Sprite("assets/pencils.tga");
 	Sprite* kingkong = new Sprite("assets/kingkong.tga");
 	Sprite* rgba = new Sprite("assets/rgba.tga");
+
 	//entity
 	Entity* entity = new Entity();
-
-	// add sprite to entity and change its position
+	// add sprite to entity and change its position and rotation
 	entity->addSprite("assets/pencils.tga");
 	entity->position.x = 500;
 	entity->position.y = 75;
+	entity->rotation.x = 1.57;
 
 	float rot_z = 0.0f;
 
@@ -76,7 +77,6 @@ int main(void)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
 		computeMatricesFromInputs(renderer.window());
-		//camera->computeMatricesFromInputs(renderer.window());
 
 		//glm::vec3 cursor = getCursor(); // from Camera
 		//printf("(%f,%f)\n",cursor.x, cursor.y);
@@ -88,6 +88,7 @@ int main(void)
 
 		// render entity
 		renderer.renderEntity(entity);
+		entity->rotation.x += 0.3 * deltaTime; // rotate entity
 
 		// Swap buffers
 		glfwSwapBuffers(renderer.window());

@@ -91,7 +91,7 @@ void Renderer::renderScene(Scene* scene) {
 	//glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 	// start rendering everything, starting from the scene 'rootnode'
-	//this->renderEntity(modelMatrix, scene, scene->camera());
+	this->renderEntity(/*modelMatrix,*/ scene/*, scene->camera()*/);
 
 	// Swap buffers
 	glfwSwapBuffers(_window);
