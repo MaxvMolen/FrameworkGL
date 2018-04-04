@@ -13,6 +13,7 @@
 #include <FrameworkMvdM/entity.h>
 #include <FrameworkMvdM/sprite.h>
 #include <FrameworkMvdM/scene.h>
+#include <FrameworkMvdM/mvdmconfig.h>
 
 class Renderer
 {

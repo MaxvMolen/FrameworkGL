@@ -75,6 +75,7 @@ add_library(FrameworkMvdM
 	FrameworkMvdM/scene.cpp
 	FrameworkMvdM/core.h
 	FrameworkMvdM/core.cpp
+	FrameworkMvdM/mvdmconfig.h
 )
 
 # Demo

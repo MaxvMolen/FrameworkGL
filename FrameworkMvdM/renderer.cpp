@@ -15,8 +15,8 @@
 
 Renderer::Renderer(/*unsigned int w, unsigned int h*/)
 {
-	_window_width = 1280;
-	_window_height = 720;
+	_window_width = SWIDTH;
+	_window_height = SHEIGHT;
 
 	this->init();
 }
@@ -41,7 +41,7 @@ int Renderer::init()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 
 	// Open a window and create its OpenGL context
-	_window = glfwCreateWindow(_window_width, _window_height, "Demo", NULL, NULL);
+	_window = glfwCreateWindow(_window_width, _window_height, WINDOWNAME, NULL, NULL);
 	if (_window == NULL) {
 		fprintf(stderr, "Failed to open GLFW window.\n");
 		glfwTerminate();
@@ -59,7 +59,7 @@ int Renderer::init()
 	glfwSetInputMode(_window, GLFW_STICKY_KEYS, GL_TRUE);
 
 	// Dark blue background
-	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+	glClearColor(0.7f, 0.2f, 0.1f, 0.0f);
 
 	// Enable depth test
 	//glEnable(GL_DEPTH_TEST);
