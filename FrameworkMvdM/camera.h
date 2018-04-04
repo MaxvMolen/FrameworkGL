@@ -36,9 +36,6 @@ private:
 
 	glm::mat4 _viewMatrix;
 
-	//glm::vec3 offset;
-
-	//glm::vec3 direction; ///< @brief The up vector of the Camera.
 	glm::vec3 up; ///< @brief The up vector of the Camera.
 	glm::vec3 right; ///< @brief The right vector of the Camera.
 

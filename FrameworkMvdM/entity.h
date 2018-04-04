@@ -74,22 +74,9 @@ public:
 	/// @return entity* _parent
 	Entity* parent() { return _parent; };
 
-	// world position,rotation and scale
-	/// @brief get the worldposition of this Entity
-	/// @return glm::vec3 _worldposition
-	//glm::vec3 worldposition() { return _worldposition; };
-	/// @brief get the worldrotation of this Entity
-	/// @return glm::vec3 _worldrotation
-	//glm::vec3 worldrotation() { return _worldrotation; };
-	/// @brief get the worldscale of this Entity
-	/// @return glm::vec3 _worldscale
-	//glm::vec3 worldscale() { return _worldscale; };
-
 	/// @brief get a pointer to the Input
 	/// @return Input* a pointer to the Input
 	Input* input() { return _input; };
-
-	//friend class Renderer;
 
 protected:
 

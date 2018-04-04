@@ -134,8 +134,6 @@ void Renderer::renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camer
 
 void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)
 {
-	//std::cout << "sprite" << std::endl;
-
 	glm::mat4 viewMatrix = _viewMatrix; // get from Camera (Camera position and direction)
 	glm::mat4 modelMatrix = glm::mat4(1.0f);
 
