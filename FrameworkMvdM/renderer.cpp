@@ -13,10 +13,10 @@
 #include <FrameworkMvdM/camera.h>
 #include <FrameworkMvdM/renderer.h>
 
-Renderer::Renderer(unsigned int w, unsigned int h)
+Renderer::Renderer(/*unsigned int w, unsigned int h*/)
 {
-	_window_width = w;
-	_window_height = h;
+	_window_width = 1280;
+	_window_height = 720;
 
 	this->init();
 }
@@ -85,22 +85,21 @@ void Renderer::renderScene(Scene* scene) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	// get viewMatrix from Camera (Camera position and direction)
-	//_viewMatrix = scene->camera()->viewMatrix();
+	_viewMatrix = scene->camera()->getViewMatrix();
 
 	// 'root' scene node has identity Matrix
-	//glm::mat4 modelMatrix = glm::mat4(1.0f);
+	glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 	// start rendering everything, starting from the scene 'rootnode'
-	this->renderEntity(/*modelMatrix,*/ scene/*, scene->camera()*/);
+	this->renderEntity(modelMatrix, scene, scene->camera());
 
 	// Swap buffers
 	glfwSwapBuffers(_window);
 	glfwPollEvents();
 }
 
-void Renderer::renderEntity(/*glm::mat4 modelMatrix,*/ Entity* entity/*, Camera* camera*/) {
-
-	glm::mat4 modelMatrix = glm::mat4(1.0f);
+void Renderer::renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camera) {
+	//glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 	glm::vec3 position = glm::vec3(entity->position.x, entity->position.y, entity->position.z);
 	glm::vec3 rotation = glm::vec3(entity->rotation.x, entity->rotation.y, entity->rotation.z);
@@ -127,7 +126,7 @@ void Renderer::renderEntity(/*glm::mat4 modelMatrix,*/ Entity* entity/*, Camera*
 	std::vector<Entity*> children = entity->children();
 	std::vector<Entity*>::iterator child;
 	for (child = children.begin(); child != children.end(); child++) {
-		this->renderEntity(/*modelMatrix,*/ *child/*, camera*/);
+		this->renderEntity(modelMatrix, *child, camera);
 		//print the number of children it has if it has any
 		//std::cout << children.size() << std::endl;
 	}
@@ -135,7 +134,9 @@ void Renderer::renderEntity(/*glm::mat4 modelMatrix,*/ Entity* entity/*, Camera*
 
 void Renderer::renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot)
 {
-	glm::mat4 viewMatrix = getViewMatrix(); // get from Camera (Camera position and direction)
+	//std::cout << "sprite" << std::endl;
+
+	glm::mat4 viewMatrix = _viewMatrix; // get from Camera (Camera position and direction)
 	glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 	// Build the Model matrix

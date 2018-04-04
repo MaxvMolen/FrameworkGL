@@ -5,67 +5,62 @@
 */
 #include <FrameworkMvdM/camera.h>
 
-glm::mat4 _viewMatrix;
+Camera::Camera() {
+	position = glm::vec3(0, 0, 5);
+	//rotation = glm::vec3(0, 0, 0);
+	cursor = glm::vec3(0, 0, 0);
 
-glm::vec3 position = glm::vec3(0, 0, 5);
-glm::vec3 cursor = glm::vec3(0, 0, 0);
-
-glm::mat4 getViewMatrix() {
-	return _viewMatrix;
+	//direction = glm::vec3(0, 0, -5);
+	right = glm::vec3(1, 0, 0);
+	up = glm::vec3(0, 1, 0);
 }
 
-glm::vec3 getCursor() {
-	return cursor;
-}
-
-float speed = 300.0f; // 300 units / second
-/*
-void getViewMatrix() {
-
-}
-*/
-void computeMatricesFromInputs(GLFWwindow* window)
+Camera::~Camera()
 {
-	// glfwGetTime is called only once, the first time this function is called
-	static double lastTime = glfwGetTime();
 
-	// Compute time difference between current and last frame
-	double currentTime = glfwGetTime();
-	float deltaTime = float(currentTime - lastTime);
+}
 
-	// Get mouse position
-	double xpos, ypos;
-	glfwGetCursorPos(window, &xpos, &ypos);
-	cursor = glm::vec3(xpos, ypos, 0);
-
-	// Right and Down vector
-	glm::vec3 right = glm::vec3(1, 0, 0);
-	glm::vec3 up = glm::vec3(0, -1, 0);
-
-	// Move up
-	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
-		position += up * deltaTime * speed;
-	}
-	// Move down
-	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
-		position -= up * deltaTime * speed;
-	}
-	// Strafe right
-	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
-		position += right * deltaTime * speed;
-	}
-	// Strafe left
-	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
-		position -= right * deltaTime * speed;
-	}
-
+void Camera::update(float deltaTime) {
 	// View matrix
 	_viewMatrix = glm::lookAt(
 		position, // Camera is at (xpos,ypos,5), in World Space
 		position + glm::vec3(0, 0, -5), // and looks towards Z
-		glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
+		up  // Head is up (set to 0,-1,0 to look upside-down)
 	);
-
-	// For the next frame, the "last time" will be "now"
-	lastTime = currentTime;
 }
+
+/*
+void Camera::update(float deltaTime)
+{
+	// Direction vector: Spherical coordinates to Cartesian coordinates conversion
+	direction = glm::vec3(
+		cos(rotation.x) * sin(rotation.y),
+		sin(rotation.x),
+		cos(rotation.x) * cos(rotation.y)
+	);
+	//_direction = glm::vec3(0, 0, -5);
+
+	// Right vector
+	right = glm::vec3(
+		sin(rotation.y - 1.5707963267948966192313216916398),
+		0,
+		cos(rotation.y - 1.5707963267948966192313216916398)
+	);
+	right = glm::rotateZ(right, rotation.z*(float)57.295779513082320876798154814105); // rotateZ() in Degrees
+																 //_right = glm::vec3(1, 0, 0);
+
+																 // Up vector
+	up = glm::cross(right, direction);
+	//_up = glm::vec3(0, 1, 0);
+
+	glm::vec3 pos = glm::vec3(position.x, position.y, position.z);
+	glm::vec3 offset = glm::vec3(offset.x, offset.y, offset.z);
+
+	// View matrix
+	_viewMatrix = glm::lookAt(
+		pos - offset, // Camera is at (xpos,ypos,1), in World Space
+		pos - offset + direction, // and looks towards Z
+		up  // Head is up
+	);
+}
+*/

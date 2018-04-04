@@ -9,14 +9,14 @@
 Scene::Scene() : Entity()
 {
 	std::cout << "new scene" << std::endl;
-	//_camera = new Camera();
+	_camera = new Camera();
 	
 	_isRunning = true;
 }
 
 Scene::~Scene()
 {
-	//delete _camera;
+	delete _camera;
 }
 
 void Scene::update(float deltaTime) {
@@ -25,7 +25,7 @@ void Scene::update(float deltaTime) {
 
 void Scene::_updateEntity(Entity* entity, float deltaTime) {
 	// call the update() of this entity
-	//entity->update(deltaTime);
+	entity->update(deltaTime);
 
 	// update() all the children of this entity
 	std::vector<Entity*> children = entity->children();

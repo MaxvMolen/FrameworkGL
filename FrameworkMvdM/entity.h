@@ -36,7 +36,7 @@ public:
 	/// @brief update this Entity. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
-	//virtual void update(float deltaTime) = 0;
+	virtual void update(float deltaTime) {};
 
 	// children
 	/// @brief add an child to this Entity

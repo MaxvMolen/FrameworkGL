@@ -22,16 +22,16 @@ void Core::run(Scene* scene)
 	_calculateDeltaTime();
 
 	// Update camera instance in Scene
-	//scene->camera()->update((float)_deltaTime);
+	scene->camera()->update((float)_deltaTime);
 
 	// Update Scene (and recursively all children)
 	scene->update((float)_deltaTime);
 
 	// Render Scene
-	//_renderer.renderScene(scene);
+	_renderer.renderScene(scene);
 
 	// user clicked the 'close' button in the window
-	//if (glfwWindowShouldClose(_renderer.window()) == 1) { scene->stop(); }
+	if (glfwWindowShouldClose(_renderer.window()) == 1) { scene->stop(); }
 }
 
 double Core::_calculateDeltaTime()
@@ -49,8 +49,16 @@ void Core::cleanup()
 
 }
 
-
-void Core::showFrameRate(float numesecs)
+void Core::showFrameRate(float numsecs)
 {
+	static int frames = 0;
+	static double time = 0;
 
+	frames++;
+	time += _deltaTime;
+	if (time >= numsecs) {
+		printf("%f ms/frame (%f FPS)\n", (numsecs * 1000) / double(frames), frames / numsecs);
+		frames = 0;
+		time = 0;
+	}
 }

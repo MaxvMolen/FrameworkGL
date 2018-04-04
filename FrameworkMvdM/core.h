@@ -49,7 +49,7 @@ public:
 	void showFrameRate(float numesecs);
 
 private:
-	//Renderer _renderer; ///< @brief The Renderer
+	Renderer _renderer; ///< @brief The Renderer
 
 	double _calculateDeltaTime(); ///< @brief updates deltaTime internally
 	double _deltaTime; ///< @brief deltaTime
