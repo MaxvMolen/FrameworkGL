@@ -36,7 +36,7 @@ protected:
 
 private:
 	Entity* entity;
-	Entity* sceneEntity;
+	BasicEntity* basicEntity;
 };
 
 

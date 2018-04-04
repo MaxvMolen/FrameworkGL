@@ -13,16 +13,16 @@ Scene01::Scene01() : CoreScene()
 	entity->position = glm::vec3(200.0f, 100.0f, 0.0f);
 	this->addChild(entity);
 
-	sceneEntity = new Entity();
-	sceneEntity->addSprite("assets/pencils.tga");
-	sceneEntity->position = glm::vec3(0.0f, 0.0f, 0.0f);
-	this->addChild(sceneEntity);
+	basicEntity = new BasicEntity();
+	basicEntity->addSprite("assets/kingkong.tga");
+	basicEntity->position = glm::vec3(700, 100, 0.0f);
+	this->addChild(basicEntity);
 }
 
 Scene01::~Scene01()
 {
 	delete entity;
-	delete sceneEntity;
+	delete basicEntity;
 }
 
 
