@@ -30,7 +30,7 @@ public:
 	/// @param entity the entity that you want to render
 	/// @return void
 	void renderEntity(glm::mat4 modelMatrix, Entity* entity);
-	/// @brief render the a sprite
+	/// @brief render the given sprite
 	/// @param sprite the spirte that you want to render
 	/// @param px the x position of the sprite
 	/// @param py the y position of the sprite

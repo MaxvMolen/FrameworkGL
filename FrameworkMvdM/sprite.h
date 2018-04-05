@@ -24,7 +24,7 @@ class Sprite
 		GLuint vertexbuffer() { return _vertexbuffer; };
 		GLuint uvbuffer() { return _uvbuffer; };
 
-		void setupSprite(const std::string& filename, float pivotx, float pivoty, float uvwidth, float uvheight);
+		void setupSprite(const std::string& filename);
 
 		unsigned int width() { return _width; };
 		unsigned int height() { return _height; };

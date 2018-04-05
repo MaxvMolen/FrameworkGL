@@ -197,11 +197,6 @@ GLuint Sprite::loadTGA(const std::string& imagepath)
 	return textureID;
 }
 
-void Sprite::setupSprite(const std::string& filename, float pivotx, float pivoty, float uvwidth, float uvheight) {
+void Sprite::setupSprite(const std::string& filename) {
 	_texturename = filename;
-	pivot.x = pivotx;
-	pivot.y = pivoty;
-
-	uvdim.x = uvwidth;
-	uvdim.y = uvheight;
 }

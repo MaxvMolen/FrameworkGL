@@ -58,5 +58,5 @@ void Entity::addSprite(const std ::string& filename) {
 void Entity::addSprite(const std::string& filename, float pivotx, float pivoty) {
 	deleteSprite();
 	_sprite = new Sprite(filename);
-	_sprite->setupSprite(filename, pivotx, pivoty , 1.0f, 1.0f);
+	_sprite->setupSprite(filename);
 }
