@@ -63,12 +63,6 @@ public:
 	/// @param filename the filename of the image that you want to add
 	/// @return void
 	void addSprite(const std::string& filename);
-	/// @brief add an sprite to this Entity
-	/// @param filename the filename of the image that you want to add
-	/// @param pivotx the x component of the pivotpoint
-	/// @param pivoty the y component of the pivotpoint
-	/// @return void
-	void addSprite(const std::string& filename, float pivotx, float pivoty);
 
 	/// @brief get the parent of this Entity
 	/// @return entity* _parent

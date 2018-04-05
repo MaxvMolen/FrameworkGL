@@ -52,10 +52,6 @@ Entity* Entity::getChild(unsigned int i) {
 }
 
 void Entity::addSprite(const std ::string& filename) {
-	this->addSprite(filename, 0.5f, 0.5f);
-}
-
-void Entity::addSprite(const std::string& filename, float pivotx, float pivoty) {
 	deleteSprite();
 	_sprite = new Sprite(filename);
 	_sprite->setupSprite(filename);
