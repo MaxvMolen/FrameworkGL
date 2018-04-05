@@ -8,21 +8,27 @@
 
 Scene01::Scene01() : CoreScene()
 {
-	entity = new Entity();
-	entity->addSprite("assets/rgba.tga");
-	entity->position = glm::vec3(200, 200, 0);
-	this->addChild(entity);
+	rgba = new BasicEntity();
+	rgba->addSprite("assets/rgba.tga");
+	rgba->position = glm::vec3(200, 200, 0);
+	this->addChild(rgba);
 
-	basicEntity = new BasicEntity();
-	basicEntity->addSprite("assets/kingkong.tga");
-	basicEntity->position = glm::vec3(700, 200, 0);
-	this->addChild(basicEntity);
+	kingkong = new BasicEntity();
+	kingkong->addSprite("assets/kingkong.tga");
+	kingkong->position = glm::vec3(400, 200, 0);
+	this->addChild(kingkong);
+
+	pencils = new BasicEntity();
+	pencils->addSprite("assets/pencils.tga");
+	pencils->position = glm::vec3(600, 200, 0);
+	this->addChild(pencils);
 }
 
 Scene01::~Scene01()
 {
-	delete entity;
-	delete basicEntity;
+	delete rgba;
+	delete kingkong;
+	delete pencils;
 }
 
 void Scene01::update(float deltaTime) {

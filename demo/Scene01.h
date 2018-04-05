@@ -33,8 +33,9 @@ public:
 protected:
 
 private:
-	Entity* entity;
-	BasicEntity* basicEntity;
+	BasicEntity* rgba;
+	BasicEntity* kingkong;
+	BasicEntity* pencils;
 };
 
 
