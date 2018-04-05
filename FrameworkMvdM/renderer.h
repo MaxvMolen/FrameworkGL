@@ -21,14 +21,28 @@ public:
 	Renderer();
 	virtual ~Renderer();
 
+	/// @brief render the scene and its children
+	/// @param scene the scene that you want to render
+	/// @return void
 	void renderScene(Scene* scene);
-	void renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camera);
+	/// @brief render the entity and its children
+	/// @param modelmatrix the modelmatrix of the parent
+	/// @param entity the entity that you want to render
+	/// @return void
+	void renderEntity(glm::mat4 modelMatrix, Entity* entity);
+	/// @brief render the a sprite
+	/// @param sprite the spirte that you want to render
+	/// @param px the x position of the sprite
+	/// @param py the y position of the sprite
+	/// @param sx the x scale of the sprite
+	/// @param sy the y scale of the sprite
+	/// @param rot the rotation scale of the sprite
+	/// @return void
 	void renderSprite(Sprite* sprite, float px, float py, float sx, float sy, float rot);
 
+	/// @brief access the GLFWwindow.
+	/// @return GLFWwindow* _window
 	GLFWwindow* window() { return _window; };
-
-	unsigned int width() { return _window_width; };
-	unsigned int height() { return _window_height; };
 
 private:
 	int init();

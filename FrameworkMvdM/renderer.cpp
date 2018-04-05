@@ -49,6 +49,9 @@ int Renderer::init()
 	}
 	glfwMakeContextCurrent(_window);
 
+	// vsync (0=off, 1=on)
+	glfwSwapInterval(VSYNC);
+
 	// Initialize GLEW
 	if (glewInit() != GLEW_OK) {
 		fprintf(stderr, "Failed to initialize GLEW\n");
@@ -91,14 +94,14 @@ void Renderer::renderScene(Scene* scene) {
 	glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 	// start rendering everything, starting from the scene 'rootnode'
-	this->renderEntity(modelMatrix, scene, scene->camera());
+	this->renderEntity(modelMatrix, scene);
 
 	// Swap buffers
 	glfwSwapBuffers(_window);
 	glfwPollEvents();
 }
 
-void Renderer::renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camera) {
+void Renderer::renderEntity(glm::mat4 modelMatrix, Entity* entity) {
 	//glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 	glm::vec3 position = glm::vec3(entity->position.x, entity->position.y, entity->position.z);
@@ -126,7 +129,7 @@ void Renderer::renderEntity(glm::mat4 modelMatrix, Entity* entity, Camera* camer
 	std::vector<Entity*> children = entity->children();
 	std::vector<Entity*>::iterator child;
 	for (child = children.begin(); child != children.end(); child++) {
-		this->renderEntity(modelMatrix, *child, camera);
+		this->renderEntity(modelMatrix, *child);
 		//print the number of children it has if it has any
 		//std::cout << children.size() << std::endl;
 	}
