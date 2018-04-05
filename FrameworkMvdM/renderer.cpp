@@ -13,7 +13,7 @@
 #include <FrameworkMvdM/camera.h>
 #include <FrameworkMvdM/renderer.h>
 
-Renderer::Renderer(/*unsigned int w, unsigned int h*/)
+Renderer::Renderer()
 {
 	_window_width = SWIDTH;
 	_window_height = SHEIGHT;
@@ -59,7 +59,7 @@ int Renderer::init()
 	glfwSetInputMode(_window, GLFW_STICKY_KEYS, GL_TRUE);
 
 	// Dark blue background
-	glClearColor(0.7f, 0.2f, 0.1f, 0.0f);
+	glClearColor(CLEARCOLOR_RED, CLEARCOLOR_GREEN, CLEARCOLOR_BLUE, 0.0f);
 
 	// Enable depth test
 	//glEnable(GL_DEPTH_TEST);

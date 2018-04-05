@@ -25,7 +25,6 @@ Scene01::~Scene01()
 	delete basicEntity;
 }
 
-
 void Scene01::update(float deltaTime) {
 
 }

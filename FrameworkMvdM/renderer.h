@@ -18,7 +18,7 @@
 class Renderer
 {
 public:
-	Renderer(/*unsigned int w, unsigned int h*/);
+	Renderer();
 	virtual ~Renderer();
 
 	void renderScene(Scene* scene);
