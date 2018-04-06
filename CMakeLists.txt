@@ -80,7 +80,7 @@ add_library(FrameworkMvdM
 
 # Demo
 add_executable(demo
-	demo/demo.cpp
+	demo/main.cpp
 	demo/basicentity.cpp
 	demo/basicentity.h
 	demo/corescene.cpp

@@ -1,3 +1,9 @@
+/**
+* @file mvdmconfig.h
+*
+* @brief The mvdmconfig header file.
+*/
+
 #ifndef CONFIG_H
 #define CONFIG_H
 
