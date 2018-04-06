@@ -32,6 +32,8 @@ void Core::run(Scene* scene)
 
 	// user clicked the 'close' button in the window
 	if (glfwWindowShouldClose(_renderer.window()) == 1) { scene->stop(); }
+	if (glfwGetKey(_renderer.window(), GLFW_KEY_ESCAPE) == GLFW_PRESS &&
+		glfwWindowShouldClose(_renderer.window()) == 0) { scene->stop(); }
 }
 
 double Core::_calculateDeltaTime()
