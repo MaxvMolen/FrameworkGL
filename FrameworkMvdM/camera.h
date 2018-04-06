@@ -20,26 +20,24 @@ public:
 	Camera();///< @brief Constructor of an Camera
 	virtual ~Camera();///< @brief Destructor of an Camera
 
-	glm::vec3 position;
-	glm::vec3 rotation;
+	glm::vec3 position; ///< the position of the Camera
+	glm::vec3 rotation; ///< the rotation of the Camera
 
 	/// @brief update this Camera. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
 	virtual void update(float deltaTime);
 
+	/// @brief get the viewMatrix of the Camera
+	/// @return glm::mat4 _viewMatrix
 	glm::mat4 getViewMatrix() { return _viewMatrix; };
-
-	glm::vec3 getCursor() { return cursor; };
 
 private:
 
-	glm::mat4 _viewMatrix;
+	glm::mat4 _viewMatrix; ///< the viewMatrix of the Camera
 
 	glm::vec3 up; ///< @brief The up vector of the Camera.
 	glm::vec3 right; ///< @brief The right vector of the Camera.
-
-	glm::vec3 cursor;
 };
 
 #endif /* CAMERA_H */

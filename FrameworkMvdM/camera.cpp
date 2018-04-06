@@ -7,8 +7,6 @@
 
 Camera::Camera() {
 	position = glm::vec3(0, 0, 5);
-	//rotation = glm::vec3(0, 0, 0);
-	cursor = glm::vec3(0, 0, 0);
 
 	right = glm::vec3(1, 0, 0);
 	up = glm::vec3(0, 1, 0);

@@ -16,6 +16,7 @@ Scene01::Scene01() : CoreScene()
 	kingkong = new BasicEntity();
 	kingkong->addSprite("assets/kingkong.tga");
 	kingkong->position = glm::vec3(400, 200, 0);
+	//kingkong->scale = glm::vec3(1, 1, 1);
 	this->addChild(kingkong);
 
 	pencils = new BasicEntity();
