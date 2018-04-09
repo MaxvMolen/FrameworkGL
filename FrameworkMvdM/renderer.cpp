@@ -102,7 +102,6 @@ void Renderer::renderScene(Scene* scene) {
 }
 
 void Renderer::renderEntity(glm::mat4 modelMatrix, Entity* entity) {
-	//glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 	glm::vec3 position = glm::vec3(entity->position.x, entity->position.y, entity->position.z);
 	glm::vec3 rotation = glm::vec3(entity->rotation.x, entity->rotation.y, entity->rotation.z);
@@ -131,7 +130,6 @@ void Renderer::renderEntity(glm::mat4 modelMatrix, Entity* entity) {
 	for (child = children.begin(); child != children.end(); child++) {
 		this->renderEntity(modelMatrix, *child);
 		//print the number of children it has if it has any
-		//std::cout << children.size() << std::endl;
 	}
 }
 

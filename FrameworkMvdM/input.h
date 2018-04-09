@@ -142,13 +142,31 @@ public:
 	Input();///< @brief Constructor of an Input
 	virtual ~Input();///< @brief Destructor of an Input
 
-	/// @brief update this Input. This function is Pure virtual. User MUST implement this in subclass.
-	/// @param deltaTime The time that's passed since the last update.
-	/// @return void
-	virtual void update(float deltaTime) = 0;
+	void updateInput(GLFWwindow* window);
 
+	// mouse
+	/// @brief get X position of the Mouse
+	/// @return _mouseX as double
+	double getMouseX() { return _mouseX; }
+	/// @brief get Y position of the Mouse
+	/// @return _mouseY as double
+	double getMouseY() { return _mouseY; }
+
+	// window size
+	/// @brief get width of the window
+	/// @return _windowWidth as int
+	int getWindowWidth() { return _windowWidth; }
+	/// @brief get height of the window
+	/// @return _windowHeight as int
+	int getWindowHeight() { return _windowHeight; }
 private:
+	GLFWwindow* _window; ///< @brief GLFWwindow* _window
 
+	double _mouseX; ///< @brief X position of the Mouse
+	double _mouseY; ///< @brief Y position of the Mouse
+
+	int _windowWidth; ///< @brief Width of the window
+	int _windowHeight; ///< @brief Height of the window
 };
 
 
