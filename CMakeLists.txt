@@ -87,6 +87,8 @@ add_executable(demo
 	demo/corescene.h
 	demo/scene01.cpp
 	demo/scene01.h
+	demo/scene02.cpp
+	demo/scene02.h
 )
 target_link_libraries(demo
 	FrameworkMvdM

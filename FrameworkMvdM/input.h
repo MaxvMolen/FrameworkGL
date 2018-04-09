@@ -144,6 +144,12 @@ public:
 
 	void updateInput(GLFWwindow* window);
 
+	// keys while down
+
+	// down 
+
+	// up 
+
 	// mouse
 	/// @brief get X position of the Mouse
 	/// @return _mouseX as double
@@ -161,6 +167,7 @@ public:
 	int getWindowHeight() { return _windowHeight; }
 private:
 	GLFWwindow* _window; ///< @brief GLFWwindow* _window
+	void _handleKey(unsigned int key); ///< @brief update internal array of keys
 
 	double _mouseX; ///< @brief X position of the Mouse
 	double _mouseY; ///< @brief Y position of the Mouse

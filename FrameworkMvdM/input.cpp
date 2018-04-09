@@ -37,3 +37,12 @@ void Input::updateInput(GLFWwindow* window) {
 	_mouseY = ((float)SHEIGHT / _windowHeight) * _mouseY;
 }
 
+void Input::_handleKey(unsigned int key) {
+	if (glfwGetKey(_window, key) == GLFW_PRESS) {
+	
+	}
+
+	if (glfwGetKey(_window, key) == GLFW_RELEASE) {
+	
+	}
+}

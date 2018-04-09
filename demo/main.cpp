@@ -15,6 +15,7 @@
 
 #include <FrameworkMvdM/core.h>
 #include <demo/scene01.h>
+#include <demo/scene02.h>
 
 int main(void)
 {
@@ -23,6 +24,7 @@ int main(void)
 	//list of scenes
 	std::vector<CoreScene*> myscenes;
 	myscenes.push_back(new Scene01());
+	myscenes.push_back(new Scene02());
 	int s = myscenes.size();
 
 	CoreScene* scene = myscenes[0];
