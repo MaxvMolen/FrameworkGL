@@ -14,8 +14,6 @@
 #include <vector>
 
 #include <glm/glm.hpp>
-//#include <glm/gtc/matrix_transform.hpp>
-//#include <glm/gtx/euler_angles.hpp>
 
 #include <FrameworkMvdM/scene.h>
 #include <FrameworkMvdM/sprite.h>
@@ -33,17 +31,16 @@ public:
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
 	virtual void update(float deltaTime);
-	/// @brief quit will close the program
-	/// @param deltaTime the elapsed time in seconds
-	/// @return void
-	virtual void quit();
 	/// @brief keeps track of the current active scene
 	static int activescene;
 	/// @brief will bring you back to the main menu of the game
 	/// @return void
 	virtual void sceneselect(int ds);
 protected:
-
+	/// @brief the top layer
+	unsigned int top_layer;
+	/// @brief list of layers
+	std::vector<BasicEntity*> layers;
 private:
 
 };

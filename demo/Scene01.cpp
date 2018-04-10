@@ -17,27 +17,27 @@ Scene01::Scene01() : CoreScene()
 	background->addSprite("assets/StartBackgroundTut.tga");
 	background->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
 	//kingkong->scale = glm::vec3(1, 1, 1);
-	this->addChild(background);
+	layers[1]->addChild(background);
 	//##############
 	//Test Entity
 	//##############
 	rgba = new BasicEntity();
 	rgba->addSprite("assets/rgba.tga");
 	rgba->position = glm::vec3(200, 200, 0);
-	this->addChild(rgba);
+	layers[3]->addChild(rgba);
 	//##############
 	//Player
 	//##############
 	player = new BasicEntity();
 	player->addSprite("assets/StartUfo1.tga");
 	player->position = glm::vec3(600, 200, 0);
-	this->addChild(player);
+	layers[7]->addChild(player);
 }
 
 Scene01::~Scene01()
 {
-	delete rgba;
 	delete background;
+	delete rgba;
 	delete player;
 }
 
