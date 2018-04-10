@@ -6,50 +6,64 @@
 
 #include <Demo/scene01.h>
 
+int MovementSpeed = 100;
+
 Scene01::Scene01() : CoreScene()
 {
+	//##############
+	//Background
+	//##############
+	background = new BasicEntity();
+	background->addSprite("assets/StartBackgroundTut.tga");
+	background->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
+	//kingkong->scale = glm::vec3(1, 1, 1);
+	this->addChild(background);
+	//##############
+	//Test Entity
+	//##############
 	rgba = new BasicEntity();
 	rgba->addSprite("assets/rgba.tga");
 	rgba->position = glm::vec3(200, 200, 0);
 	this->addChild(rgba);
-
-	kingkong = new BasicEntity();
-	kingkong->addSprite("assets/kingkong.tga");
-	kingkong->position = glm::vec3(400, 200, 0);
-	//kingkong->scale = glm::vec3(1, 1, 1);
-	this->addChild(kingkong);
-
-	pencils = new BasicEntity();
-	pencils->addSprite("assets/pencils.tga");
-	pencils->position = glm::vec3(600, 200, 0);
-	this->addChild(pencils);
+	//##############
+	//Player
+	//##############
+	player = new BasicEntity();
+	player->addSprite("assets/StartUfo1.tga");
+	player->position = glm::vec3(600, 200, 0);
+	this->addChild(player);
 }
 
 Scene01::~Scene01()
 {
 	delete rgba;
-	delete kingkong;
-	delete pencils;
+	delete background;
+	delete player;
 }
 
 void Scene01::update(float deltaTime) {
-	//left each release key
-	if (input()->getKeyUp(KeyCode::A)) {
-		pencils->position.x -= 10;
+	//##############
+	//Movement
+	//##############
+	//left
+	if (input()->getKey(KeyCode::A)) {
+		player->position.x -= MovementSpeed * deltaTime;
 	}
-	//right each press down
-	if (input()->getKeyDown(KeyCode::D)) {
-		pencils->position.x += 10;
+	//right
+	if (input()->getKey(KeyCode::D)) {
+		player->position.x += MovementSpeed * deltaTime;
 	}
-	//up constant
+	//up
 	if (input()->getKey(KeyCode::W)) {
-		pencils->position.y -= 0.010;
+		player->position.y -= MovementSpeed * deltaTime;
 	}
-	//down constant
+	//down
 	if (input()->getKey(KeyCode::S)) {
-		pencils->position.y += 0.010;
+		player->position.y += MovementSpeed * deltaTime;
 	}
-
+	//##############
+	//Change Scene
+	//##############
 	// go to next scene
 	if (input()->getKeyDown(KeyCode::RightBracket)) {
 		CoreScene::sceneselect(1);

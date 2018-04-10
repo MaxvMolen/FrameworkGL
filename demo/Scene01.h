@@ -34,8 +34,10 @@ protected:
 
 private:
 	BasicEntity* rgba;
-	BasicEntity* kingkong;
-	BasicEntity* pencils;
+	/// @brief the background of the game
+	BasicEntity* background;
+	/// @brief the player
+	BasicEntity* player;
 };
 
 
