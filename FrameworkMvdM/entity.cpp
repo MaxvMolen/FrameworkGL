@@ -16,7 +16,7 @@ Entity::Entity()
 
 	_sprite = NULL;
 
-	//_input = Singleton<Input>::instance();
+	_input = Singleton<Input>::instance();
 }
 
 Entity::~Entity()

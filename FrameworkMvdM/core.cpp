@@ -22,7 +22,7 @@ void Core::run(Scene* scene)
 	_calculateDeltaTime();
 
 	// Update Input singleton instance
-	//Singleton<Input>::instance()->updateInput(_renderer.window());
+	Singleton<Input>::instance()->updateInput(_renderer.window());
 
 	// Update camera instance in Scene
 	scene->camera()->update((float)_deltaTime);
@@ -37,7 +37,6 @@ void Core::run(Scene* scene)
 	if (glfwWindowShouldClose(_renderer.window()) == 1) { scene->stop(); }
 
 	// user pressed escape so close the window
-
 	if (glfwGetKey(_renderer.window(), GLFW_KEY_ESCAPE) == GLFW_PRESS &&
 		glfwWindowShouldClose(_renderer.window()) == 0) { scene->stop(); }
 }

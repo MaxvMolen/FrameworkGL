@@ -33,5 +33,8 @@ Scene02::~Scene02()
 }
 
 void Scene02::update(float deltaTime) {
-
+	// go to previous scene
+	if (input()->getKeyDown(KeyCode::LeftBracket)) {
+		CoreScene::sceneselect(0);
+	}
 }

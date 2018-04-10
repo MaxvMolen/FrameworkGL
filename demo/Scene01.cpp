@@ -33,5 +33,25 @@ Scene01::~Scene01()
 }
 
 void Scene01::update(float deltaTime) {
+	//left each release key
+	if (input()->getKeyUp(KeyCode::A)) {
+		pencils->position.x -= 10;
+	}
+	//right each press down
+	if (input()->getKeyDown(KeyCode::D)) {
+		pencils->position.x += 10;
+	}
+	//up constant
+	if (input()->getKey(KeyCode::W)) {
+		pencils->position.y -= 0.010;
+	}
+	//down constant
+	if (input()->getKey(KeyCode::S)) {
+		pencils->position.y += 0.010;
+	}
 
+	// go to next scene
+	if (input()->getKeyDown(KeyCode::RightBracket)) {
+		CoreScene::sceneselect(1);
+	}
 }
