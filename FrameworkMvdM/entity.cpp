@@ -15,6 +15,8 @@ Entity::Entity()
 	scale = glm::vec3(1.0f, 1.0f, 1.0f);
 
 	_sprite = NULL;
+
+	//_input = Singleton<Input>::instance();
 }
 
 Entity::~Entity()

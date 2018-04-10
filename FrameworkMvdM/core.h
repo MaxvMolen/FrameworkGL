@@ -14,15 +14,16 @@
 #include <glfw3.h>
 
 #include <iostream>
-#include <cstdio>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string>
-#include <vector>
 
 #include <glm/glm.hpp>
 
 #include <FrameworkMvdM/renderer.h>
 #include <FrameworkMvdM/entity.h>
 #include <FrameworkMvdM/scene.h>
+#include <FrameworkMvdM/input.h>
 /// @brief The Core class
 class Core
 {

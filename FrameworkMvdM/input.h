@@ -145,10 +145,46 @@ public:
 	void updateInput(GLFWwindow* window);
 
 	// keys while down
+	/// @brief Is this key pressed?
+	/// @param keyCode as KeyCode
+	/// @return bool key is pressed or not
+	bool getKey(KeyCode keyCode) { return _keys[(unsigned int)keyCode]; }
+	/// @brief Is this key pressed?
+	/// @param key as int
+	/// @return bool key is pressed or not
+	bool getKey(int key) { return getKey((KeyCode)key); }
+	/// @brief Is this key pressed? Only check first press down
+	/// @param key as char (ie: getKey('A') )
+	/// @return bool key is pressed first time or not
+	bool getKey(char key) { return getKey((KeyCode)key); }
 
 	// down 
+	/// @brief Is this key pressed? Only check first press down
+	/// @param keyCode as KeyCode
+	/// @return bool key is pressed first time or not
+	bool getKeyDown(KeyCode keyCode) { return _keysDown[(unsigned int)keyCode]; }
+	/// @brief Is this key pressed? Only check first press down
+	/// @param key as int
+	/// @return bool key is pressed first time or not
+	bool getKeyDown(int key) { return getKeyDown((KeyCode)key); }
+	/// @brief Is this key pressed? Only check first press down
+	/// @param key as char (ie: getKeyDown('A') )
+	/// @return bool key is pressed first time or not
+	bool getKeyDown(char key) { return getKeyDown((KeyCode)key); }
 
 	// up 
+	/// @brief Is this key released?
+	/// @param keyCode as KeyCode
+	/// @return bool true or false
+	bool getKeyUp(KeyCode keyCode) { return _keysUp[(unsigned int)keyCode]; }
+	/// @brief Is this key released?
+	/// @param key as int
+	/// @return bool key is released or not
+	bool getKeyUp(int key) { return getKeyUp((KeyCode)key); }
+	/// @brief Is this key pressed? Only check first press down
+	/// @param key as char (ie: getKeyUp('A') )
+	/// @return bool key is pressed first time or not
+	bool getKeyUp(char key) { return getKeyUp((KeyCode)key); }
 
 	// mouse
 	/// @brief get X position of the Mouse
@@ -165,9 +201,14 @@ public:
 	/// @brief get height of the window
 	/// @return _windowHeight as int
 	int getWindowHeight() { return _windowHeight; }
+
 private:
 	GLFWwindow* _window; ///< @brief GLFWwindow* _window
 	void _handleKey(unsigned int key); ///< @brief update internal array of keys
+
+	bool _keys[GLFW_KEY_LAST]; ///< @brief internal array of pressed keys
+	bool _keysUp[GLFW_KEY_LAST]; ///< @brief internal array of released keys
+	bool _keysDown[GLFW_KEY_LAST]; ///< @brief internal array of keys pressed the first time
 
 	double _mouseX; ///< @brief X position of the Mouse
 	double _mouseY; ///< @brief Y position of the Mouse
