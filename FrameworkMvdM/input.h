@@ -157,6 +157,7 @@ public:
 	/// @param key as char (ie: getKey('A') )
 	/// @return bool key is pressed first time or not
 	bool getKey(char key) { return getKey((KeyCode)key); }
+	bool getMouse(unsigned int button) { return _mouse[button]; }
 
 	// down 
 	/// @brief Is this key pressed? Only check first press down
@@ -171,6 +172,7 @@ public:
 	/// @param key as char (ie: getKeyDown('A') )
 	/// @return bool key is pressed first time or not
 	bool getKeyDown(char key) { return getKeyDown((KeyCode)key); }
+	bool getMouseDown(unsigned int button) { return _mouseDown[button]; }
 
 	// up 
 	/// @brief Is this key released?
@@ -185,7 +187,7 @@ public:
 	/// @param key as char (ie: getKeyUp('A') )
 	/// @return bool key is pressed first time or not
 	bool getKeyUp(char key) { return getKeyUp((KeyCode)key); }
-
+	bool getMouseUp(unsigned int button) { return _mouseUp[button]; }
 	// mouse
 	/// @brief get X position of the Mouse
 	/// @return _mouseX as double
