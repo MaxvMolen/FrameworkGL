@@ -4,15 +4,6 @@
 * @brief This is the main of the program
 */
 
-// Include GLEW
-#include <GL/glew.h>
-
-// Include GLFW
-#include <glfw3.h>
-
-#include <fstream>
-#include <sstream>
-
 #include <FrameworkMvdM/core.h>
 #include <demo/scene01.h>
 #include <demo/scene02.h>

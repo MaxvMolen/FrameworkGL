@@ -3,7 +3,6 @@
 *
 * @brief The Entity cpp file.
 */
-#include <iostream>
 #include <FrameworkMvdM/entity.h>
 
 Entity::Entity()

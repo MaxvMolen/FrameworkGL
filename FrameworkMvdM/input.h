@@ -176,5 +176,4 @@ private:
 	int _windowHeight; ///< @brief Height of the window
 };
 
-
 #endif /* INPUT_H */

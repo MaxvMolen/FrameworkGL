@@ -4,10 +4,6 @@
 * @brief The Renderer cpp file.
 */
 
-#include <cstdio>
-#include <cstdlib>
-#include <string>
-#include <vector>
 #include <fstream>
 
 #include <FrameworkMvdM/camera.h>
