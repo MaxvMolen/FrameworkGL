@@ -205,10 +205,15 @@ public:
 private:
 	GLFWwindow* _window; ///< @brief GLFWwindow* _window
 	void _handleKey(unsigned int key); ///< @brief update internal array of keys
+	void _handleMouse(unsigned int key); ///< @brief update internal array of keys
 
 	bool _keys[GLFW_KEY_LAST]; ///< @brief internal array of pressed keys
 	bool _keysUp[GLFW_KEY_LAST]; ///< @brief internal array of released keys
 	bool _keysDown[GLFW_KEY_LAST]; ///< @brief internal array of keys pressed the first time
+
+	bool _mouse[GLFW_MOUSE_BUTTON_LAST]; ///< @brief internal array of pressed mouse buttons
+	bool _mouseUp[GLFW_MOUSE_BUTTON_LAST]; ///< @brief internal array of released mouse buttons
+	bool _mouseDown[GLFW_MOUSE_BUTTON_LAST]; ///< @brief internal array of mouse buttons pressed the first time
 
 	double _mouseX; ///< @brief X position of the Mouse
 	double _mouseY; ///< @brief Y position of the Mouse

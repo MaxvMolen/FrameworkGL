@@ -51,6 +51,32 @@ void Input::updateInput(GLFWwindow* window) {
 	_mouseY = ((float)SHEIGHT / _windowHeight) * _mouseY;
 }
 
+void Input::_handleMouse(unsigned int key) {
+	if (glfwGetKey(_window, key) == GLFW_PRESS) {
+		if (_mouse[key] == false) { // if first time pressed down
+			_mouse[key] = true;
+			_mouseDown[key] = true;
+			//std::cout << "DOWN: " << key << std::endl;
+		}
+		else {
+			// not the first time this is pressed
+			// keys[key] is still true;
+			_mouseDown[key] = false;
+		}
+	}
+
+	if (glfwGetKey(_window, key) == GLFW_RELEASE) {
+		if (_mouse[key] == true) { // still pressed
+			_mouse[key] = false;
+			_mouseUp[key] = true;
+			//std::cout << "UP: " << key << std::endl;
+		}
+		else {
+			_mouseUp[key] = false;
+		}
+	}
+}
+
 void Input::_handleKey(unsigned int key) {
 	if (glfwGetKey(_window, key) == GLFW_PRESS) {
 		if (_keys[key] == false) { // if first time pressed down
