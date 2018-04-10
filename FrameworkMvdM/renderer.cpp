@@ -36,8 +36,16 @@ int Renderer::init()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 
+	GLFWmonitor* primary = glfwGetPrimaryMonitor();
+	const GLFWvidmode* mode = glfwGetVideoMode(primary);
+
 	// Open a window and create its OpenGL context
-	_window = glfwCreateWindow(_window_width, _window_height, WINDOWNAME, NULL, NULL);
+	if (FULLSCREEN) {
+		_window = glfwCreateWindow(_window_width, _window_height, WINDOWNAME, primary, NULL);
+	}
+	else {
+		_window = glfwCreateWindow(_window_width, _window_height, WINDOWNAME, NULL, NULL);
+	}
 	if (_window == NULL) {
 		fprintf(stderr, "Failed to open GLFW window.\n");
 		glfwTerminate();

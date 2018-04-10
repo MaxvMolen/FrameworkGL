@@ -13,6 +13,8 @@
 #define SWIDTH 1280 ///< The screen width
 #define SHEIGHT 720 ///< The screen height
 
+#define FULLSCREEN 0 ///< Fullscreen or not
+
 #define WINDOWNAME "MvdM" ///< The name of the window
 
 #define CLEARCOLOR_RED 0.7f ///< The red component of the color of the window
