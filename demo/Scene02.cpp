@@ -25,10 +25,9 @@ Scene02::Scene02() : CoreScene()
 	//##############
 	// Pencils
 	//##############
-	pencils = new BasicEntity();
-	pencils->addSprite("assets/rgba.tga");
-	pencils->position = glm::vec3(600, 200, 0);
-	layers[1]->addChild(pencils);
+	player = new MyUfo();
+	player->position = glm::vec3(600, 200, 0);
+	layers[1]->addChild(player);
 }
 
 Scene02::~Scene02()
@@ -39,8 +38,8 @@ Scene02::~Scene02()
 	this->removeChild(kingkong);
 	delete kingkong;
 
-	this->removeChild(pencils);
-	delete pencils;
+	this->removeChild(player);
+	delete player;
 }
 
 void Scene02::update(float deltaTime) {

@@ -35,7 +35,8 @@ protected:
 private:
 	BasicEntity* rgba;
 	BasicEntity* kingkong;
-	BasicEntity* pencils;
+	/// @brief the player
+	MyUfo* player;
 };
 
 

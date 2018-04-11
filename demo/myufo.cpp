@@ -95,7 +95,6 @@ void MyUfo::bounderies(float width, float height) {
 	}
 }
 
-
 // ---up---
 // |      |
 //left  right
