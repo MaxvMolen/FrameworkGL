@@ -28,39 +28,27 @@ Scene01::Scene01() : CoreScene()
 	//##############
 	//Player
 	//##############
-	player = new BasicEntity();
-	player->addSprite("assets/StartUfo1.tga");
+	player = new MyUfo();
 	player->position = glm::vec3(600, 200, 0);
 	layers[7]->addChild(player);
 }
 
 Scene01::~Scene01()
 {
+	this->removeChild(background);
 	delete background;
+
+	this->removeChild(rgba);
 	delete rgba;
+
+	this->removeChild(player);
 	delete player;
 }
 
 void Scene01::update(float deltaTime) {
-	//##############
-	//Movement
-	//##############
-	//left
-	if (input()->getKey(KeyCode::A)) {
-		player->position.x -= MovementSpeed * deltaTime;
-	}
-	//right
-	if (input()->getKey(KeyCode::D)) {
-		player->position.x += MovementSpeed * deltaTime;
-	}
-	//up
-	if (input()->getKey(KeyCode::W)) {
-		player->position.y -= MovementSpeed * deltaTime;
-	}
-	//down
-	if (input()->getKey(KeyCode::S)) {
-		player->position.y += MovementSpeed * deltaTime;
-	}
+
+	player->update(deltaTime);
+
 	//##############
 	//Change Scene
 	//##############

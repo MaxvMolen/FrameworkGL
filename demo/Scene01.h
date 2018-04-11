@@ -17,6 +17,7 @@
 
 #include <FrameworkMvdM/scene.h>
 #include <Demo/corescene.h>
+#include <demo/myufo.h>
 
 /// @brief The Corescene class
 class Scene01 : public CoreScene
@@ -37,7 +38,7 @@ private:
 	/// @brief the background of the game
 	BasicEntity* background;
 	/// @brief the player
-	BasicEntity* player;
+	MyUfo* player;
 };
 
 
