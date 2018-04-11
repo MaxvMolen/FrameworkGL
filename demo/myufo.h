@@ -24,13 +24,12 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
-	/// @brief movement is automatically called every frame
 	/// @brief used to move the player
 	/// @return void
-	virtual void MyUfo::movement(float deltaTime);
+	void movement(float deltaTime);
 	/// @brief used to change the players look and color
 	/// @return void
-	virtual void MyUfo::bounderies(float width, float height);
+	void bounderies(float width, float height);
 
 private:
 	/* add your private declarations */
