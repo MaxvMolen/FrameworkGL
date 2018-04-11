@@ -72,6 +72,11 @@ void MyUfo::movement(float deltaTime) {
 	}
 }
 
+// ---0---
+// |      |
+// 0    width
+// |      |
+//--height--
 void MyUfo::bounderies(float width, float height) {
 	// ###############################################################
 	// Check if player exeeds given position and push it back
@@ -89,3 +94,28 @@ void MyUfo::bounderies(float width, float height) {
 		this->position.y += 10;
 	}
 }
+
+
+// ---up---
+// |      |
+//left  right
+// |      |
+// --down--
+void MyUfo::bounderiesv2(float right, float down, float left, float up) {
+	// ###############################################################
+	// Check if player exeeds given position and push it back
+	// ###############################################################
+	if (this->position.x >= right) {
+		this->position.x += -10;
+	}
+	if (this->position.x <= left) {
+		this->position.x += 10;
+	}
+	if (this->position.y >= down) {
+		this->position.y += -10;
+	}
+	if (this->position.y <= up) {
+		this->position.y += 10;
+	}
+}
+
