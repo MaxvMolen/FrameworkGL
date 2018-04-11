@@ -125,7 +125,7 @@ void Renderer::renderEntity(glm::mat4 modelMatrix, Entity* entity) {
 	// Check for Sprites to see if we need to render anything
 	Sprite* sprite = entity->sprite();
 	if (sprite != NULL) {
-		this->renderSprite(sprite, entity->position.x, entity->position.y, entity->scale.x, entity->scale.y, entity->rotation.x); // rotation 
+		this->renderSprite(sprite, entity->position.x, entity->position.y, entity->scale.x, entity->scale.y, entity->rotation.x);
 	}
 
 	// Render all Children (recursively)

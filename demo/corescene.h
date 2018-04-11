@@ -16,7 +16,6 @@
 #include <glm/glm.hpp>
 
 #include <FrameworkMvdM/scene.h>
-#include <FrameworkMvdM/sprite.h>
 #include <FrameworkMvdM/entity.h>
 #include <Demo/basicentity.h>
 
