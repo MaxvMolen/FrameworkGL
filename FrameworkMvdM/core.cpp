@@ -28,7 +28,7 @@ void Core::run(Scene* scene)
 	scene->camera()->update((float)_deltaTime);
 
 	// Update Scene (and recursively all children)
-	scene->update((float)_deltaTime);
+	scene->updateScene((float)_deltaTime);
 
 	// Render Scene
 	_renderer.renderScene(scene);

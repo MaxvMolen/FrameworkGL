@@ -6,8 +6,6 @@
 
 #include <Demo/scene01.h>
 
-int MovementSpeed = 100;
-
 Scene01::Scene01() : CoreScene()
 {
 	//##############
@@ -46,10 +44,6 @@ Scene01::~Scene01()
 }
 
 void Scene01::update(float deltaTime) {
-	//##############
-	//Call update of player (not done automatically)
-	//##############
-	player->update(deltaTime);
 	//##############
 	//Change Scene
 	//##############

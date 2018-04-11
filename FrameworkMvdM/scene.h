@@ -36,7 +36,7 @@ public:
 	/// @brief update this Scene. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
-	virtual void update(float deltaTime);
+	void updateScene(float deltaTime);
 
 private:
 	/// @brief update the Entity

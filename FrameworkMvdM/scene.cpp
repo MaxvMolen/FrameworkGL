@@ -19,7 +19,7 @@ Scene::~Scene()
 	delete _camera;
 }
 
-void Scene::update(float deltaTime) {
+void Scene::updateScene(float deltaTime) {
 	this->_updateEntity(this, deltaTime); 
 }
 
