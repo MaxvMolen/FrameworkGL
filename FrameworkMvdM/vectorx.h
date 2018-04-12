@@ -33,4 +33,4 @@
 */
 #define RAD_TO_DEG	57.295779513082320876798154814105
 
-#endif /* CORE_H */
+#endif /* VECTORX_H */
