@@ -33,7 +33,6 @@ public:
 protected:
 
 private:
-	BasicEntity* rgba;
 	/// @brief the background of the game
 	BasicEntity* background;
 	/// @brief the player

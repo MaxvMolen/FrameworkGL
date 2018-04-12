@@ -17,13 +17,6 @@ Scene01::Scene01() : CoreScene()
 	//background->scale = glm::vec3(1, 1, 1);
 	layers[1]->addChild(background);
 	//##############
-	// Test Entity
-	//##############
-	rgba = new BasicEntity();
-	rgba->addSprite("assets/rgba.tga");
-	rgba->position = glm::vec3(200, 200, 0);
-	layers[3]->addChild(rgba);
-	//##############
 	// Player
 	//##############
 	player = new MyUfo();
@@ -35,9 +28,6 @@ Scene01::~Scene01()
 {
 	this->removeChild(background);
 	delete background;
-
-	this->removeChild(rgba);
-	delete rgba;
 
 	this->removeChild(player);
 	delete player;
@@ -51,6 +41,4 @@ void Scene01::update(float deltaTime) {
 	if (input()->getKeyDown(KeyCode::RightBracket)) {
 		CoreScene::sceneselect(1);
 	}
-
-	//player->bounderiesv2(rgba->position.x + 10, rgba->position.y + 10, rgba->position.x - 10, rgba->position.y - 10);
 }
