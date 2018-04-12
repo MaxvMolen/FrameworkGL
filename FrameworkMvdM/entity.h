@@ -18,7 +18,6 @@
 #include <glm/gtx/matrix_decompose.hpp>
 
 #include <FrameworkMvdM/sprite.h>
-#include <FrameworkMvdM/line.h>
 #include <FrameworkMvdM/input.h>
 #include <FrameworkMvdM/singleton.h>
 

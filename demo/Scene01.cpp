@@ -52,5 +52,5 @@ void Scene01::update(float deltaTime) {
 		CoreScene::sceneselect(1);
 	}
 
-	//player->bounderiesv2(rgba->position.x+10, rgba->position.y+10, rgba->position.x - 10, rgba->position.y - 10);
+	//player->bounderiesv2(rgba->position.x + 10, rgba->position.y + 10, rgba->position.x - 10, rgba->position.y - 10);
 }
