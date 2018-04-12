@@ -20,6 +20,7 @@
 #include <FrameworkMvdM/sprite.h>
 #include <FrameworkMvdM/input.h>
 #include <FrameworkMvdM/singleton.h>
+#include <FrameworkMvdM/vectorx.h>
 
 /// @brief The Entity class is the Base class for the elements in your Scene.
 class Entity

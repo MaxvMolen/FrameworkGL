@@ -27,8 +27,8 @@ void MyUfo::update(float deltaTime)
 	// Rotate player automatic
 	// ###############################################################
 	this->rotation.x -= rotationSpeed * deltaTime; // 90 deg/sec
-	if (this->rotation.x > 6.283185307179586476925286766559) {
-		this->rotation.x -= 6.283185307179586476925286766559;
+	if (this->rotation.x > TWO_PI) {
+		this->rotation.x -= TWO_PI;
 	}
 	// ###############################################################
 	// Rotate player faster with Q
@@ -36,8 +36,8 @@ void MyUfo::update(float deltaTime)
 	if (input()->getKey(KeyCode::Q)) {
 		this->rotation.x -= rotationSpeed * deltaTime; // 90 deg/sec
 		speed = 600;
-		if (this->rotation.x > 6.283185307179586476925286766559) {
-			this->rotation.x -= 6.283185307179586476925286766559;
+		if (this->rotation.x > TWO_PI) {
+			this->rotation.x -= TWO_PI;
 		}
 	}
 	// Standard speed
