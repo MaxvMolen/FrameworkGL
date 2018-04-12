@@ -7,15 +7,6 @@
 #ifndef SCENE01_H
 #define SCENE01_H
 
-#include <iostream>
-#include <cstdio>
-#include <GL/glew.h>
-#include <string>
-#include <vector>
-
-#include <glm/glm.hpp>
-
-#include <FrameworkMvdM/scene.h>
 #include <Demo/corescene.h>
 
 /// @brief The Corescene class
@@ -35,6 +26,8 @@ protected:
 private:
 	/// @brief the background of the game
 	BasicEntity* background;
+	/// @brief the obstacle the player needs to avoid
+	std::vector<BasicEntity*> myobstacle;
 	/// @brief the player
 	MyUfo* player;
 };

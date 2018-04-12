@@ -19,11 +19,11 @@ Scene02::Scene02() : CoreScene()
 	// Kingkong
 	//##############
 	kingkong = new BasicEntity();
-	kingkong->addSprite("assets/rgba.tga");
+	kingkong->addSprite("assets/kingkong.tga");
 	kingkong->position = glm::vec3(400, 200, 0);
 	layers[1]->addChild(kingkong);
 	//##############
-	// Pencils
+	// Player
 	//##############
 	player = new MyUfo();
 	player->position = glm::vec3(600, 200, 0);

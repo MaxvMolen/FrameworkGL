@@ -7,15 +7,6 @@
 #ifndef SCENE02_H
 #define SCENE02_H
 
-#include <iostream>
-#include <cstdio>
-#include <GL/glew.h>
-#include <string>
-#include <vector>
-
-#include <glm/glm.hpp>
-
-#include <FrameworkMvdM/scene.h>
 #include <Demo/corescene.h>
 
 /// @brief The Corescene class

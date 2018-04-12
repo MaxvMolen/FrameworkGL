@@ -22,6 +22,17 @@ Scene01::Scene01() : CoreScene()
 	player = new MyUfo();
 	player->position = glm::vec3(600, 200, 0);
 	layers[7]->addChild(player);
+	//##############
+	// Obstacle
+	//##############
+	for (int i = 0; i < 7; ++i) {
+		BasicEntity* obstacle = new BasicEntity();
+		myobstacle.push_back(obstacle);
+		obstacle->addSprite("assets/rgba.tga");
+		obstacle->position = glm::vec3(100, 100, 0);
+		obstacle->position.x += i * 175;
+		layers[6]->addChild(obstacle);
+	}
 }
 
 Scene01::~Scene01()
@@ -31,6 +42,12 @@ Scene01::~Scene01()
 
 	this->removeChild(player);
 	delete player;
+	
+	for (int i = 0; i < myobstacle.size(); ++i) {
+		delete myobstacle[i];
+		myobstacle[i] = NULL;
+	}
+	myobstacle.clear();
 }
 
 void Scene01::update(float deltaTime) {
