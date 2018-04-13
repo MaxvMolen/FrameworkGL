@@ -51,11 +51,6 @@ double Core::_calculateDeltaTime()
 	return _deltaTime;
 }
 
-void Core::cleanup()
-{
-
-}
-
 void Core::showFrameRate(float numsecs)
 {
 	static int frames = 0;

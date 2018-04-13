@@ -38,10 +38,6 @@ public:
 	/// @brief update this Core. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
-	void cleanup();
-	/// @brief update this Core. This function is Pure virtual. User MUST implement this in subclass.
-	/// @param deltaTime The time that's passed since the last update.
-	/// @return void
 	float deltaTime() { return (float)_deltaTime; };
 	/// @brief update this Core. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
