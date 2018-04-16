@@ -7,6 +7,8 @@
 #ifndef CORESCENE_H
 #define CORESCENE_H
 
+#include <fstream>
+#include <sstream>
 #include <iostream>
 #include <cstdio>
 #include <GL/glew.h>

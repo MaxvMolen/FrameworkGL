@@ -8,6 +8,7 @@
 #define SCENE01_H
 
 #include <Demo/corescene.h>
+#include <Demo/myobstacle.h>
 
 /// @brief The Corescene class
 class Scene01 : public CoreScene
@@ -26,8 +27,10 @@ protected:
 private:
 	/// @brief the background of the game
 	BasicEntity* background;
+	/// @brief the end goal of the game
+	BasicEntity* finish;
 	/// @brief the obstacle the player needs to avoid
-	std::vector<BasicEntity*> myobstacle;
+	std::vector<MyObstacle*> myobstacle;
 	/// @brief the player
 	MyUfo* player;
 };

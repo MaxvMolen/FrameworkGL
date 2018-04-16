@@ -6,6 +6,9 @@
 
 #include <Demo/scene01.h>
 
+// the amount of certain objects
+int obstacleAmount = 11;
+
 Scene01::Scene01() : CoreScene()
 {
 	//##############
@@ -25,20 +28,29 @@ Scene01::Scene01() : CoreScene()
 	//##############
 	// Obstacle
 	//##############
-	for (int i = 0; i < 7; ++i) {
-		BasicEntity* obstacle = new BasicEntity();
+	for (int i = 0; i < obstacleAmount; ++i) {
+		MyObstacle* obstacle = new MyObstacle();
 		myobstacle.push_back(obstacle);
-		obstacle->addSprite("assets/rgba.tga");
-		obstacle->position = glm::vec3(100, 100, 0);
+		obstacle->position = glm::vec3(75, 100, 0);
 		obstacle->position.x += i * 175;
-		layers[6]->addChild(obstacle);
+		layers[5]->addChild(obstacle);
 	}
+	//##############
+	// Finish
+	//##############
+	finish = new BasicEntity();
+	finish->addSprite("assets/pencils.tga");
+	finish->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
+	layers[6]->addChild(finish);
 }
 
 Scene01::~Scene01()
 {
 	this->removeChild(background);
 	delete background;
+
+	this->removeChild(finish);
+	delete finish;
 
 	this->removeChild(player);
 	delete player;
