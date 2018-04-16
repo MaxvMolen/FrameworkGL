@@ -93,6 +93,8 @@ add_executable(demo
 	demo/scene02.h
 	demo/myufo.cpp
 	demo/myufo.h
+	demo/myobstacle.cpp
+	demo/myobstacle.h
 )
 target_link_libraries(demo
 	FrameworkMvdM
