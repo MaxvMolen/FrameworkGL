@@ -9,18 +9,39 @@
 Scene02::Scene02() : CoreScene()
 {	
 	//##############
-	// Rgba
+	// Background
 	//##############
-	rgba = new BasicEntity();
-	rgba->addSprite("assets/rgba.tga");
-	rgba->position = glm::vec3(200, 200, 0);
-	layers[1]->addChild(rgba);
+	background = new BasicEntity();
+	background->addSprite("assets/StartBackgroundTut.tga");
+	background->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
+	layers[1]->addChild(background);
+	//##############
+	// Credits
+	//##############
+	credits = new BasicEntity();
+	credits->addSprite("assets/pencils.tga");
+	credits->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
+	layers[6]->addChild(credits);
+	//##############
+	// Logo
+	//##############
+	logo = new BasicEntity();
+	logo->addSprite("assets/pencils.tga");
+	//logo->addSprite("assets/AC-Logo.tga");
+	logo->position = glm::vec3(SWIDTH / 2, 100, 0);
+	layers[6]->addChild(logo);
 }
 
 Scene02::~Scene02()
 {
-	this->removeChild(rgba);
-	delete rgba;
+	this->removeChild(background);
+	delete background;
+
+	this->removeChild(credits);
+	delete credits;
+
+	this->removeChild(logo);
+	delete logo;
 }
 
 void Scene02::update(float deltaTime) {

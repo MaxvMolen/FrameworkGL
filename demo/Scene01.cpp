@@ -20,7 +20,6 @@ Scene01::Scene01() : CoreScene()
 	background = new BasicEntity();
 	background->addSprite("assets/StartBackgroundTut.tga");
 	background->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
-	//background->scale = glm::vec3(1, 1, 1);
 	layers[1]->addChild(background);
 	//##############
 	// Player
@@ -34,11 +33,11 @@ Scene01::Scene01() : CoreScene()
 	for (int i = 0; i < obstacleAmount; ++i) {
 		MyObstacle* obstacle = new MyObstacle();
 		myobstacle.push_back(obstacle);
-		obstacle->position = glm::vec3(75, 100, 0);
+		obstacle->position = glm::vec3(75, 400, 0);
 		obstacle->position.x += i * 175;
 		if (i > 5) {
-			obstacle->position = glm::vec3(75, 500, 0);
-			obstacle->position.x += (i-6) * 175;
+			obstacle->position = glm::vec3(75, 700, 0);
+			obstacle->position.x += (i) * 175;
 		}
 		layers[5]->addChild(obstacle);
 	}
@@ -85,9 +84,7 @@ void Scene01::update(float deltaTime) {
 		collision(player->position.x, player->position.y, playerRadius, myobstacle[i]->position.x, myobstacle[i]->position.y, 125, 1);
 	}
 	// finish
-	for (int i = 0; i < 1; ++i) {
-		collision(player->position.x, player->position.y, playerRadius, finish->position.x, finish->position.y, 125, 2);
-	}
+	collision(player->position.x, player->position.y, playerRadius, finish->position.x, finish->position.y, 125, 2);
 }
 
 void Scene01::collision(float xu, float yu, float ru, float xe, float ye, float re, float no) {
@@ -102,6 +99,12 @@ void Scene01::collision(float xu, float yu, float ru, float xe, float ye, float 
 			// go to the next scene and respawn player
 			CoreScene::sceneselect(1);
 			player->position = glm::vec3(600, 200, 0);
+		}
+		// lock
+		if (no == 3) {
+			// lock the ufo in place on collision of object 
+			player->position.x = xe;
+			player->position.y = ye;
 		}
 	}
 }

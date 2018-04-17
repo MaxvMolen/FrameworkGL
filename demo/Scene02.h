@@ -24,7 +24,12 @@ public:
 protected:
 
 private:
-	BasicEntity* rgba;
+	/// @brief the background of the game
+	BasicEntity* background;
+	/// @brief the credits
+	BasicEntity* credits;
+	/// @brief the alfa logo
+	BasicEntity* logo;
 };
 
 
