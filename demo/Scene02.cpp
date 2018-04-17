@@ -20,7 +20,7 @@ Scene02::Scene02() : CoreScene()
 	//##############
 	credits = new BasicEntity();
 	credits->addSprite("assets/pencils.tga");
-	credits->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
+	credits->position = glm::vec3(SWIDTH / 2, 100, 0);
 	layers[6]->addChild(credits);
 	//##############
 	// Logo

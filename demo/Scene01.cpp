@@ -81,14 +81,14 @@ void Scene01::update(float deltaTime) {
 	//##############
 	// obstacles
 	for (int i = 0; i < myobstacle.size(); ++i) {
-		collision(player->position.x, player->position.y, playerRadius, myobstacle[i]->position.x, myobstacle[i]->position.y, 125, 1);
+		collision(player, playerRadius, myobstacle[i], 125, 1);
 	}
 	// finish
-	collision(player->position.x, player->position.y, playerRadius, finish->position.x, finish->position.y, 125, 2);
+	collision(player, playerRadius, finish, 125, 2);
 }
 
-void Scene01::collision(float xu, float yu, float ru, float xe, float ye, float re, float no) {
-	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
+void Scene01::collision(Entity* player, float ru, Entity* object, float re, float no) {
+	if ((player->position.x - object->position.x)*(player->position.x - object->position.x) + (player->position.y - object->position.y)*(player->position.y - object->position.y) < ru*re) {
 		// obstacle
 		if (no == 1) {
 			// respawn the player at the start
@@ -103,8 +103,8 @@ void Scene01::collision(float xu, float yu, float ru, float xe, float ye, float 
 		// lock
 		if (no == 3) {
 			// lock the ufo in place on collision of object 
-			player->position.x = xe;
-			player->position.y = ye;
+			player->position.x = object->position.x;
+			player->position.y = object->position.y;
 		}
 	}
 }

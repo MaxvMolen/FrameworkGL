@@ -22,15 +22,13 @@ public:
 	virtual void update(float deltaTime);
 	/// @brief this function is used for collision between two objects
 	/// @brief it will respawn the player on collision or move to the next scene depending on the no number
-	/// @param xu the x-position of the player
-	/// @param yu the y-position of the player
+	/// @param Entity* player the player entity
 	/// @param ru the radius of the player
-	/// @param xe the x-position of the object
-	/// @param ye the y-position of the object
+	/// @param Entity* object the object entity
 	/// @param re the radius of the object
 	/// @param no the given number specifies if it will respawn the player or move to the next scene
 	/// @return void
-	void collision(float xu, float yu, float ru, float xe, float ye, float re, float no);
+	void collision(Entity* player, float ru, Entity* object, float re, float no);
 
 protected:
 
