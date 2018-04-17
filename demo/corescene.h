@@ -19,8 +19,10 @@
 
 #include <FrameworkMvdM/scene.h>
 #include <FrameworkMvdM/entity.h>
+
 #include <Demo/basicentity.h>
 #include <Demo/myufo.h>
+#include <Demo/myobstacle.h>
 
 /// @brief The Corescene class
 class CoreScene : public Scene

@@ -8,7 +8,6 @@
 #define SCENE01_H
 
 #include <Demo/corescene.h>
-#include <Demo/myobstacle.h>
 
 /// @brief The Corescene class
 class Scene01 : public CoreScene
@@ -21,6 +20,18 @@ public:
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
 	virtual void update(float deltaTime);
+	/// @brief this function turns myufo red on collision with the given object.
+	/// @brief it also will lock the player on the object it collided with.
+	/// @brief the player can free itself with the w key.
+	/// @param xu the x-position of the ufo
+	/// @param yu the y-position of the ufo
+	/// @param ru the radius of the ufo
+	/// @param xe the x-position of the object
+	/// @param ye the y-position of the object
+	/// @param re the radius of the object
+	/// @param no the number specific to the object
+	/// @return void
+	void collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime);
 
 protected:
 
@@ -34,6 +45,5 @@ private:
 	/// @brief the player
 	MyUfo* player;
 };
-
 
 #endif /* SCENE01_H */

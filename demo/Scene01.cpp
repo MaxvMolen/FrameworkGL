@@ -9,6 +9,9 @@
 // the amount of certain objects
 int obstacleAmount = 11;
 
+// radius of the player
+float playerRadius = 25;
+
 Scene01::Scene01() : CoreScene()
 {
 	//##############
@@ -40,7 +43,7 @@ Scene01::Scene01() : CoreScene()
 	//##############
 	finish = new BasicEntity();
 	finish->addSprite("assets/pencils.tga");
-	finish->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
+	finish->position = glm::vec3(SWIDTH / 2, 1080-75, 0);
 	layers[6]->addChild(finish);
 }
 
@@ -69,5 +72,26 @@ void Scene01::update(float deltaTime) {
 	// go to next scene
 	if (input()->getKeyDown(KeyCode::RightBracket)) {
 		CoreScene::sceneselect(1);
+	}
+	//##############
+	// Collision for obstacles
+	//##############
+	for (int i = 0; i < myobstacle.size(); ++i) {
+		collision(player->position.x, player->position.y, playerRadius, myobstacle[i]->position.x, myobstacle[i]->position.y, 125, 1, deltaTime);
+	}
+}
+
+void Scene01::collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
+	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
+
+		// free the object
+		if (input()->getKey('Q')) {
+		
+		}
+		// lock the ufo in place on collision of object 
+		else {
+			player->position.x = xe;
+			player->position.y = ye;
+		}
 	}
 }
