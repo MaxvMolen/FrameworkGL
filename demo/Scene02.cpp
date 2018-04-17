@@ -26,9 +26,9 @@ Scene02::Scene02() : CoreScene()
 	// Logo
 	//##############
 	logo = new BasicEntity();
-	logo->addSprite("assets/pencils.tga");
-	//logo->addSprite("assets/AC-Logo.tga");
-	logo->position = glm::vec3(SWIDTH / 2, 100, 0);
+	logo->addSprite("assets/AC-Logo.tga");
+	logo->scale = glm::vec3(0.3, 0.3, 0);
+	logo->position = glm::vec3(SWIDTH / 2, 1080-100, 0);
 	layers[6]->addChild(logo);
 }
 
