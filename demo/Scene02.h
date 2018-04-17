@@ -25,9 +25,6 @@ protected:
 
 private:
 	BasicEntity* rgba;
-	BasicEntity* kingkong;
-	/// @brief the player
-	MyUfo* player;
 };
 
 

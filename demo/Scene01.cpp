@@ -36,6 +36,10 @@ Scene01::Scene01() : CoreScene()
 		myobstacle.push_back(obstacle);
 		obstacle->position = glm::vec3(75, 100, 0);
 		obstacle->position.x += i * 175;
+		if (i > 5) {
+			obstacle->position = glm::vec3(75, 500, 0);
+			obstacle->position.x += (i-6) * 175;
+		}
 		layers[5]->addChild(obstacle);
 	}
 	//##############
@@ -79,19 +83,25 @@ void Scene01::update(float deltaTime) {
 	for (int i = 0; i < myobstacle.size(); ++i) {
 		collision(player->position.x, player->position.y, playerRadius, myobstacle[i]->position.x, myobstacle[i]->position.y, 125, 1, deltaTime);
 	}
+	// finish
+	for (int i = 0; i < 1; ++i) {
+		collision(player->position.x, player->position.y, playerRadius, finish->position.x, finish->position.y, 125, 2, deltaTime);
+	}
 }
 
 void Scene01::collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
 	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
 
-		// free the object
-		if (input()->getKey('Q')) {
-		
+		// obstacle
+		if (no == 1) {
+			// respawn the player at the start
+			player->position = glm::vec3(600, 200, 0);
 		}
-		// lock the ufo in place on collision of object 
-		else {
-			player->position.x = xe;
-			player->position.y = ye;
+		// finish
+		if (no == 2) {
+			// go to the next scene and respawn player
+			CoreScene::sceneselect(1);
+			player->position = glm::vec3(600, 200, 0);
 		}
 	}
 }
