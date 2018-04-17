@@ -12,7 +12,7 @@ Scene02::Scene02() : CoreScene()
 	// Background
 	//##############
 	background = new BasicEntity();
-	background->addSprite("assets/StartBackgroundTut.tga");
+	background->addSprite("assets/background.tga");
 	background->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
 	layers[1]->addChild(background);
 	//##############
@@ -22,6 +22,13 @@ Scene02::Scene02() : CoreScene()
 	credits->addSprite("assets/pencils.tga");
 	credits->position = glm::vec3(SWIDTH / 2, 100, 0);
 	layers[6]->addChild(credits);
+	//##############
+	// Text
+	//##############
+	text = new BasicEntity();
+	text->addSprite("assets/text.tga");
+	text->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
+	layers[6]->addChild(text);
 	//##############
 	// Logo
 	//##############
@@ -39,6 +46,9 @@ Scene02::~Scene02()
 
 	this->removeChild(credits);
 	delete credits;
+
+	this->removeChild(text);
+	delete text;
 
 	this->removeChild(logo);
 	delete logo;
