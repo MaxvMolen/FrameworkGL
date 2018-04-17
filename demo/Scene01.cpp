@@ -78,20 +78,20 @@ void Scene01::update(float deltaTime) {
 		CoreScene::sceneselect(1);
 	}
 	//##############
-	// Collision for obstacles
+	// Collision
 	//##############
+	// obstacles
 	for (int i = 0; i < myobstacle.size(); ++i) {
-		collision(player->position.x, player->position.y, playerRadius, myobstacle[i]->position.x, myobstacle[i]->position.y, 125, 1, deltaTime);
+		collision(player->position.x, player->position.y, playerRadius, myobstacle[i]->position.x, myobstacle[i]->position.y, 125, 1);
 	}
 	// finish
 	for (int i = 0; i < 1; ++i) {
-		collision(player->position.x, player->position.y, playerRadius, finish->position.x, finish->position.y, 125, 2, deltaTime);
+		collision(player->position.x, player->position.y, playerRadius, finish->position.x, finish->position.y, 125, 2);
 	}
 }
 
-void Scene01::collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
+void Scene01::collision(float xu, float yu, float ru, float xe, float ye, float re, float no) {
 	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
-
 		// obstacle
 		if (no == 1) {
 			// respawn the player at the start
