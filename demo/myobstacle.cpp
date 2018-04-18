@@ -9,6 +9,10 @@
 // speed of rotation
 int rotationS = 2;
 
+int speedObj = 20;
+
+float distance = 0;
+
 MyObstacle::MyObstacle() : Entity()
 {
 	// ###############################################################
@@ -30,5 +34,20 @@ void MyObstacle::update(float deltaTime)
 	this->rotation.x -= rotationS * deltaTime; // 90 deg/sec
 	if (this->rotation.x > TWO_PI) {
 		this->rotation.x -= TWO_PI;
+	}
+	// ###############################################################
+	// Move forward and backwards
+	// ###############################################################
+	if (distance <= 100) {
+		this->position.x += speedObj * deltaTime;
+		distance += speedObj * deltaTime;
+	}
+
+	else if (distance >= 100 && distance <= 200) {
+		this->position.x -= speedObj * deltaTime;
+		distance += speedObj * deltaTime;
+	}
+	else {
+		distance = 0;
 	}
 }
