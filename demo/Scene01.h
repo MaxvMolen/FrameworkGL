@@ -36,7 +36,7 @@ private:
 	/// @brief the background of the game
 	BasicEntity* background;
 	/// @brief a black hole
-	std::vector<BasicEntity*> bhole;
+	std::vector<MyBlackHole*> bhole;
 	/// @brief the end goal of the game
 	BasicEntity* finish;
 	/// @brief the obstacle the player needs to avoid

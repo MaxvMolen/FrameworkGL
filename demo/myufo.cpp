@@ -48,7 +48,7 @@ void MyUfo::update(float deltaTime)
 		speed = 300;
 	}
 	// respawn the player
-	if (input()->getKey(KeyCode::R)) {
+	if (input()->getKeyDown(KeyCode::R)) {
 		this->position = glm::vec3(600, 200, 0);
 	}
 	

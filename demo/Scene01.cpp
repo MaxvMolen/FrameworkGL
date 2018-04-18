@@ -45,7 +45,7 @@ Scene01::Scene01() : CoreScene()
 	// Black hole
 	//##############
 	for (int i = 0; i < blackholeAmount; ++i) {
-		BasicEntity* blackhole = new BasicEntity();
+		MyBlackHole* blackhole = new MyBlackHole();
 		bhole.push_back(blackhole);
 		blackhole->addSprite("assets/pencils.tga");
 		blackhole->position = glm::vec3(175, 100, 0);

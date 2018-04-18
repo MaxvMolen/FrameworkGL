@@ -4,30 +4,30 @@
 * @brief The MyObstacle cpp file.
 */
 
-#include <demo/myobstacle.h>
+#include <demo/myblackhole.h>
 
 // speed of rotation
-int rotationS = 2;
+int rotationBHole = 2;
 
-MyObstacle::MyObstacle() : Entity()
+MyBlackHole::MyBlackHole() : Entity()
 {
 	// ###############################################################
 	// Set texture
 	// ###############################################################
-	this->addSprite("assets/rgba.tga");
+	this->addSprite("assets/pencils.tga");
 }
 
-MyObstacle::~MyObstacle()
+MyBlackHole::~MyBlackHole()
 {
 
 }
 
-void MyObstacle::update(float deltaTime)
+void MyBlackHole::update(float deltaTime)
 {
 	// ###############################################################
 	// Rotate object automatic
 	// ###############################################################
-	this->rotation.x -= rotationS * deltaTime; // 90 deg/sec
+	this->rotation.x -= rotationBHole * deltaTime; // 90 deg/sec
 	if (this->rotation.x > TWO_PI) {
 		this->rotation.x -= TWO_PI;
 	}

@@ -95,6 +95,8 @@ add_executable(demo
 	demo/myufo.h
 	demo/myobstacle.cpp
 	demo/myobstacle.h
+	demo/myblackhole.cpp
+	demo/myblackhole.h
 )
 target_link_libraries(demo
 	FrameworkMvdM

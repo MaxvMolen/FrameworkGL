@@ -23,6 +23,7 @@
 #include <Demo/basicentity.h>
 #include <Demo/myufo.h>
 #include <Demo/myobstacle.h>
+#include <Demo/myblackhole.h>
 
 /// @brief The Corescene class
 class CoreScene : public Scene
