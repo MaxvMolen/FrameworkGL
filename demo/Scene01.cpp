@@ -47,8 +47,8 @@ Scene01::Scene01() : CoreScene()
 	for (int i = 0; i < blackholeAmount; ++i) {
 		MyBlackHole* blackhole = new MyBlackHole();
 		bhole.push_back(blackhole);
-		blackhole->addSprite("assets/pencils.tga");
 		blackhole->position = glm::vec3(175, 100, 0);
+		blackhole->scale = glm::vec3(0.5, 0.5, 0);
 		blackhole->position.x += i * 175;
 		layers[6]->addChild(blackhole);
 	}
@@ -56,7 +56,7 @@ Scene01::Scene01() : CoreScene()
 	// Finish
 	//##############
 	finish = new BasicEntity();
-	finish->addSprite("assets/pencils.tga");
+	finish->addSprite("assets/finish.tga");
 	finish->position = glm::vec3(SWIDTH / 2, 1080-75, 0);
 	layers[6]->addChild(finish);
 }

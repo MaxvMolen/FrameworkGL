@@ -14,7 +14,7 @@ MyBlackHole::MyBlackHole() : Entity()
 	// ###############################################################
 	// Set texture
 	// ###############################################################
-	this->addSprite("assets/pencils.tga");
+	this->addSprite("assets/blackhole.tga");
 }
 
 MyBlackHole::~MyBlackHole()
