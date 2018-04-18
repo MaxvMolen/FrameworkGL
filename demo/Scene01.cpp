@@ -35,6 +35,7 @@ Scene01::Scene01() : CoreScene()
 		myobstacle.push_back(obstacle);
 		obstacle->position = glm::vec3(75, 400, 0);
 		obstacle->position.x += i * 175;
+		obstacle->scale = glm::vec3(0.5, 0.5, 0);
 		if (i > 5) {
 			obstacle->position = glm::vec3(75, 700, 0);
 			obstacle->position.x += (i) * 175;

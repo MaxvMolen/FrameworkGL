@@ -14,7 +14,7 @@ MyObstacle::MyObstacle() : Entity()
 	// ###############################################################
 	// Set texture
 	// ###############################################################
-	this->addSprite("assets/rgba.tga");
+	this->addSprite("assets/portal.tga");
 }
 
 MyObstacle::~MyObstacle()
