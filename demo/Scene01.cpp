@@ -8,7 +8,7 @@
 
 // the amount of certain objects
 int obstacleAmount = 11;
-
+int blackholeAmount = 3;
 // radius of the player
 float playerRadius = 25;
 
@@ -42,6 +42,17 @@ Scene01::Scene01() : CoreScene()
 		layers[5]->addChild(obstacle);
 	}
 	//##############
+	// Black hole
+	//##############
+	for (int i = 0; i < blackholeAmount; ++i) {
+		BasicEntity* blackhole = new BasicEntity();
+		bhole.push_back(blackhole);
+		blackhole->addSprite("assets/pencils.tga");
+		blackhole->position = glm::vec3(175, 100, 0);
+		blackhole->position.x += i * 175;
+		layers[6]->addChild(blackhole);
+	}
+	//##############
 	// Finish
 	//##############
 	finish = new BasicEntity();
@@ -61,6 +72,12 @@ Scene01::~Scene01()
 	this->removeChild(player);
 	delete player;
 	
+	for (int i = 0; i < bhole.size(); ++i) {
+		delete bhole[i];
+		bhole[i] = NULL;
+	}
+	bhole.clear();
+
 	for (int i = 0; i < myobstacle.size(); ++i) {
 		delete myobstacle[i];
 		myobstacle[i] = NULL;
@@ -82,6 +99,10 @@ void Scene01::update(float deltaTime) {
 	// obstacles
 	for (int i = 0; i < myobstacle.size(); ++i) {
 		collision(player, playerRadius, myobstacle[i], 125, 1);
+	}
+	// black hole
+	for (int i = 0; i < bhole.size(); ++i) {
+		collision(player, playerRadius, bhole[i], 125, 3);
 	}
 	// finish
 	collision(player, playerRadius, finish, 125, 2);
