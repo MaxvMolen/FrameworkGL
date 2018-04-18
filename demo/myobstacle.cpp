@@ -38,12 +38,11 @@ void MyObstacle::update(float deltaTime)
 	// ###############################################################
 	// Move forward and backwards
 	// ###############################################################
-	if (distance <= 100) {
+	if (distance <= 500) {
 		this->position.x += speedObj * deltaTime;
 		distance += speedObj * deltaTime;
 	}
-
-	else if (distance >= 100 && distance <= 200) {
+	else if (distance >= 500 && distance <= 1000) {
 		this->position.x -= speedObj * deltaTime;
 		distance += speedObj * deltaTime;
 	}

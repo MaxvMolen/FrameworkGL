@@ -9,6 +9,8 @@
 // the amount of certain objects
 int obstacleAmount = 11;
 int blackholeAmount = 3;
+int liveAmount = 3;
+int livesPlayer = 3;
 // radius of the player
 float playerRadius = 25;
 
@@ -54,11 +56,24 @@ Scene01::Scene01() : CoreScene()
 		layers[6]->addChild(blackhole);
 	}
 	//##############
+	// The lives of the player
+	//##############
+	for (int i = 0; i < liveAmount; ++i) {
+		BasicEntity* livesPlayer = new BasicEntity();
+		lives.push_back(livesPlayer);
+		lives[i]->addSprite("assets/lives.tga");
+		livesPlayer->position = glm::vec3(175, 200, 0);
+		livesPlayer->scale = glm::vec3(0.5, 0.5, 0);
+		livesPlayer->position.y += i * 30;
+		layers[6]->addChild(livesPlayer);
+	}
+	//##############
 	// Finish
 	//##############
 	finish = new BasicEntity();
 	finish->addSprite("assets/finish.tga");
 	finish->position = glm::vec3(SWIDTH / 2, 1080-75, 0);
+	finish->scale = glm::vec3(0.5, 0.5, 0);
 	layers[6]->addChild(finish);
 }
 
@@ -84,6 +99,13 @@ Scene01::~Scene01()
 		myobstacle[i] = NULL;
 	}
 	myobstacle.clear();
+
+
+	for (int i = 0; i < lives.size(); ++i) {
+		delete lives[i];
+		lives[i] = NULL;
+	}
+	lives.clear();
 }
 
 void Scene01::update(float deltaTime) {
@@ -107,6 +129,26 @@ void Scene01::update(float deltaTime) {
 	}
 	// finish
 	collision(player, playerRadius, finish, 125, 2);
+	//##############
+	// Lives
+	//##############
+	// reduce the amount of lives
+	if (input()->getKeyDown(KeyCode::R)) {
+		livesPlayer--;
+	}
+	if (livesPlayer == -1) {
+		// show game over scene/ image 
+		CoreScene::sceneselect(1);
+	}
+	if (livesPlayer == 0) {
+		layers[6]->removeChild(lives[0]);
+	}
+	if (livesPlayer == 1) {
+		layers[6]->removeChild(lives[1]);
+	}
+	if (livesPlayer == 2) {
+		layers[6]->removeChild(lives[2]);
+	}
 }
 
 void Scene01::collision(Entity* player, float ru, Entity* object, float re, float no) {

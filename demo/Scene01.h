@@ -41,6 +41,8 @@ private:
 	BasicEntity* finish;
 	/// @brief the obstacle the player needs to avoid
 	std::vector<MyObstacle*> myobstacle;
+	/// @brief the lives of the player
+	std::vector<BasicEntity*> lives;
 	/// @brief the player
 	MyUfo* player;
 };
