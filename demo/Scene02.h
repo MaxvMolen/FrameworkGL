@@ -29,7 +29,7 @@ private:
 	/// @brief the credits
 	BasicEntity* credits;
 	/// @brief the text
-	BasicEntity* text;
+	//BasicEntity* text;
 	/// @brief the alfa logo
 	BasicEntity* logo;
 };

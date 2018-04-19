@@ -172,8 +172,10 @@ void Scene01::collision(Entity* player, float ru, Entity* object, float re, floa
 	if ((player->position.x - object->position.x)*(player->position.x - object->position.x) + (player->position.y - object->position.y)*(player->position.y - object->position.y) < ru*re) {
 		// obstacle
 		if (no == 1) {
-			// respawn the player at the start
-			player->position = glm::vec3(600, 200, 0);
+			// teleport player to random x and y position
+			player->position.x = rand() %1920 + 1;
+			player->position.y = rand() %1080 + 1;
+			
 		}
 		// finish
 		if (no == 2) {
