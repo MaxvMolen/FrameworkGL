@@ -19,7 +19,7 @@ Scene02::Scene02() : CoreScene()
 	// Credits
 	//##############
 	credits = new BasicEntity();
-	credits->addSprite("assets/pencils.tga");
+	credits->addSprite("assets/credits.tga");
 	credits->position = glm::vec3(SWIDTH / 2, 100, 0);
 	layers[6]->addChild(credits);
 	//##############
