@@ -39,6 +39,8 @@ private:
 	std::vector<MyBlackHole*> bhole;
 	/// @brief the end goal of the game
 	BasicEntity* finish;
+	/// @brief the game over message
+	BasicEntity* gameover;
 	/// @brief the obstacle the player needs to avoid
 	std::vector<MyObstacle*> myobstacle;
 	/// @brief the lives of the player

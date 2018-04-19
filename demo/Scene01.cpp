@@ -75,6 +75,12 @@ Scene01::Scene01() : CoreScene()
 	finish->position = glm::vec3(SWIDTH / 2, 1080-75, 0);
 	finish->scale = glm::vec3(0.5, 0.5, 0);
 	layers[6]->addChild(finish);
+	//##############
+	// Game Over
+	//##############
+	gameover = new BasicEntity();
+	gameover->addSprite("assets/gameover.tga");
+	gameover->position = glm::vec3(SWIDTH / 2, 100, 0);
 }
 
 Scene01::~Scene01()
@@ -84,6 +90,9 @@ Scene01::~Scene01()
 
 	this->removeChild(finish);
 	delete finish;
+
+	this->removeChild(gameover);
+	delete gameover;
 
 	this->removeChild(player);
 	delete player;
@@ -136,9 +145,10 @@ void Scene01::update(float deltaTime) {
 	if (input()->getKeyDown(KeyCode::R)) {
 		livesPlayer--;
 	}
+	// game over
 	if (livesPlayer == -1) {
-		// show game over scene/ image 
-		CoreScene::sceneselect(1);
+		layers[7]->removeChild(player);
+		layers[6]->addChild(gameover);
 	}
 	if (livesPlayer == 0) {
 		layers[6]->removeChild(lives[0]);
