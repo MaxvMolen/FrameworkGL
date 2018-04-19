@@ -126,6 +126,13 @@ void Scene01::update(float deltaTime) {
 		CoreScene::sceneselect(1);
 	}
 	//##############
+	// Lives follow player
+	//##############
+	for (int i = 0; i < lives.size(); ++i) {
+		lives[i]->position.x = player->position.x + 50;
+		lives[i]->position.y = player->position.y - 30 + i * 30;
+	}
+	//##############
 	// Collision
 	//##############
 	// obstacles
