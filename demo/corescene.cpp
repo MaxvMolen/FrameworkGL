@@ -43,29 +43,28 @@ void CoreScene::sceneselect(int ds) {
 	// Desired scene
 	// ###############################################################
 	activescene = ds;
-
 }
 
-void CoreScene::collision(Entity* player, float ru, Entity* object, float re, float no) {
-	if ((player->position.x - object->position.x)*(player->position.x - object->position.x) + (player->position.y - object->position.y)*(player->position.y - object->position.y) < ru*re) {
+void CoreScene::collision(Entity* object1, float ru, Entity* object2, float re, float no) {
+	if ((object1->position.x - object2->position.x)*(object1->position.x - object2->position.x) + (object1->position.y - object2->position.y)*(object1->position.y - object2->position.y) < ru*re) {
 		// obstacle
 		if (no == 1) {
 			// teleport player to random x and y position
-			player->position.x = rand() % 1920 + 1;
-			player->position.y = rand() % 1080 + 1;
+			object1->position.x = rand() % 1920 + 1;
+			object1->position.y = rand() % 1080 + 1;
 
 		}
 		// finish
 		if (no == 2) {
 			// go to the next scene and respawn player
 			CoreScene::sceneselect(1);
-			player->position = glm::vec3(600, 200, 0);
+			object1->position = glm::vec3(600, 200, 0);
 		}
 		// lock
 		if (no == 3) {
 			// lock the ufo in place on collision of object 
-			player->position.x = object->position.x;
-			player->position.y = object->position.y;
+			object1->position.x = object2->position.x;
+			object1->position.y = object2->position.y;
 		}
 	}
 }

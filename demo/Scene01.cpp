@@ -25,7 +25,7 @@ Scene01::Scene01() : CoreScene()
 	background = new BasicEntity();
 	background->addSprite("assets/background.tga");
 	background->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
-	layers[1]->addChild(background);
+	layers[0]->addChild(background);
 	//##############
 	// Player
 	//##############
@@ -59,7 +59,7 @@ Scene01::Scene01() : CoreScene()
 		if (i == 1) {
 			blackhole->position.y -= 100;
 		}
-		layers[6]->addChild(blackhole);
+		layers[5]->addChild(blackhole);
 	}
 	//##############
 	// The lives of the player
@@ -115,7 +115,6 @@ Scene01::~Scene01()
 	}
 	myobstacle.clear();
 
-
 	for (int i = 0; i < lives.size(); ++i) {
 		delete lives[i];
 		lives[i] = NULL;
@@ -150,7 +149,7 @@ void Scene01::update(float deltaTime) {
 		CoreScene::collision(player, playerRadius, bhole[i], 150, 3);
 	}
 	// finish
-	collision(player, playerRadius, finish, 125, 2);
+	CoreScene::collision(player, playerRadius, finish, 125, 2);
 	//##############
 	// Lives
 	//##############

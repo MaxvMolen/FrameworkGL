@@ -42,14 +42,14 @@ public:
 	/// @return void
 	virtual void sceneselect(int ds);
 	/// @brief this function is used for collision between two objects
-	/// @brief it will respawn the player on collision or move to the next scene depending on the no number
-	/// @param Entity* player the player entity
+	/// @brief it will respawn the object1 on collision or move to the next scene depending on the no number
+	/// @param Entity* object1 the object1 entity
 	/// @param ru the radius of the player
-	/// @param Entity* object the object entity
+	/// @param Entity* object2 the object2 entity
 	/// @param re the radius of the object
-	/// @param no the given number specifies if it will respawn the player or move to the next scene
+	/// @param no the given number specifies if it will respawn the object1 or move to the next scene
 	/// @return void
-	void collision(Entity* player, float ru, Entity* object, float re, float no);
+	void collision(Entity* object1, float ru, Entity* object2, float re, float no);
 protected:
 	/// @brief the top layer
 	unsigned int top_layer;

@@ -14,7 +14,7 @@ Scene02::Scene02() : CoreScene()
 	background = new BasicEntity();
 	background->addSprite("assets/background.tga");
 	background->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
-	layers[1]->addChild(background);
+	layers[0]->addChild(background);
 	//##############
 	// Credits
 	//##############
