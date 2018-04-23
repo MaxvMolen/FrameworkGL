@@ -86,7 +86,7 @@ Scene01::Scene01() : CoreScene()
 	//##############
 	gameover = new BasicEntity();
 	gameover->addSprite("assets/gameover.tga");
-	gameover->position = glm::vec3(SWIDTH / 2, 100, 0);
+	gameover->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
 }
 
 Scene01::~Scene01()

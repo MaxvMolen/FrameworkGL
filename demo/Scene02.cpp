@@ -23,13 +23,6 @@ Scene02::Scene02() : CoreScene()
 	credits->position = glm::vec3(SWIDTH / 2, 100, 0);
 	layers[6]->addChild(credits);
 	//##############
-	// Text
-	//##############
-	/*text = new BasicEntity();
-	text->addSprite("assets/text.tga");
-	text->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
-	layers[6]->addChild(text);*/
-	//##############
 	// Logo
 	//##############
 	logo = new BasicEntity();
@@ -46,9 +39,6 @@ Scene02::~Scene02()
 
 	this->removeChild(credits);
 	delete credits;
-
-	//this->removeChild(text);
-	//delete text;
 
 	this->removeChild(logo);
 	delete logo;
