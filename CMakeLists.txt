@@ -78,6 +78,8 @@ add_library(FrameworkMvdM
 	FrameworkMvdM/mvdmconfig.h
 	FrameworkMvdM/singleton.
 	FrameworkMvdM/vectorx.h
+	FrameworkMvdM/text.h
+	FrameworkMvdM/text.cpp
 )
 
 # Demo

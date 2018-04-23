@@ -126,7 +126,7 @@ void Scene01::update(float deltaTime) {
 	//##############
 	// Change Scene to Scene02
 	//##############
-	// go to next scene
+	// go to next scene and reset the status of the game
 	if (input()->getKeyDown(KeyCode::RightBracket)) {
 		livesPlayer = 3;
 		layers[7]->addChild(player);
