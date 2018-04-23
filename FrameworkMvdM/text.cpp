@@ -13,10 +13,13 @@ Text::Text() : Entity()
 
 Text::~Text()
 {
+	clearmessage();
+}
+
+void Text::message(std::string m) {
 
 }
 
-void Text::update(float deltaTime) {
+void Text::clearmessage() {
 
 }
-

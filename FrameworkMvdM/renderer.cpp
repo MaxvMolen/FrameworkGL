@@ -133,7 +133,6 @@ void Renderer::renderEntity(glm::mat4 modelMatrix, Entity* entity) {
 	std::vector<Entity*>::iterator child;
 	for (child = children.begin(); child != children.end(); child++) {
 		this->renderEntity(modelMatrix, *child);
-		//print the number of children it has if it has any
 	}
 }
 

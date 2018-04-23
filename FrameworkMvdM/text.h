@@ -19,10 +19,19 @@ public:
 	/// @brief update this Text. This function is Pure virtual. User MUST implement this in subclass.
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
-	virtual void update(float deltaTime);
+	virtual void update(float deltaTime) { };
+
+	/// @brief set the message
+	/// @param m the message you want to set
+	/// @return void
+	void message(std::string m);
+
+	/// @brief clear the message
+	/// @return void
+	void clearmessage();
 
 private:
-
+	std::string _message;
 };
 
 
