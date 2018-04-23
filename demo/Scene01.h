@@ -20,15 +20,6 @@ public:
 	/// @param deltaTime The time that's passed since the last update.
 	/// @return void
 	virtual void update(float deltaTime);
-	/// @brief this function is used for collision between two objects
-	/// @brief it will respawn the player on collision or move to the next scene depending on the no number
-	/// @param Entity* player the player entity
-	/// @param ru the radius of the player
-	/// @param Entity* object the object entity
-	/// @param re the radius of the object
-	/// @param no the given number specifies if it will respawn the player or move to the next scene
-	/// @return void
-	void collision(Entity* player, float ru, Entity* object, float re, float no);
 
 protected:
 

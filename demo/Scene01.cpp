@@ -143,11 +143,11 @@ void Scene01::update(float deltaTime) {
 	//##############
 	// obstacles
 	for (int i = 0; i < myobstacle.size(); ++i) {
-		collision(player, playerRadius, myobstacle[i], 125, 1);
+		CoreScene::collision(player, playerRadius, myobstacle[i], 125, 1);
 	}
 	// black hole
 	for (int i = 0; i < bhole.size(); ++i) {
-		collision(player, playerRadius, bhole[i], 150, 3);
+		CoreScene::collision(player, playerRadius, bhole[i], 150, 3);
 	}
 	// finish
 	collision(player, playerRadius, finish, 125, 2);
@@ -173,7 +173,7 @@ void Scene01::update(float deltaTime) {
 		layers[7]->removeChild(lives[2]);
 	}
 }
-
+/*
 void Scene01::collision(Entity* player, float ru, Entity* object, float re, float no) {
 	if ((player->position.x - object->position.x)*(player->position.x - object->position.x) + (player->position.y - object->position.y)*(player->position.y - object->position.y) < ru*re) {
 		// obstacle
@@ -196,4 +196,4 @@ void Scene01::collision(Entity* player, float ru, Entity* object, float re, floa
 			player->position.y = object->position.y;
 		}
 	}
-}
+}*/
