@@ -9,8 +9,11 @@
 // the amount of certain objects
 int obstacleAmount = 11;
 int blackholeAmount = 3;
+
+// lives of the player
 int liveAmount = 3;
 int livesPlayer = 3;
+
 // radius of the player
 float playerRadius = 25;
 
@@ -35,11 +38,11 @@ Scene01::Scene01() : CoreScene()
 	for (int i = 0; i < obstacleAmount; ++i) {
 		MyObstacle* obstacle = new MyObstacle();
 		myobstacle.push_back(obstacle);
-		obstacle->position = glm::vec3(75, 400, 0);
+		obstacle->position = glm::vec3(75, rand() % 1080 + 1, 0);
 		obstacle->position.x += i * 175;
 		obstacle->scale = glm::vec3(0.5, 0.5, 0);
 		if (i > 5) {
-			obstacle->position = glm::vec3(75, 700, 0);
+			obstacle->position = glm::vec3(75, rand() % 1080 + 1, 0);
 			obstacle->position.x += (i) * 175;
 		}
 		layers[5]->addChild(obstacle);
@@ -50,9 +53,12 @@ Scene01::Scene01() : CoreScene()
 	for (int i = 0; i < blackholeAmount; ++i) {
 		MyBlackHole* blackhole = new MyBlackHole();
 		bhole.push_back(blackhole);
-		blackhole->position = glm::vec3(175, 100, 0);
-		blackhole->scale = glm::vec3(0.5, 0.5, 0);
-		blackhole->position.x += i * 175;
+		blackhole->position = glm::vec3(760, 975, 0);
+		blackhole->scale = glm::vec3(0.7, 0.7, 0);
+		blackhole->position.x += i * 200;
+		if (i == 1) {
+			blackhole->position.y -= 100;
+		}
 		layers[6]->addChild(blackhole);
 	}
 	//##############
@@ -65,7 +71,7 @@ Scene01::Scene01() : CoreScene()
 		livesPlayer->position = glm::vec3(175, 200, 0);
 		livesPlayer->scale = glm::vec3(0.5, 0.5, 0);
 		livesPlayer->position.y += i * 30;
-		layers[6]->addChild(livesPlayer);
+		layers[7]->addChild(livesPlayer);
 	}
 	//##############
 	// Finish
@@ -141,7 +147,7 @@ void Scene01::update(float deltaTime) {
 	}
 	// black hole
 	for (int i = 0; i < bhole.size(); ++i) {
-		collision(player, playerRadius, bhole[i], 125, 3);
+		collision(player, playerRadius, bhole[i], 150, 3);
 	}
 	// finish
 	collision(player, playerRadius, finish, 125, 2);
@@ -155,16 +161,16 @@ void Scene01::update(float deltaTime) {
 	// game over
 	if (livesPlayer == -1) {
 		layers[7]->removeChild(player);
-		layers[6]->addChild(gameover);
+		layers[7]->addChild(gameover);
 	}
 	if (livesPlayer == 0) {
-		layers[6]->removeChild(lives[0]);
+		layers[7]->removeChild(lives[0]);
 	}
 	if (livesPlayer == 1) {
-		layers[6]->removeChild(lives[1]);
+		layers[7]->removeChild(lives[1]);
 	}
 	if (livesPlayer == 2) {
-		layers[6]->removeChild(lives[2]);
+		layers[7]->removeChild(lives[2]);
 	}
 }
 
