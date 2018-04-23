@@ -51,7 +51,7 @@ public:
 	/// @return void
 	void collision(Entity* object1, float ru, Entity* object2, float re, float no);
 protected:
-	/// @brief the top layer
+	/// @brief the amount of layers there are
 	unsigned int top_layer;
 	/// @brief list of layers
 	std::vector<BasicEntity*> layers;

@@ -11,6 +11,7 @@ int CoreScene::activescene;
 
 CoreScene::CoreScene() : Scene()
 {
+	// set the amount of layers there are
 	top_layer = 8;
 	// ###############################################################
 	// Create layers

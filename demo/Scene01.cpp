@@ -128,6 +128,12 @@ void Scene01::update(float deltaTime) {
 	//##############
 	// go to next scene
 	if (input()->getKeyDown(KeyCode::RightBracket)) {
+		livesPlayer = 3;
+		layers[7]->addChild(player);
+		layers[7]->removeChild(gameover);
+		layers[7]->addChild(lives[0]);
+		layers[7]->addChild(lives[1]);
+		layers[7]->addChild(lives[2]);
 		CoreScene::sceneselect(1);
 	}
 	//##############
