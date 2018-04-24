@@ -24,6 +24,13 @@ public:
 protected:
 
 private:
+	/// @brief sprites for the objects
+	Sprite* back;
+	Sprite* hole;
+	Sprite* obstac;
+	Sprite* live;
+	Sprite* fin;
+	Sprite* gover;
 	/// @brief the background of the game
 	BasicEntity* background;
 	/// @brief a black hole

@@ -24,6 +24,9 @@ public:
 protected:
 
 private:
+	Sprite* back;
+	Sprite* cred;
+	Sprite* log;
 	/// @brief the background of the game
 	BasicEntity* background;
 	/// @brief the credits

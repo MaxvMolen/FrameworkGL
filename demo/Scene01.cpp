@@ -20,10 +20,19 @@ float playerRadius = 25;
 Scene01::Scene01() : CoreScene()
 {
 	//##############
+	// sprites
+	//##############
+	back = new Sprite("assets/background.tga");
+	hole = new Sprite("assets/blackhole.tga");
+	obstac = new Sprite("assets/portal.tga");
+	live = new Sprite("assets/lives.tga");
+	fin = new Sprite("assets/finish.tga");
+	gover = new Sprite("assets/gameover.tga");
+	//##############
 	// Background
 	//##############
 	background = new BasicEntity();
-	background->addSprite("assets/background.tga");
+	background->addSprite(back);
 	background->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
 	layers[0]->addChild(background);
 	//##############
@@ -38,6 +47,7 @@ Scene01::Scene01() : CoreScene()
 	for (int i = 0; i < obstacleAmount; ++i) {
 		MyObstacle* obstacle = new MyObstacle();
 		myobstacle.push_back(obstacle);
+		obstacle->addSprite(obstac);
 		obstacle->position = glm::vec3(75, rand() % 1080 + 1, 0);
 		obstacle->position.x += i * 175;
 		obstacle->scale = glm::vec3(0.5, 0.5, 0);
@@ -53,6 +63,7 @@ Scene01::Scene01() : CoreScene()
 	for (int i = 0; i < blackholeAmount; ++i) {
 		MyBlackHole* blackhole = new MyBlackHole();
 		bhole.push_back(blackhole);
+		blackhole->addSprite(hole);
 		blackhole->position = glm::vec3(760, 975, 0);
 		blackhole->scale = glm::vec3(0.7, 0.7, 0);
 		blackhole->position.x += i * 200;
@@ -67,7 +78,7 @@ Scene01::Scene01() : CoreScene()
 	for (int i = 0; i < liveAmount; ++i) {
 		BasicEntity* livesPlayer = new BasicEntity();
 		lives.push_back(livesPlayer);
-		lives[i]->addSprite("assets/lives.tga");
+		lives[i]->addSprite(live);
 		livesPlayer->position = glm::vec3(175, 200, 0);
 		livesPlayer->scale = glm::vec3(0.5, 0.5, 0);
 		livesPlayer->position.y += i * 30;
@@ -77,7 +88,7 @@ Scene01::Scene01() : CoreScene()
 	// Finish
 	//##############
 	finish = new BasicEntity();
-	finish->addSprite("assets/finish.tga");
+	finish->addSprite(fin);
 	finish->position = glm::vec3(SWIDTH / 2, 1080-75, 0);
 	finish->scale = glm::vec3(0.5, 0.5, 0);
 	layers[6]->addChild(finish);
@@ -85,12 +96,21 @@ Scene01::Scene01() : CoreScene()
 	// Game Over
 	//##############
 	gameover = new BasicEntity();
-	gameover->addSprite("assets/gameover.tga");
+	gameover->addSprite(gover);
 	gameover->position = glm::vec3(SWIDTH / 2, SHEIGHT / 2, 0);
 }
 
 Scene01::~Scene01()
 {
+	// clean up sprites
+	delete back;
+	delete hole;
+	delete obstac;
+	delete live;
+	delete fin;
+	delete gover;
+
+	// clean up entity's
 	this->removeChild(background);
 	delete background;
 

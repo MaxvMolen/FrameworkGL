@@ -16,7 +16,7 @@
 
 Sprite::Sprite(std::string image_path)
 {
-	_texturename = image_path;
+	texturename = image_path;
 	// these will be set correctly in loadTGA()
 	_width = 0;
 	_height = 0;
@@ -24,7 +24,9 @@ Sprite::Sprite(std::string image_path)
 	pivot = glm::vec2(0.5f, 0.5f);
 	uvdim = glm::vec2(1.0f, 1.0f);
 	// Load image as texture
-	_texture = loadTGA(_texturename.c_str());
+	if (texturename != "") {
+		_texture = loadTGA(texturename.c_str());
+	}
 
 	// Our vertices. Tree consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
 	// A sprite has 1 face (quad) with 2 triangles each, so this makes 1*2=2 triangles, and 2*3 vertices
@@ -198,5 +200,5 @@ GLuint Sprite::loadTGA(const std::string& imagepath)
 }
 
 void Sprite::setupSprite(const std::string& filename) {
-	_texturename = filename;
+	texturename = filename;
 }

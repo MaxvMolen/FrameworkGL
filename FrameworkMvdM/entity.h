@@ -64,7 +64,7 @@ public:
 	/// @param filename the filename of the image that you want to add
 	/// @return void
 	void addSprite(const std::string& filename);
-
+	void addSprite(Sprite* s);
 	/// @brief get the parent of this Entity
 	/// @return entity* _parent
 	Entity* parent() { return _parent; };

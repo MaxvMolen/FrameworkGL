@@ -57,3 +57,10 @@ void Entity::addSprite(const std ::string& filename) {
 	_sprite = new Sprite(filename);
 	_sprite->setupSprite(filename);
 }
+
+void Entity::addSprite(Sprite* spr)
+{
+	deleteSprite();
+	_sprite = new Sprite("");
+	*_sprite = *spr;
+}

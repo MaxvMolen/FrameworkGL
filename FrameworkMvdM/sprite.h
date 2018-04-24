@@ -29,14 +29,13 @@ class Sprite
 		unsigned int width() { return _width; };
 		unsigned int height() { return _height; };
 
+		std::string texturename; ///< @brief texturename (path to the file)
 	private:
 		GLuint loadTGA(const std::string& imagepath);
 
-		GLuint _texture;
+		GLuint _texture = NULL;
 		GLuint _vertexbuffer;
 		GLuint _uvbuffer;
-
-		std::string _texturename; ///< @brief texturename (path to the file)
 
 		unsigned int _width;
 		unsigned int _height;
