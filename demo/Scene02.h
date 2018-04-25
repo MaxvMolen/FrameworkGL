@@ -24,6 +24,7 @@ public:
 protected:
 
 private:
+	/// @brief sprites for the objects
 	Sprite* back;
 	Sprite* cred;
 	Sprite* log;
