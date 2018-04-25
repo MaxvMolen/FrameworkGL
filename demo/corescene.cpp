@@ -7,7 +7,7 @@
 #include <Demo/corescene.h>
 
 // The current scene
-int CoreScene::activescene;
+int CoreScene::activescene = 0;
 
 CoreScene::CoreScene() : Scene()
 {

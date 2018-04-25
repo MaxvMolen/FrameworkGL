@@ -28,7 +28,7 @@ int main(void)
 		if (scenecounter < 0) { scenecounter = s - 1; scene->activescene = s - 1; }
 		scene = myscenes[scenecounter];
 		core.run(scene); // update and render the current scene
-		//core.showFrameRate(5); // show framerate in output every n seconds
+		core.showFrameRate(5); // show framerate in output every n seconds
 		if (!scene->isRunning()) { running = 0; } // check status of Scene every frame
 	}
 	

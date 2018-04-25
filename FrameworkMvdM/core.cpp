@@ -35,7 +35,7 @@ void Core::run(Scene* scene)
 	
 	// user clicked the 'close' button in the window
 	if (glfwWindowShouldClose(_renderer.window()) == 1) { scene->stop(); }
-
+	
 	// user pressed escape so close the window
 	if (glfwGetKey(_renderer.window(), GLFW_KEY_ESCAPE) == GLFW_PRESS &&
 		glfwWindowShouldClose(_renderer.window()) == 0) { scene->stop(); }
